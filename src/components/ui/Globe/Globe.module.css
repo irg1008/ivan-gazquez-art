@@ -1,0 +1,72 @@
+.globe {
+	@apply opacity-50;
+}
+
+.wrapper {
+	@apply transition-all
+		translate-x-3/4
+		duration-500
+		delay-75
+		ease-in-out
+		hover:opacity-100
+		cursor-pointer
+		flex items-center justify-center flex-col;
+	transform: translateY(70%) scale(0.95);
+}
+
+.wrapper:hover {
+	transform: translateY(40%) scale(1.1);
+}
+
+.wrapper:active {
+	transform: translateY(30%) scale(1.25);
+}
+
+.titlesWrapper {
+	@apply flex
+		flex-col
+		gap-8
+		relative
+		text-center
+		overflow-hidden;
+}
+
+.overlay {
+	@apply absolute
+			w-full h-full
+			top-0 left-0
+			z-10;
+	background: linear-gradient(to bottom, #171717, rgba(0, 0, 0, 0), #171717);
+}
+
+.titles {
+	@apply h-10
+		transition-transform
+		duration-500
+		delay-100
+		ease-in-out;
+}
+
+.wrapper:hover .titles {
+	transform: translateY(-100%);
+}
+
+.wrapper:active .titles {
+	transform: translateY(-200%);
+}
+
+.titles h1 {
+	@apply text-4xl
+		uppercase
+		duration-1000
+		ease-in-out
+		transition-all;
+}
+
+.graphic {
+	@apply w-full h-full
+		absolute
+		bottom-0
+		left-0
+		overflow-hidden;
+}
