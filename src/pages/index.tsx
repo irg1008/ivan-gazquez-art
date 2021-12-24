@@ -1,7 +1,8 @@
-import type { NextPage } from "next"
-import Head from "next/head"
-import Globe from "components/ui/Globe"
-import React from "react"
+import type { NextPage } from 'next'
+import Head from 'next/head'
+import Globe from 'components/ui/Globe'
+import MarqueeSlider from 'components/ui/MarqueeSlider'
+import React from 'react'
 // import styles from "styles/Home.module.css"
 
 const Home: NextPage = () => {
@@ -13,6 +14,22 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Globe />
+			<div className="h-80 flex items-center justify-center gap-8 pt-8">
+				<h1 className="text-center tracking-wide font-bold text-8xl uppercase leading-normal">
+					Hi, I am{' '}
+					<a
+						href="https://github.com/irg1008"
+						target="_blank"
+						rel="noreferrer noopener"
+						className="font-light shadow-white underline bg-red-700 hover:bg-slate-700 active:text-7xl transition-all"
+					>
+						Iván
+					</a>{' '}
+					and <br />
+					my life went into...
+				</h1>
+			</div>
+			<MarqueeSlider />
 		</>
 	)
 }

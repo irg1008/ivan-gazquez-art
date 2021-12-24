@@ -1,7 +1,7 @@
 // @ts-expect-error This library does not have a typescript definition, but it simple enough to not need one.
-import createGlobe from "cobe"
-import { useEffect, useRef, useState } from "react"
-import styles from "./Globe.module.css"
+import createGlobe from 'cobe'
+import { useEffect, useRef, useState } from 'react'
+import styles from './Globe.module.css'
 
 /**
  * Create a globe component inside canvas.
@@ -44,7 +44,7 @@ const Globe: React.FC = () => {
 			},
 		})
 
-		window.addEventListener("resize", handleResize)
+		window.addEventListener('resize', handleResize)
 
 		return () => globe.destroy()
 	}, [width])
@@ -52,13 +52,13 @@ const Globe: React.FC = () => {
 	return (
 		<div className={styles.graphic}>
 			<div className={styles.wrapper}>
-				<div className={styles.titlesWrapper}>
-					<div className={styles.overlay}></div>
+				<div className={styles.titles_wrapper}>
 					<div className={styles.titles}>
 						<h1>HOVER TO ENLARGE</h1>
 						<h1>CLICK TO ENLARGE EVEN MORE</h1>
 						<h1>NOW, THAT IS LARGE</h1>
 					</div>
+					<div className={styles.overlay} />
 				</div>
 				<canvas
 					ref={canvasRef}
