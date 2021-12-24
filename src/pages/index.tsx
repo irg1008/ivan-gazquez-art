@@ -14,22 +14,22 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Globe />
-			<div className="h-80 flex items-center justify-center gap-8 pt-8">
-				<h1 className="text-center tracking-wide font-bold text-8xl uppercase leading-normal">
+			<div className="flex flex-col justify-start w-full gap-8 pt-8 h-80">
+				<h1 className="px-10 text-5xl font-bold leading-normal tracking-wide text-center uppercase md:text-8xl sm:text-7xl">
 					Hi, I am{' '}
 					<a
 						href="https://github.com/irg1008"
 						target="_blank"
 						rel="noreferrer noopener"
-						className="font-light shadow-white underline bg-red-700 hover:bg-slate-700 active:text-7xl transition-all"
+						className="font-light underline transition-all bg-red-700 shadow-white hover:bg-slate-700 active:text-7xl"
 					>
 						Iván
 					</a>{' '}
 					and <br />
 					my life went into...
 				</h1>
+				<MarqueeSlider />
 			</div>
-			<MarqueeSlider />
 		</>
 	)
 }

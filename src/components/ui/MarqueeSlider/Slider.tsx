@@ -104,21 +104,30 @@ const icons = [
 /**
  * Create an infinite slider.
  *
- * @return {*}
+ * @param {*} { children }
+ * @return {*}  {JSX.Element}
  */
-const Slider: React.FC = () => {
+const Slider: React.FC = ({ children }): JSX.Element => {
+	return (
+		<div className={styles.wrapper}>
+			<div className={styles.marquee}>{children}</div>
+			<div className={styles.marquee}>{children}</div>
+		</div>
+	)
+}
+
+/**
+ * Inifinite slider with icons.
+ *
+ * @return {*}  {JSX.Element}
+ */
+const IconSlider = (): JSX.Element => {
 	const content = icons.map((Icon, i) => (
 		<span key={i}>
 			<Icon className={styles.icon} />
 		</span>
 	))
-
-	return (
-		<div className={styles.wrapper}>
-			<div className={styles.marquee}>{content}</div>
-			<div className={styles.marquee}>{content}</div>
-		</div>
-	)
+	return <Slider>{content}</Slider>
 }
 
-export default Slider
+export default IconSlider
