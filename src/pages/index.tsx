@@ -15,13 +15,13 @@ const Home: NextPage = () => {
 			</Head>
 			<Globe />
 			<div className="flex flex-col justify-start w-full gap-8 pt-8 h-80">
-				<h1 className="px-10 text-5xl font-bold leading-normal tracking-wide text-center uppercase md:text-8xl sm:text-7xl">
+				<h1 className="px-10 text-5xl font-bold leading-normal tracking-wide text-center uppercase md:text-7xl sm:text-6xl">
 					Hi, I am{' '}
 					<a
 						href="https://github.com/irg1008"
 						target="_blank"
 						rel="noreferrer noopener"
-						className="font-light underline transition-all bg-red-700 shadow-white hover:bg-slate-700 active:text-7xl"
+						className="underline decoration-wavy decoration-red-700 hover:decoration-indigo-700"
 					>
 						Iván
 					</a>{' '}
