@@ -40,7 +40,7 @@ yarn-error.log*
 .vscode
 
 # husky
-.husky
+# .husky
 
 # .env
 *.env
