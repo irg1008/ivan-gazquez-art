@@ -14,12 +14,11 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
-		"rootDir": "src",
 		"baseUrl": "src",
 		"outDir": "out",
 		"importHelpers": true,
 		"typeRoots": ["node_modules/@types", "<rootDir>/@types"]
 	},
-	"include": ["next-env.d.ts", "<rootDir>/**/*.ts", "<rootDir>/**/*.tsx"],
+	"include": ["next-env.d.ts", "**.d.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
 }
