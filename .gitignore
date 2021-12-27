@@ -43,4 +43,4 @@ yarn-error.log*
 # .husky
 
 # .env
-*.env
+.env
