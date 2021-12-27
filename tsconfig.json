@@ -17,8 +17,9 @@
 		"rootDir": "src",
 		"baseUrl": "src",
 		"outDir": "out",
-		"importHelpers": true
+		"importHelpers": true,
+		"typeRoots": ["node_modules/@types", "<rootDir>/@types"]
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"include": ["next-env.d.ts", "<rootDir>/**/*.ts", "<rootDir>/**/*.tsx"],
 	"exclude": ["node_modules"]
 }
