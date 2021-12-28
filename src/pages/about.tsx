@@ -1,7 +1,6 @@
 import type { NextPageWithLayout } from 'next'
 import Head from 'components/meta/Head'
 import useTranslation from 'next-translate/useTranslation'
-// import styles from "styles/Home.module.css"
 
 const Home: NextPageWithLayout = () => {
 	const { t } = useTranslation()
@@ -11,8 +10,12 @@ const Home: NextPageWithLayout = () => {
 				title={t('home:meta-title')}
 				description={t('home:meta-description')}
 			/>
-			<h1>{t('common:title')}</h1>
-			<h2>{t('common:subtitle')}</h2>
+			<h1>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. A corporis
+				aperiam, reiciendis rem temporibus quisquam debitis facilis totam ipsa
+				eligendi obcaecati iusto perferendis asperiores assumenda, libero,
+				maiores ullam vitae quasi!
+			</h1>
 		</>
 	)
 }

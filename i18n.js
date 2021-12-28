@@ -6,5 +6,5 @@ module.exports = {
 		'/': ['home'],
 	},
 	loadLocaleFrom: (lang, ns) =>
-		import(`./src/locales/${lang}/${ns}.json`).then((m) => m.default),
+		import(`./src/i18n/${lang}/${ns}.json`).then((m) => m.default),
 }
