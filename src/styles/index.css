@@ -10,6 +10,6 @@ body {
 
 body {
 	@apply h-screen
-		bg-neutral-900
-		text-neutral-50;
+		bg-neutral-200
+		text-neutral-900;
 }
