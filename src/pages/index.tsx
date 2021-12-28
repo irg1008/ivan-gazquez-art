@@ -1,18 +1,15 @@
 import type { NextPageWithLayout } from 'next'
 import Head from 'components/meta/Head'
-import Globe from 'components/ui/Globe'
-import MarqueeSlider from 'components/ui/MarqueeSlider'
-import React from 'react'
+import useTranslation from 'next-translate/useTranslation'
 // import styles from "styles/Home.module.css"
 
 const Home: NextPageWithLayout = () => {
+	const { t } = useTranslation('common')
 	return (
 		<>
 			<Head title="Home" description="Home page" />
-			<Globe />
-			<div className="flex flex-col justify-start w-full gap-8 pt-8 h-80">
-				<MarqueeSlider />
-			</div>
+			<h1>{t('title')}</h1>
+			<h2>{t('subtitle')}</h2>
 		</>
 	)
 }

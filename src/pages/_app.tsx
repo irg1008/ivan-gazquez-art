@@ -8,9 +8,12 @@ type AppPropsWithLayout = AppProps & {
 }
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-	const getLayout =
-		Component.getLayout ?? ((page) => <BaseLayout>{page}</BaseLayout>)
-	return getLayout(<Component {...pageProps} />)
+	const Layout = Component.Layout ?? BaseLayout
+	return (
+		<Layout>
+			<Component {...pageProps} />
+		</Layout>
+	)
 }
 
 export default MyApp

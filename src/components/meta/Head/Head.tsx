@@ -1,6 +1,6 @@
 import NextHead from 'next/head'
 
-type Props = {
+interface Props {
 	title: string
 	description: string
 }

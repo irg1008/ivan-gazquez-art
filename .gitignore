@@ -37,10 +37,10 @@ yarn-error.log*
 *.tsbuildinfo
 
 # vscode folder
-.vscode
+# .vscode
 
 # husky
 .husky
 
 # .env
-.env
+.env.*.local
