@@ -11,7 +11,7 @@ const Home: NextPageWithLayout = () => {
 				title={t('home:meta-title')}
 				description={t('home:meta-description')}
 			/>
-			<h1>{t('common:title')}</h1>
+			<h1 className="bg-primary">{t('common:title')}</h1>
 			<h2>{t('common:subtitle')}</h2>
 		</>
 	)

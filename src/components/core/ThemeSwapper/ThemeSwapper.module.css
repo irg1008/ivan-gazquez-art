@@ -1,0 +1,9 @@
+.wrapper {
+}
+
+.theme_button {
+	@apply rounded
+    bg-primary
+    text-lighter
+    shadow-primary;
+}
