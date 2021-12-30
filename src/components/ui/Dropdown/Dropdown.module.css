@@ -1,0 +1,53 @@
+.dropdown {
+	@apply w-32
+    uppercase
+    relative;
+}
+
+.options_btn {
+	@apply !p-2
+    w-full
+    !bg-medium
+    !text-darker
+    text-left
+    relative
+    uppercase
+    border-red-600;
+}
+
+.btn_icon {
+	@apply absolute
+    right-0
+    top-0
+    pr-2
+    h-full
+    w-8
+    flex
+    text-dark
+    items-center
+    justify-center;
+}
+
+.options {
+	@apply py-1
+    bg-light
+    rounded-lg
+    absolute
+    w-full
+    mt-1
+    shadow-md
+    border-2
+    border-medium;
+}
+
+.option {
+	@apply cursor-pointer
+    p-2
+    hover:bg-medium
+    relative
+    w-full;
+}
+
+.selected {
+	@apply font-bold;
+}

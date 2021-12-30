@@ -1,5 +1,6 @@
 const themes = require('./theme.config.js')
 const themeSwapper = require('tailwindcss-theme-swapper')
+const typography = require('@tailwindcss/typography')
 
 module.exports = {
 	content: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -7,8 +8,22 @@ module.exports = {
 		safelist: [],
 	},
 	theme: {
-		extend: {},
+		extend: {
+			animation: {
+				marquee: 'marquee 60s linear infinite',
+			},
+			keyframes: {
+				marquee: {
+					'0%': {
+						transform: 'translateX(0)',
+					},
+					'100%': {
+						transform: 'translateX(-100%)',
+					},
+				},
+			},
+		},
 	},
-	darkMode: 'class',
-	plugins: [themeSwapper(themes)],
+	darkMode: 'prefers-color-scheme',
+	plugins: [themeSwapper(themes), typography()],
 }

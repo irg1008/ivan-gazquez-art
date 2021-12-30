@@ -1,12 +1,8 @@
 const {
-	trueGray: darkTheme,
-	trueGray: lightTheme,
-	emerald: emeralTheme,
-	amber: amberTheme,
-	yellow: darkPrimary,
-	green: lightPrimary,
-	red: emeralPrimary,
-	sky: amberPrimary,
+	neutral: darkTheme,
+	neutral: lightTheme,
+	rose: darkPrimary,
+	sky: lightPrimary,
 } = require('tailwindcss/colors')
 
 const themeConfig = {
@@ -31,11 +27,12 @@ const themeConfig = {
 					medium: lightTheme[400],
 					dark: lightTheme[700],
 					darker: lightTheme[900],
-				},
-				boxShadowColor: {
 					primary: lightPrimary[700],
 					secondary: lightPrimary[400],
 					tertiary: lightPrimary[300],
+				},
+				boxShadowColor: {
+					// Moved to color becaus eopacity not working
 				},
 				borderRadius: {
 					custom: '9999px',
@@ -68,7 +65,11 @@ const themeConfig = {
 					medium: darkTheme[500],
 					dark: darkTheme[300],
 					darker: darkTheme[100],
+					primary: darkPrimary[400],
+					secondary: darkPrimary[700],
+					tertiary: darkPrimary[900],
 				},
+				boxShadowColor: {},
 				borderRadius: {
 					custom: '9999px',
 				},
@@ -77,70 +78,6 @@ const themeConfig = {
 				},
 				borderColor: {
 					button: darkTheme[400],
-				},
-			},
-		},
-		{
-			name: 'emerald',
-			selectors: ['.emerald'],
-			theme: {
-				backgroundColor: {
-					primary: emeralPrimary[500],
-					secondary: emeralPrimary[600],
-					tertiary: emeralPrimary[700],
-				},
-				textColor: {
-					primary: emeralPrimary[100],
-					secondary: emeralPrimary[300],
-					tertiary: emeralPrimary[50],
-				},
-				colors: {
-					lighter: emeralTheme[100],
-					light: emeralTheme[300],
-					medium: emeralTheme[500],
-					dark: emeralTheme[700],
-					darker: emeralTheme[900],
-				},
-				borderRadius: {
-					custom: '0.5rem',
-				},
-				borderWidth: {
-					button: '2px',
-				},
-				borderColor: {
-					button: emeralTheme[800],
-				},
-			},
-		},
-		{
-			name: 'amber',
-			selectors: ['.amber'],
-			theme: {
-				backgroundColor: {
-					primary: amberPrimary[500],
-					secondary: amberPrimary[600],
-					tertiary: amberPrimary[700],
-				},
-				textColor: {
-					primary: amberPrimary[100],
-					secondary: amberPrimary[300],
-					tertiary: amberPrimary[50],
-				},
-				colors: {
-					lighter: amberTheme[100],
-					light: amberTheme[300],
-					medium: amberTheme[500],
-					dark: amberTheme[700],
-					darker: amberTheme[900],
-				},
-				borderRadius: {
-					custom: '0.5rem',
-				},
-				borderWidth: {
-					button: '2px',
-				},
-				borderColor: {
-					button: amberTheme[800],
 				},
 			},
 		},
