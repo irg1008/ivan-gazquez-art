@@ -1,7 +1,13 @@
 const nextTranslate = require('next-translate')
 
-/** @type {import('next').NextConfig} */
-module.exports = nextTranslate({
-	reactStrictMode: true,
-	trailingSlash: true,
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+	enabled: process.env.ANALYZE === 'true',
 })
+
+/** @type {import('next').NextConfig} */
+module.exports = withBundleAnalyzer(
+	nextTranslate({
+		reactStrictMode: true,
+		trailingSlash: true,
+	})
+)

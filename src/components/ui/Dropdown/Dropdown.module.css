@@ -5,7 +5,7 @@
 }
 
 .options_btn {
-	@apply !p-2
+	@apply !px-2 !py-1
     w-full
     !bg-medium
     !text-darker

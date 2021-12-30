@@ -1,5 +1,5 @@
 {
-	"name": "la-nueva-costura",
+	"name": "Portfolio",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
@@ -14,6 +14,7 @@
 		"@headlessui/react": "^1.4.2",
 		"cobe": "^0.4.1",
 		"next": "12.0.7",
+		"next-seo": "^4.28.1",
 		"react": "^17.0.2",
 		"react-cookie": "^4.1.1",
 		"react-dom": "17.0.2",
@@ -21,6 +22,7 @@
 		"zustand": "^3.6.8"
 	},
 	"devDependencies": {
+		"@next/bundle-analyzer": "^12.0.7",
 		"@playwright/test": "^1.17.1",
 		"@tailwindcss/typography": "^0.5.0",
 		"@testing-library/jest-dom": "^5.16.1",
