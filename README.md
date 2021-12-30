@@ -24,4 +24,4 @@
 
 `git config --global alias.p 'push'` -> `git p`
 
-## Gith shortened alieases - Windows Terminal
+## Gith shortened alieases - Linux
