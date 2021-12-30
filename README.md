@@ -1,4 +1,8 @@
-# Git aliases
+# Portfolio
+
+![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=ivan-gazquez-art-irgazquez&style=for-the-badge)
+
+## Git aliases
 
 `git config --global alias.st 'status -sb'` -> `git st`
 
@@ -16,4 +20,8 @@
 
 `git config --global alias.se '!git rev-list --all | xargs git grep -F'`->`git se test2`
 
-`git config --global alias.a "add"` -> `git a`
+`git config --global alias.a 'add'` -> `git a`
+
+`git config --global alias.p 'push'` -> `git p`
+
+## Gith shortened alieases
