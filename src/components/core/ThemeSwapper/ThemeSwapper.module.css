@@ -1,12 +1,2 @@
 .wrapper {
 }
-
-.theme_button {
-	@apply rounded
-    bg-primary
-    text-lighter
-    shadow-lg
-    shadow-primary/30
-    m-4
-    p-2;
-}

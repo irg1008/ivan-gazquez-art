@@ -9,6 +9,7 @@
     w-full
     !bg-medium
     !text-darker
+    !shadow-medium/50
     text-left
     relative
     uppercase
@@ -37,7 +38,8 @@
     mt-1
     shadow-md
     border-2
-    border-medium;
+    border-medium
+    z-10;
 }
 
 .option {

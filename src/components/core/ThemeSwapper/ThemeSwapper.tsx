@@ -1,15 +1,16 @@
-import styles from './ThemeSwapper.module.css'
+// import styles from './ThemeSwapper.module.css'
 import useTheme from 'stores/theme'
+import Dropdown from 'components/ui/Dropdown/Dropdown'
 
 const ThemeSwapper = () => {
-	const { toggleTheme } = useTheme()
-
+	const { themes, setTheme, theme } = useTheme()
+	const themesStrings = themes.map((theme) => theme.toString())
 	return (
-		<div className={styles.wrapper}>
-			<button className={styles.theme_button} onClick={toggleTheme}>
-				Toggle Theme
-			</button>
-		</div>
+		<Dropdown
+			options={themesStrings}
+			defaultOption={theme.toString()}
+			handler={(themeString) => setTheme(themeString as typeof theme)}
+		/>
 	)
 }
 
