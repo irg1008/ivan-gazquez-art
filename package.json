@@ -1,5 +1,5 @@
 {
-	"name": "Portfolio",
+	"name": "portfolio",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
@@ -8,6 +8,7 @@
 		"lint": "next lint",
 		"prepare": "husky install && husky add .husky/pre-commit \"npx lint-staged\"",
 		"test:e2e": "playwright test",
+		"test:e2e:head": "playwright test --headed",
 		"test": "jest --watch"
 	},
 	"dependencies": {
