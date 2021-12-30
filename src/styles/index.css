@@ -29,3 +29,15 @@ button,
 		active:scale-95
 		transition-all;
 }
+
+div[role='group'] {
+	& button {
+		@apply rounded-none;
+		&:first-child {
+			@apply rounded-l-lg;
+		}
+		&:last-child {
+			@apply rounded-r-lg;
+		}
+	}
+}

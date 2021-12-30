@@ -32,9 +32,11 @@ const themeStore = create<ThemeStore>(
 			onRehydrateStorage: () => {
 				return (state) => !!state && addToDoc(state.theme)
 			},
+			getStorage: () => localStorage,
 		}
 	)
 )
+
 themeStore.subscribe(({ theme }) => addToDoc(theme))
 
 const useTheme = () => ({ ...themeStore(), themes })

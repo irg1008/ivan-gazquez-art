@@ -24,6 +24,6 @@ module.exports = {
 			},
 		},
 	},
-	darkMode: 'prefers-color-scheme',
+	darkMode: 'class',
 	plugins: [themeSwapper(themes), typography()],
 }
