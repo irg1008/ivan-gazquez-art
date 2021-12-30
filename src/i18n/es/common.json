@@ -1,5 +1,14 @@
 {
-	"title": "Título",
-	"subtitle": "Subtítulo",
-	"base": "Base"
+	"title": "título",
+	"subtitle": "subtítulo",
+	"base": "base",
+	"theme": {
+		"dark": "oscuro",
+		"light": "claro"
+	},
+	"links": {
+		"home": "inicio",
+		"about": "acerca de",
+		"contact": "contacto"
+	}
 }
