@@ -1,0 +1,20 @@
+.wrapper {
+	@apply uppercase 
+		appearance-none
+		bg-inherit;
+}
+
+.option {
+	@apply appearance-none
+		p-4
+		text-darker
+		transition-colors;
+	&:not(.active) {
+		@apply bg-light 
+			hover:bg-primary;
+	}
+
+	& .active {
+		@apply bg-primary;
+	}
+}

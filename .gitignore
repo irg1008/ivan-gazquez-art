@@ -35,9 +35,13 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+out
 
 # vscode folder
-.vscode
+# .vscode
 
 # husky
 .husky
+
+# .env
+.env.*.local

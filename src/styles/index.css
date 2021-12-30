@@ -1,0 +1,43 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html,
+body {
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+	@apply h-screen
+		bg-lighter
+		text-darker;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+	@apply bg-primary
+		rounded-lg
+		text-lighter
+		font-bold
+		p-2
+		shadow-md
+		shadow-primary/70
+		hover:bg-opacity-70
+		active:scale-95
+		transition-all;
+}
+
+div[role='group'] {
+	& button {
+		@apply rounded-none;
+		&:first-child {
+			@apply rounded-l-lg;
+		}
+		&:last-child {
+			@apply rounded-r-lg;
+		}
+	}
+}

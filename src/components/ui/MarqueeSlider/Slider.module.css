@@ -1,0 +1,22 @@
+.wrapper {
+	@apply relative
+		overflow-hidden
+		h-full min-h-[25vh]
+		w-full
+		flex;
+}
+
+.icon {
+	@apply h-full w-28;
+}
+
+.marquee {
+	@apply flex
+	will-change-transform
+	animate-marquee;
+
+	& span {
+		@apply m-[3rem]
+			whitespace-nowrap;
+	}
+}
