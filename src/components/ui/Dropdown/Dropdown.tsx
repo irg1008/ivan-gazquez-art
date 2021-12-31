@@ -19,9 +19,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 	const [selectedOption, setSelectedOption] = useState(defaultOption)
 
 	// when parents changes default (i.e: locale changes) => Change here
-	useEffect(() => {
-		setSelectedOption(defaultOption)
-	}, [defaultOption])
+	useEffect(() => setSelectedOption(defaultOption), [defaultOption])
 
 	const keys = Object.fromEntries(
 		options.map((k, i) => [[k], keyValues?.[i] ?? k])
