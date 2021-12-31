@@ -18,7 +18,7 @@ const Nav = () => {
 	const { t } = useTranslation()
 
 	return (
-		<div className={styles.nav}>
+		<div className={`${styles.nav}`}>
 			<LangSwapper />
 
 			<ul className={styles.links}>

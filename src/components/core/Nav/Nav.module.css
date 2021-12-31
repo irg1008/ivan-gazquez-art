@@ -1,6 +1,6 @@
 .nav {
 	@apply bg-lighter/50
-    backdrop-filter backdrop-blur-[8px]
+    backdrop-blur-[8px] /* This does not work sometimes */
     rounded-lg
     shadow-lg shadow-light/70
     p-4 m-4
