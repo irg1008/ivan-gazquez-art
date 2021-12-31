@@ -1,10 +1,11 @@
 import styles from './Dropdown.module.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Listbox } from '@headlessui/react'
 import { HiSelector, HiCheck } from 'react-icons/hi'
 
 type DropdownProps = {
 	options: string[]
+	keyValues?: string[]
 	defaultOption: string
 	handler: (value: string) => void
 }
@@ -13,12 +14,21 @@ const Dropdown: React.FC<DropdownProps> = ({
 	handler,
 	options,
 	defaultOption,
+	keyValues,
 }) => {
 	const [selectedOption, setSelectedOption] = useState(defaultOption)
 
+	// when parents changes default (i.e: locale changes) => Change here
+	useEffect(() => setSelectedOption(defaultOption), [defaultOption])
+
+	const keys = Object.fromEntries(
+		options.map((k, i) => [[k], keyValues?.[i] ?? k])
+	)
+
 	const updateSelection = (newOption: string) => {
+		const newOptionKey = keys[newOption]
 		setSelectedOption(newOption)
-		handler(newOption)
+		handler(newOptionKey)
 	}
 
 	return (

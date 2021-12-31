@@ -24,4 +24,20 @@
 
 `git config --global alias.p 'push'` -> `git p`
 
-## Gith shortened alieases
+## Gith shortened alieases - ZSH
+
+[ZshGit Aliases CheatSheet](https://kapeli.com/cheat_sheets/Oh-My-Zsh_Git.docset/Contents/Resources/Documents/index)
+
+### Importantes
+
+`git add .` -> `ga`
+
+`git commit -a -m` -> `gcam`
+
+`git commit -s -m` -> `gcsm`
+
+`git commit -v` -> `gc`
+
+`git commit -m` -> `gcmsg`
+
+`git push` -> `gp`

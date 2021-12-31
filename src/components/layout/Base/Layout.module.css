@@ -1,6 +1,15 @@
 .main_content {
+	@apply my-4;
 }
 
 .layout {
-	@apply p-4;
+	@apply px-2;
+}
+
+#main_header {
+	@apply sticky
+		top-0
+		z-10
+		flex
+		justify-center;
 }

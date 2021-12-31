@@ -11,10 +11,10 @@
 		transition-colors;
 	&:not(.active) {
 		@apply bg-light 
-			hover:bg-primary;
+			hover:bg-prim;
 	}
 
 	& .active {
-		@apply bg-primary;
+		@apply bg-prim;
 	}
 }

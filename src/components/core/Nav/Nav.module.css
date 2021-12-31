@@ -1,2 +1,24 @@
 .nav {
+	@apply bg-lighter/50
+    backdrop-blur-[8px] /* This does not work sometimes */
+    rounded-lg
+    shadow-lg shadow-light/70
+    p-4 m-4
+    w-full max-w-screen-xl
+    flex items-center justify-evenly
+    border-2 border-darker
+    gap-10;
+}
+
+.links {
+	@apply flex flex-1 justify-center items-center
+    gap-8
+    bg-none
+    uppercase
+    font-bold;
+}
+
+.active {
+	@apply text-prim
+  	!no-underline;
 }
