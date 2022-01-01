@@ -41,7 +41,7 @@ jobs:
       - name: Running Unit Tests
         run: npm test
 
-  Prettier:
+  Linter:
     runs-on: ubuntu-latest
 
     strategy:
@@ -60,7 +60,7 @@ jobs:
       - name: Run Next.js linter
         run: npm run lint --if-present
 
-  Linter:
+  Prettier:
     runs-on: ubuntu-latest
 
     strategy:
