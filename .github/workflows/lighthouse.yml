@@ -1,5 +1,5 @@
 name: Lighthouse CI
-on: push
+on: deployment_status
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
