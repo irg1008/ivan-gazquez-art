@@ -10,10 +10,11 @@
 		"prettier": "prettier --write .",
 		"type:check": "tsc --outDir out --noEmit",
 		"prepare": "husky install && husky add .husky/pre-commit \"npx lint-staged\"",
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"test:cov": "jest --coverage",
 		"test:e2e": "playwright test",
-		"test:e2e:head": "playwright test --headed",
-		"test": "jest --watch",
-		"test:cov": "jest --coverage"
+		"test:e2e:head": "playwright test --headed"
 	},
 	"dependencies": {
 		"@headlessui/react": "^1.4.2",
