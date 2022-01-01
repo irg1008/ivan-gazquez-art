@@ -1,6 +1,10 @@
 # Portfolio
 
-![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=ivan-gazquez-art-irgazquez&style=for-the-badge)(<https://ivan.gazquez.art>)
+[![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=ivan-gazquez-art-irgazquez&style=flat)](https://ivan.gazquez.art)
+
+[![CI](https://github.com/irg1008/ivan-gazquez-art/actions/workflows/continous.yml/badge.svg)](https://github.com/irg1008/ivan-gazquez-art/actions/workflows/continous.yml)
+
+[![E2E Testing](https://github.com/irg1008/ivan-gazquez-art/actions/workflows/playwright.yml/badge.svg)](https://github.com/irg1008/ivan-gazquez-art/actions/workflows/playwright.yml)
 
 ## Git aliases
 
