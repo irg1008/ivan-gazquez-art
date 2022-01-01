@@ -3,7 +3,7 @@ import { PlaywrightTestConfig, devices } from '@playwright/test'
 const config: PlaywrightTestConfig = {
 	use: {
 		trace: 'on-first-retry',
-		baseURL: 'http://localhost:3000',
+		baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL,
 		locale: 'en',
 	},
 	projects: [
