@@ -22,8 +22,10 @@ jobs:
       - run: npm run build --if-present
       - run: npm test
       - name: run ESLint
-      - run: npm run lint:fix --if-present
+        run: npm run lint:fix --if-present
       - name: run Next.js linter
-      - run: npm run lint --if-present
+        run: npm run lint --if-present
       - name: run Type
-      - run: npm run type:check --if-present
+        run: npm run type:check --if-present
+      - name: Run Playwright tests
+        uses: microsoft/playwright-github-action@v1.5.0
