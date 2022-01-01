@@ -1,4 +1,4 @@
-name: Audit live site
+name: Lighthouse
 on: push
 jobs:
   audit:
