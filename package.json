@@ -12,7 +12,8 @@
 		"prepare": "husky install && husky add .husky/pre-commit \"npx lint-staged\"",
 		"test:e2e": "playwright test",
 		"test:e2e:head": "playwright test --headed",
-		"test": "jest --watch",
+		"test": "jest",
+		"test:watch": "jest --watch",
 		"test:cov": "jest --coverage"
 	},
 	"dependencies": {
