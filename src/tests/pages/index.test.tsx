@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import '@testing-library/jest-dom'
 import Home from 'pages/index'
 
 describe('Home', () => {
@@ -6,7 +7,7 @@ describe('Home', () => {
 		render(<Home />)
 
 		const heading = screen.getByRole('heading', {
-			name: /welcome to next\.js!/i,
+			name: 'common:title',
 		})
 
 		expect(heading).toBeInTheDocument()
