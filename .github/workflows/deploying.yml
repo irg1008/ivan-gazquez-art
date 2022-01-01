@@ -1,4 +1,4 @@
-name: Build, Test and Eslint
+name: Build, Test and Eslint CI
 on:
   push:
   pull_request:
