@@ -3,6 +3,25 @@ import { useRouter } from 'next/router'
 import { useCookies } from 'react-cookie'
 import Dropdown from 'components/ui/Dropdown/Dropdown'
 
+const fullNames: Record<string, string> = {
+	en: 'English',
+	ru: 'Русский',
+	uk: 'Українська',
+	es: 'Español',
+	de: 'Deutsch',
+	fr: 'Français',
+	it: 'Italiano',
+	pt: 'Português',
+	ja: '日本語',
+	zh: '中文',
+	ko: '한국어',
+	ar: 'العربية',
+	tr: 'Türkçe',
+	he: 'עברית',
+	pl: 'Polski',
+	id: 'Bahasa Indonesia',
+}
+
 const LangSwapper = () => {
 	const [cookie, setCookie] = useCookies<
 		'NEXT_LOCALE',
@@ -10,6 +29,7 @@ const LangSwapper = () => {
 	>(['NEXT_LOCALE'])
 
 	const { pathname, push, locale, locales } = useRouter()
+	if (!locales || !locale) return null
 
 	const switchLanguage = (locale: string) => {
 		push(pathname, undefined, { locale, scroll: false })
@@ -17,12 +37,14 @@ const LangSwapper = () => {
 			setCookie('NEXT_LOCALE', locale, { path: '/' })
 	}
 
-	if (!locales || !locale) return null
+	const fullLocales = locales.map((l) => fullNames[l])
+	const currentLocale = fullNames[locale]
 
 	return (
 		<Dropdown
-			options={locales}
-			defaultOption={locale}
+			options={fullLocales}
+			keyValues={locales}
+			defaultOption={currentLocale}
 			handler={switchLanguage}
 		/>
 	)
