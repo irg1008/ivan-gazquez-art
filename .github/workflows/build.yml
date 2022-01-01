@@ -25,5 +25,7 @@ jobs:
       - run: npm test
       - name: run ESLint
       - run: npm run lint:fix --if-present
-      - name: Next.js linter
+      - name: run Next.js linter
       - run: npm run lint --if-present
+      - name: run Type
+      - run: npm run type:check --if-present
