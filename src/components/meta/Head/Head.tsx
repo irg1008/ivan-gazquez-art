@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo'
+import useTranslation from 'next-translate/useTranslation'
 import NextHead from 'next/head'
-import { useRouter } from 'next/router'
 
 interface Props {
 	title: string
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Head = ({ title, description, canonical }: Props) => {
-	const { locale } = useRouter()
+	const { lang: locale } = useTranslation()
 
 	return (
 		<>
