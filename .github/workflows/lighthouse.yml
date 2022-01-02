@@ -58,8 +58,8 @@ jobs:
         with:
           NAME: performance
           LABEL: Performance
-          STATUS: ${{ parseJSON(steps.format_score.outputs.result).data.performance }}
-          COLOR: ${{ parseJSON(steps.format_score.outputs.result).color.performance }}
+          STATUS: ${{ steps.format_score.outputs.result.data.performance }}
+          COLOR: ${{ steps.format_score.outputs.result.color.performance }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: echo '${{ steps.format_score.outputs.result }}'
@@ -69,8 +69,8 @@ jobs:
         with:
           NAME: accessibility
           LABEL: Accessibility
-          STATUS: ${{ parseJSON(steps.format_score.outputs.result).data.accessibility }}
-          COLOR: ${{ parseJSON(steps.format_score.outputs.result).color.accessibility }}
+          STATUS: ${{ steps.format_score.outputs.result.data.accessibility }}
+          COLOR: ${{ steps.format_score.outputs.result.color.accessibility }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Best Practices Badge
@@ -78,8 +78,8 @@ jobs:
         with:
           NAME: best-practices
           LABEL: Best Practices
-          STATUS: "${{ parseJSON(steps.format_score.outputs.result).data['best-practices'] }}"
-          COLOR: "${{ parseJSON(steps.format_score.outputs.result).color['best-practices'] }}"
+          STATUS: "${{ steps.format_score.outputs.result.data['best-practices'] }}"
+          COLOR: "${{ steps.format_score.outputs.result.color['best-practices'] }}"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: SEO Badge
@@ -87,6 +87,6 @@ jobs:
         with:
           NAME: seo
           LABEL: SEO
-          STATUS: ${{ parseJSON(steps.format_score.outputs.result).data.seo }}
-          COLOR: ${{ parseJSON(steps.format_score.outputs.result).color.seo }}
+          STATUS: ${{ steps.format_score.outputs.result.data.seo }}
+          COLOR: ${{ steps.format_score.outputs.result.color.seo }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
