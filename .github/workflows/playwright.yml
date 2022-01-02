@@ -27,9 +27,9 @@ jobs:
           path: ./node_modules
           key: ${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Install Dependencies
+      - name: Install Playwright
         if: steps.cache_modules.outputs.cache-hit != 'true'
-        run: npm ci --ignore-scripts
+        run: npm i -D @playwright/test
 
       - name: Cache Playwright browsers
         id: cache_playwright
@@ -37,10 +37,10 @@ jobs:
         env:
           cache-name: cache-playwright
         with:
-          path: ./.cache/ms-playwright
+          path: ~/.cache/ms-playwright
           key: ${{ env.cache-name }}
 
-      - name: Install Playwright
+      - name: Install Playwright Browsers
         if: steps.cache_playwright.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
 
