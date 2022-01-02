@@ -55,8 +55,8 @@ jobs:
       - name: Performance Badge
         uses: schneegans/dynamic-badges-action@v1.1.0
         with:
-          auth: ${{ secrets.GITHUB_TOKEN }}
-          gistID: performance
+          auth: ${{ secrets.GIST_TOKEN }}
+          gistID: d2b8264480d6297099513f845326e18c
           filename: test.json
           label: Performance
           message: ${{ steps.format_score.outputs.result.performance }}
@@ -66,8 +66,8 @@ jobs:
       - name: Accessibility Badge
         uses: schneegans/dynamic-badges-action@v1.1.0
         with:
-          auth: ${{ secrets.GITHUB_TOKEN }}
-          gistID: accessibility
+          auth: ${{ secrets.GIST_TOKEN }}
+          gistID: ea115f2dc9b462b4526f3b30867afea2
           filename: test.json
           label: Accessibility
           message: ${{ steps.format_score.outputs.result.accessibility }}
@@ -77,8 +77,8 @@ jobs:
       - name: Best Practices Badge
         uses: schneegans/dynamic-badges-action@v1.1.0
         with:
-          auth: ${{ secrets.GITHUB_TOKEN }}
-          gistID: best-practices
+          auth: ${{ secrets.GIST_TOKEN }}
+          gistID: 2f6773cce32e149f19e6131c0df056ee
           filename: test.json
           label: Best Practices
           message: ${{ steps.format_score.outputs.result['best-practices'] }}
@@ -88,8 +88,8 @@ jobs:
       - name: SEO Badge
         uses: schneegans/dynamic-badges-action@v1.1.0
         with:
-          auth: ${{ secrets.GITHUB_TOKEN }}
-          gistID: seo
+          auth: ${{ secrets.GIST_TOKEN }}
+          gistID: c9fae7fcded25e6227f9f5b0a7086819
           filename: test.json
           label: SEO
           message: ${{ steps.format_score.outputs.result.seo }}
@@ -99,8 +99,8 @@ jobs:
       - name: PWA Badge
         uses: schneegans/dynamic-badges-action@v1.1.0
         with:
-          auth: ${{ secrets.GITHUB_TOKEN }}
-          gistID: pwa
+          auth: ${{ secrets.GIST_TOKEN }}
+          gistID: b3532629ba36bb272895d5c2b2db2103
           filename: test.json
           label: PWA
           message: ${{ steps.format_score.outputs.result.pwa }}
