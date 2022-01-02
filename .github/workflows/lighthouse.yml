@@ -38,7 +38,7 @@ jobs:
             Object.keys(result).forEach((key) => result[key] = formatResult(result[key]))
 
             // Colors.
-            const colors = {
+            const color = {
               performance: score(result.performance),
               accessibility: score(result.accessibility),
               'best-practices': score(result['best-practices']),
@@ -46,7 +46,8 @@ jobs:
               pwa: score(result.pwa),
             }
 
-            core.setOutput('colors', result)
+            core.setOutput('colors', color)
+            core.setOutput('results', result)
 
       - run: echo "Resultados son ${{ steps.format_score.outputs.colors }}"
 
@@ -55,7 +56,7 @@ jobs:
         with:
           NAME: performance
           LABEL: Performance
-          STATUS: ${{ steps.format_score.outputs.result.performance }}
+          STATUS: ${{ steps.format_score.outputs.results.performance }}
           COLOR: ${{ steps.format_score.outputs.colors.performance }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -64,7 +65,7 @@ jobs:
         with:
           NAME: accessibility
           LABEL: Accessibility
-          STATUS: ${{ steps.format_score.outputs.result.accessibility }}
+          STATUS: ${{ steps.format_score.outputs.results.accessibility }}
           COLOR: ${{ steps.format_score.outputs.colors.accessibility }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -73,8 +74,8 @@ jobs:
         with:
           NAME: best-practices
           LABEL: Best Practices
-          STATUS: ${{ steps.format_score.outputs.result['best-practices'] }}
-          COLOR: ${{ steps.format_score.outputs.colors['best-practices'] }}
+          STATUS: "${{ steps.format_score.outputs.results['best-practices'] }}"
+          COLOR: "${{ steps.format_score.outputs.colors['best-practices'] }}"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: SEO Badge
@@ -82,6 +83,6 @@ jobs:
         with:
           NAME: seo
           LABEL: SEO
-          STATUS: ${{ steps.format_score.outputs.result.seo }}
+          STATUS: ${{ steps.format_score.outputs.results.seo }}
           COLOR: ${{ steps.format_score.outputs.colors.seo }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
