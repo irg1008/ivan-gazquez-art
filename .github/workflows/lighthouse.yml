@@ -1,15 +1,114 @@
-name: Lighthouse CI
-on: push
+name: Lighthouse
+
+on:
+  deployment_status:
+
 jobs:
-  lighthouse:
+  Lighthouse:
     runs-on: ubuntu-latest
+    if: github.event.deployment_status.state == 'success'
+
     steps:
       - uses: actions/checkout@v2
+
       - name: Audit URLs using Lighthouse
+        id: light_audit
         uses: treosh/lighthouse-ci-action@v8
         with:
           urls: |
-            https://ivan.gazquez.art/
-          budgetPath: ./budget.json # test performance budgets
-          uploadArtifacts: true # save results as an action artifacts
-          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
+            ${{ github.event.deployment_status.target_url }}
+          budgetPath: ./budget.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      - name: Update score badges
+        id: format_score
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const score = (res) =>
+              res >= 90 ? '0CCE6B'  :
+              res >= 50 ? 'FFA400' :
+                          'FF4E42'
+
+            const formatResult = (res) => Math.round((res * 100))
+
+            // Results.
+            const data = ${{ steps.light_audit.outputs.manifest }}[0].summary
+            Object.keys(data).forEach((key) => data[key] = formatResult(data[key]))
+
+            // Colors.
+            const color = {
+              performance: score(data.performance),
+              accessibility: score(data.accessibility),
+              'best-practices': score(data['best-practices']),
+              seo: score(data.seo),
+              pwa: score(data.pwa),
+            }
+
+            core.setOutput('performance', data.performance)
+            core.setOutput('accessibility', data.accessibility)
+            core.setOutput('best-practices', data['best-practices'])
+            core.setOutput('seo', data.seo)
+            core.setOutput('pwa', data.pwa)
+            core.setOutput('perColor', color.performance)
+            core.setOutput('accColor', color.accessibility)
+            core.setOutput('bpColor', color['best-practices'])
+            core.setOutput('seoColor', color.seo)
+            core.setOutput('pwaColor', color.pwa)
+
+      - id: date
+        run: echo "##[set-output name=data;]$(date)"
+      - name: Time badge
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: time
+          LABEL: 'Updated at'
+          STATUS: ${{ steps.date.outputs.data }}
+          COLOR: 00EEFF
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Performance Badge
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: performance
+          LABEL: Performance
+          STATUS: ${{ steps.format_score.outputs.performance }}
+          COLOR: ${{ steps.format_score.outputs.perColor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Accessibility Badge
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: accessibility
+          LABEL: Accessibility
+          STATUS: ${{ steps.format_score.outputs.accessibility }}
+          COLOR: ${{ steps.format_score.outputs.accColor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Best Practices Badge
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: best-practices
+          LABEL: Best Practices
+          STATUS: "${{ steps.format_score.outputs['best-practices'] }}"
+          COLOR: '${{ steps.format_score.outputs.bpColor }}'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: SEO Badge
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: seo
+          LABEL: SEO
+          STATUS: ${{ steps.format_score.outputs.seo }}
+          COLOR: ${{ steps.format_score.outputs.seoColor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: PWA Badge
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: pwa
+          LABEL: PWA
+          STATUS: ${{ steps.format_score.outputs.pwa }}
+          COLOR: ${{ steps.format_score.outputs.pwaColor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

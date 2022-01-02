@@ -1,0 +1,44 @@
+name: E2E Testing
+
+on:
+  #deployment_status:
+  push:
+
+jobs:
+  Test:
+    timeout-minutes: 60
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+          cache: 'npm'
+
+      - name: Cache node modules
+        id: cache_modules
+        uses: actions/cache@v2
+        env:
+          cache-name: modules
+        with:
+          path: ./node_modules
+          key: ${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install Playwright
+        if: steps.cache_modules.outputs.cache-hit != 'true'
+        env:
+          PLAYWRIGHT_BROWSER_PATH: 0
+        run: npm i -D @playwright/test --ignore-scripts
+
+      - name: Install Playwright Browsers
+        if: steps.cache_modules.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npm run test:e2e --if-present
+        env:
+          PLAYWRIGHT_TEST_BASE_URL: https://ivan.gazquez.art #${{ github.event.deployment_status.target_url }}
