@@ -46,10 +46,9 @@ jobs:
               pwa: score(result.pwa),
             }
 
-            core.setOutput('colors', colors)
-            core.setOutput('result', result)
+            core.setOutput('colors', result)
 
-      - run: echo "Resultados son ${{ steps.format_score.outputs.result }}"
+      - run: echo "Resultados son ${{ steps.format_score.outputs.colors }}"
 
       - name: Performance Badge
         uses: RubbaBoy/BYOB@v1.2.1
