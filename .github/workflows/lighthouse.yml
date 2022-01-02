@@ -35,7 +35,7 @@ jobs:
 
             // Results.
             const result = ${{ steps.light_audit.outputs.manifest }}[0].summary
-            Object.keys(result).forEach((key) => result[key] = formatResult(result[key]))
+            //Object.keys(result).forEach((key) => result[key] = formatResult(result[key]))
 
             // Colors.
             const colors = {
@@ -46,7 +46,7 @@ jobs:
               pwa: score(result.pwa),
             }
 
-            core.setOutput('colors', colors)
+            //core.setOutput('colors', colors)
             core.setOutput('result', result)
 
       - run: 'echo ${{ steps.format_score.outputs.result }}'
