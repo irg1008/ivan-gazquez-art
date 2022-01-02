@@ -48,10 +48,12 @@ jobs:
               pwa: score(result.pwa),
             }
 
-            core.setOutput('colors', colors)
-            core.setOutput('result', result)
+            return {
+              result,
+              colors,
+            }
 
-      - run: echo "${{ steps.format_score.outputs.result }}"
+      - run: echo "${{ steps.format_score.outputs.result.result }}"
 
       # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/performance)
       - name: Performance Badge
