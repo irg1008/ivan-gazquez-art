@@ -51,7 +51,9 @@ jobs:
               data,
             }
 
-            core.setOutput('result', result)
+            console.log(result)
+
+            core.setOutput('result', JSON.stringify(result))
 
       - name: Performance Badge
         uses: RubbaBoy/BYOB@v1.2.1
@@ -61,6 +63,8 @@ jobs:
           STATUS: ${{ steps.format_score.outputs.result.data.performance }}
           COLOR: ${{ steps.format_score.outputs.result.color.performance }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: echo '${{ steps.format_score.outputs.result }}'
 
       - name: Accessibility Badge
         uses: RubbaBoy/BYOB@v1.2.1
