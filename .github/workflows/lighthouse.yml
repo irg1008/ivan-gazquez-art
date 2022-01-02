@@ -45,3 +45,6 @@ jobs:
             `
 
             core.setOutput("comment", comment);
+
+      - name: Show comment
+        run: echo ${{ steps.format_score.outputs.comment }}
