@@ -1,23 +1,16 @@
 # Portfolio
 
 [![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=ivan-gazquez-art-irgazquez&style=flat)](https://ivan.gazquez.art)
-
 [![CI](https://github.com/irg1008/ivan-gazquez-art/actions/workflows/continous.yml/badge.svg)](https://github.com/irg1008/ivan-gazquez-art/actions/workflows/continous.yml)
-
 [![E2E Testing](https://github.com/irg1008/ivan-gazquez-art/actions/workflows/playwright.yml/badge.svg)](https://github.com/irg1008/ivan-gazquez-art/actions/workflows/playwright.yml)
-
 [![Coverage Status](https://coveralls.io/repos/github/irg1008/ivan-gazquez-art/badge.svg?branch=dev)](https://coveralls.io/github/irg1008/ivan-gazquez-art?branch=dev)
 
 ## LIGHTHOUSE
 
 ![Performance](https://byob.yarr.is/irg1008/ivan-gazquez-art/performance)
-
 ![Accessibility](https://byob.yarr.is/irg1008/ivan-gazquez-art/accessibility)
-
 ![Best Practices](https://byob.yarr.is/irg1008/ivan-gazquez-art/best-practices)
-
 ![SEO](https://byob.yarr.is/irg1008/ivan-gazquez-art/seo)
-
 ![PWS](https://byob.yarr.is/irg1008/ivan-gazquez-art/pwa)
 
 ## Git aliases
