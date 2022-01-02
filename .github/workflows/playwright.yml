@@ -38,7 +38,7 @@ jobs:
           cache-name: cache-playwright
         with:
           path: ./.cache/ms-playwright
-          key: ${{ env.cache-name }}-
+          key: ${{ env.cache-name }}
 
       - name: Install Playwright
         if: steps.cache_playwright.outputs.cache-hit != 'true'
@@ -47,4 +47,4 @@ jobs:
       - name: Run Playwright tests
         run: npm run test:e2e --if-present
         env:
-          PLAYWRIGHT_TEST_BASE_URL: ${{ github.event.deployment_status.target_url }}
+          PLAYWRIGHT_TEST_BASE_URL: ivan.gazquez.art #${{ github.event.deployment_status.target_url }}
