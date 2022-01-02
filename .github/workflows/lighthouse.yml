@@ -47,7 +47,7 @@ jobs:
             }
 
             core.setOutput('performance', data.performance)
-            core.setOutput('accessibility', (data.accessibility)
+            core.setOutput('accessibility', data.accessibility)
             core.setOutput('best-practices', data['best-practices'])
             core.setOutput('seo', data.seo)
             core.setOutput('pwa', data.pwa)
