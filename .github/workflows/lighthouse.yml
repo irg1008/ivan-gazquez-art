@@ -22,22 +22,20 @@ jobs:
           temporaryPublicStorage: true
 
       - name: Update score badges
-        id: get_scores
+        id: format_score
         uses: actions/github-script@v5
         with:
           script: |
             const score = (res) =>
-              res >= 90 ? '#0CCE6B'  :
-              res >= 50 ? '#FFA400' :
-                          '#FF4E42'
+              res >= 90 ? '0CCE6B'  :
+              res >= 50 ? 'FFA400' :
+                          'FF4E42'
 
             const formatResult = (res) => Math.round((res * 100))
 
             // Results.
             const result = ${{ steps.light_audit.outputs.manifest }}[0].summary
             Object.keys(result).forEach((key) => result[key] = formatResult(result[key]))
-
-
 
             // Colors.
             const colors = {
@@ -50,59 +48,38 @@ jobs:
 
             core.setOutput('colors', result)
 
-      - run: echo "Los resultados son ${{ steps.get_scores.outputs.colors }}"
-
-      # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/performance)
       - name: Performance Badge
-        uses: schneegans/dynamic-badges-action@v1.1.0
+        uses: RubbaBoy/BYOB@v1.2.1
         with:
-          auth: ${{ secrets.GIST_TOKEN }}
-          gistID: d2b8264480d6297099513f845326e18c
-          filename: test.json
-          label: Performance
-          message: ${{ steps.get_scores.outputs.result.performance }}
-          color: ${{ steps.get_scores.outputs.colors.performance }}
+          NAME: performance
+          LABEL: Performance
+          STATUS: ${{ steps.format_score.outputs.result.performance }}
+          COLOR: ${{ steps.format_score.outputs.colors.performance }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/accessibility)
       - name: Accessibility Badge
-        uses: schneegans/dynamic-badges-action@v1.1.0
+        uses: RubbaBoy/BYOB@v1.2.1
         with:
-          auth: ${{ secrets.GIST_TOKEN }}
-          gistID: ea115f2dc9b462b4526f3b30867afea2
-          filename: test.json
-          label: Accessibility
-          message: ${{ steps.get_scores.outputs.result.accessibility }}
-          color: ${{ steps.get_scores.outputs.colors.accessibility }}
+          NAME: accessibility
+          LABEL: Accessibility
+          STATUS: ${{ steps.format_score.outputs.result.accessibility }}
+          COLOR: ${{ steps.format_score.outputs.colors.accessibility }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/best-practices)
       - name: Best Practices Badge
-        uses: schneegans/dynamic-badges-action@v1.1.0
+        uses: RubbaBoy/BYOB@v1.2.1
         with:
-          auth: ${{ secrets.GIST_TOKEN }}
-          gistID: 2f6773cce32e149f19e6131c0df056ee
-          filename: test.json
-          label: Best Practices
-          message: ${{ steps.get_scores.outputs.result['best-practices'] }}
-          color: ${{ steps.get_scores.outputs.colors['best-practices'] }}
+          NAME: best-practices
+          LABEL: Best Practices
+          STATUS: ${{ steps.format_score.outputs.result['best-practices'] }}
+          COLOR: ${{ steps.format_score.outputs.colors['best-practices'] }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/seo)
       - name: SEO Badge
-        uses: schneegans/dynamic-badges-action@v1.1.0
+        uses: RubbaBoy/BYOB@v1.2.1
         with:
-          auth: ${{ secrets.GIST_TOKEN }}
-          gistID: c9fae7fcded25e6227f9f5b0a7086819
-          filename: test.json
-          label: SEO
-          message: ${{ steps.get_scores.outputs.result.seo }}
-          color: ${{ steps.get_scores.outputs.colors.seo }}
-
-      # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/pwa)
-      - name: PWA Badge
-        uses: schneegans/dynamic-badges-action@v1.1.0
-        with:
-          auth: ${{ secrets.GIST_TOKEN }}
-          gistID: b3532629ba36bb272895d5c2b2db2103
-          filename: test.json
-          label: PWA
-          message: ${{ steps.get_scores.outputs.result.pwa }}
-          color: ${{ steps.get_scores.outputs.colors.pwa }}
+          NAME: seo
+          LABEL: SEO
+          STATUS: ${{ steps.format_score.outputs.result.seo }}
+          COLOR: ${{ steps.format_score.outputs.colors.seo }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

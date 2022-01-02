@@ -8,15 +8,15 @@
 
 ## LIGHTHOUSE
 
-![Performance](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/irg1008/2f6773cce32e149f19e6131c0df056ee/raw/test.json)
+![Performance](https://byob.yarr.is/irg1008/ivan-gazquez-art/performance)
 
-![Accessibility](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/irg1008/ea115f2dc9b462b4526f3b30867afea2/raw/test.json)
+![Accessibility](https://byob.yarr.is/irg1008/ivan-gazquez-art/accessibility)
 
-![Best Practices](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/irg1008/2f6773cce32e149f19e6131c0df056ee/raw/test.json)
+![Best Practices](https://byob.yarr.is/irg1008/ivan-gazquez-art/best-practices)
 
-![SEO](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/irg1008/c9fae7fcded25e6227f9f5b0a7086819/raw/test.json)
+![SEO](https://byob.yarr.is/irg1008/ivan-gazquez-art/seo)
 
-![PWA](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/irg1008/b3532629ba36bb272895d5c2b2db2103/raw/test.json)
+![PWA](https://byob.yarr.is/irg1008/ivan-gazquez-art/pwa)
 
 ## Git aliases
 
