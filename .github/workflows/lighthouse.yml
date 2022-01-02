@@ -46,7 +46,8 @@ jobs:
               pwa: score(result.pwa),
             }
 
-            core.setOutput('colors', result)
+            core.setOutput('colors', colors)
+            core.setOutput('result', result)
 
       - name: Performance Badge
         uses: RubbaBoy/BYOB@v1.2.1
