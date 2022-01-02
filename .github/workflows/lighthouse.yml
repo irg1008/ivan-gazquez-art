@@ -46,31 +46,34 @@ jobs:
               pwa: score(data.pwa),
             }
 
-            const result = {
-              color,
-              data,
-            }
+            core.setOutput('performance', data.performance)
+            core.setOutput('accessibility', (data.accessibility)
+            core.setOutput('best-practices', data['best-practices'])
+            core.setOutput('seo', data.seo)
+            core.setOutput('pwa', data.pwa)
 
-            core.setOutput('result', JSON.stringify(result))
+            core.setOutput('perColor', color.performance)
+            core.setOutput('accColor', color.accessibility)
+            core.setOutput('bpColor', color['best-practices'])
+            core.setOutput('seoColor', color.seo)
+            core.setOutput('pwaColor', color.pwa)
 
       - name: Performance Badge
         uses: RubbaBoy/BYOB@v1.2.1
         with:
           NAME: performance
           LABEL: Performance
-          STATUS: ${{ steps.format_score.outputs.result.data.performance }}
-          COLOR: ${{ steps.format_score.outputs.result.color.performance }}
+          STATUS: ${{ steps.format_score.outputs.performance }}
+          COLOR: ${{ steps.format_score.outputs.perColor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - run: echo '${{ steps.format_score.outputs.result }}'
 
       - name: Accessibility Badge
         uses: RubbaBoy/BYOB@v1.2.1
         with:
           NAME: accessibility
           LABEL: Accessibility
-          STATUS: ${{ steps.format_score.outputs.result.data.accessibility }}
-          COLOR: ${{ steps.format_score.outputs.result.color.accessibility }}
+          STATUS: ${{ steps.format_score.outputs.accessibility }}
+          COLOR: ${{ steps.format_score.outputs.accColor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Best Practices Badge
@@ -78,8 +81,8 @@ jobs:
         with:
           NAME: best-practices
           LABEL: Best Practices
-          STATUS: "${{ steps.format_score.outputs.result.data['best-practices'] }}"
-          COLOR: "${{ steps.format_score.outputs.result.color['best-practices'] }}"
+          STATUS: "${{ steps.format_score.outputs['best-practices'] }}"
+          COLOR: '${{ steps.format_score.outputs.bpColor }}'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: SEO Badge
@@ -87,6 +90,6 @@ jobs:
         with:
           NAME: seo
           LABEL: SEO
-          STATUS: ${{ steps.format_score.outputs.result.data.seo }}
-          COLOR: ${{ steps.format_score.outputs.result.color.seo }}
+          STATUS: ${{ steps.format_score.outputs.seo }}
+          COLOR: ${{ steps.format_score.outputs.seoColor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
