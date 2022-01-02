@@ -48,4 +48,4 @@ jobs:
       - name: Run Playwright tests
         run: npm run test:e2e --if-present
         env:
-          PLAYWRIGHT_TEST_BASE_URL: http://ivan.gazquez.art #${{ github.event.deployment_status.target_url }}
+          PLAYWRIGHT_TEST_BASE_URL: https://ivan.gazquez.art #${{ github.event.deployment_status.target_url }}
