@@ -21,30 +21,84 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
 
-      - name: Format Score
+      - name: Update score badges
         id: format_score
         uses: actions/github-script@v5
         with:
           script: |
+            const score = (res) =>
+              res >= 90 ? '0CCE6B'  :
+              res >= 50 ? 'FFA400' :
+                          'FF4E42'
+
+            const formatResult = (res) => Math.round((res * 100))
+
+            // Results.
             const result = ${{ steps.light_audit.outputs.manifest }}[0].summary
+            Object.keys(result).forEach((key) => result[key] = formatResult(result[key]))
 
-            const score = res =>
-              res >= 90 ? '🟢' :
-              res >= 50 ? '🟠' :
-                          '🔴'
-                          
-            const comment = `
-              ⚡️ [Lighthouse report]:
-              | Category | Score |
-              | --- | --- |
-              | ${score(result.performance)} Performance | ${result.performance} |
-              | ${score(result.accessibility)} Accessibility | ${result.accessibility} |
-              | ${score(result['best-practices'])} Best practices | ${result['best-practices']} |
-              | ${score(result.seo)} SEO | ${result.seo} |
-              | ${score(result.pwa)} PWA | ${result.pwa} |
-            `
+            // Colors.
+            const colors = {
+              performance: score(result.performance),
+              accessibility: score(result.accessibility),
+              'best-practices': score(result.best_practices),
+              seo: score(result.seo),
+              pwa: score(result.pwa),
+            }
 
-            core.setOutput("comment", comment);
+            core.setOutput('colors', colors)
+            core.setOutput('result', result);
 
-      - name: Show comment
-        run: echo ${{ steps.format_score.outputs.comment }}
+      - name: Update Badges
+        id: update_badges
+        run: echo '##[set-ouput name=data;]$(update_badges)'
+
+      # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/performance)
+      - name: Performance Badge
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: performance
+          LABEL: Performance
+          STATUS: ${{ steps.format_score.outputs.result.performance }}
+          COLOR: ${{ steps.format_score.outputs.colors.performance }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/accessibility)
+      - name: Accessibility Badge
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: accessibility
+          LABEL: Accessibility
+          STATUS: ${{ steps.format_score.outputs.result.accessibility }}
+          COLOR: ${{ steps.format_score.outputs.colors.accessibility }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/best-practices)
+      - name: Best Practices Badge
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: best-practices
+          LABEL: Best Practices
+          STATUS: ${{ steps.format_score.outputs.result['best-practices'] }}
+          COLOR: ${{ steps.format_score.outputs.colors['best-practices'] }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/seo)
+      - name: SEO Badge
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: seo
+          LABEL: SEO
+          STATUS: ${{ steps.format_score.outputs.result.seo }}
+          COLOR: ${{ steps.format_score.outputs.colors.seo }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/pwa)
+      - name: PWA Badge
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: pwa
+          LABEL: Progressive Web App
+          STATUS: ${{ steps.format_score.outputs.result.pwa }}
+          COLOR: ${{ steps.format_score.outputs.colors.pwa }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
