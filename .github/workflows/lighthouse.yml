@@ -57,17 +57,6 @@ jobs:
             core.setOutput('seoColor', color.seo)
             core.setOutput('pwaColor', color.pwa)
 
-      - id: date
-        run: echo "##[set-output name=data;]$(date)"
-      - name: Time badge
-        uses: RubbaBoy/BYOB@v1.2.1
-        with:
-          NAME: time
-          LABEL: 'Updated at'
-          STATUS: ${{ steps.date.outputs.data }}
-          COLOR: 00EEFF
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Performance Badge
         uses: RubbaBoy/BYOB@v1.2.1
         with:

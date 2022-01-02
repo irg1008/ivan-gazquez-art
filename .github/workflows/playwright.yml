@@ -1,8 +1,7 @@
 name: E2E Testing
 
 on:
-  #deployment_status:
-  push:
+  deployment_status:
 
 jobs:
   Test:
@@ -30,15 +29,15 @@ jobs:
 
       - name: Install Playwright
         if: steps.cache_modules.outputs.cache-hit != 'true'
-        env:
-          PLAYWRIGHT_BROWSER_PATH: 0
         run: npm i -D @playwright/test --ignore-scripts
 
       - name: Install Playwright Browsers
+        env:
+          PLAYWRIGHT_BROWSER_PATH: 0
         if: steps.cache_modules.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
         run: npm run test:e2e --if-present
         env:
-          PLAYWRIGHT_TEST_BASE_URL: https://ivan.gazquez.art #${{ github.event.deployment_status.target_url }}
+          PLAYWRIGHT_TEST_BASE_URL: ${{ github.event.deployment_status.target_url }}
