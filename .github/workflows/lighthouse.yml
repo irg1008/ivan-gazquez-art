@@ -48,7 +48,7 @@ jobs:
 
             core.setOutput('colors', color)
 
-      - run: echo "Performance color ${{ steps.format_score.outputs.colors }}"
+      - run: echo "Performance color ${{ steps.format_score.outputs.colors.performance }}"
 
       - name: Accessibility Badge
         uses: RubbaBoy/BYOB@v1.2.1
