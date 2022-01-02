@@ -3,8 +3,7 @@ module.exports = {
 	defaultLocale: 'en',
 	pages: {
 		'*': ['common', 'error'],
-		'/': ['home'],
-		'/about': ['about'],
+		'/': ['home', 'about'],
 	},
 	loadLocaleFrom: (lang, ns) =>
 		import(`./src/i18n/${lang}/${ns}.json`).then((m) => m.default),

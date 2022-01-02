@@ -5,8 +5,7 @@
 }
 
 .layout {
-	@apply px-2
-		h-screen
+	@apply h-full
 		flex
 		flex-col;
 }
