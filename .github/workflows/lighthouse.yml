@@ -49,7 +49,7 @@ jobs:
             core.setOutput('colors', colors)
             core.setOutput('result', result);
 
-      - run: echo "::set-output name=result::${{ steps.format_score.outputs.result }}"
+      - run: echo ${{ steps.format_score.outputs.result }}
 
       # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/performance)
       - name: Performance Badge

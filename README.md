@@ -8,7 +8,7 @@
 
 ## LIGHTHOUSE
 
-![Performance](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/irg1008/performance/raw/test.json)
+![Performance](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/irg1008/2f6773cce32e149f19e6131c0df056ee/raw/test.json)
 
 ![Accessibility](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/irg1008/accessibility/raw/test.json)
 
