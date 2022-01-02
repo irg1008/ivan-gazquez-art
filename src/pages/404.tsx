@@ -26,11 +26,13 @@ const Custom: NextPageWithLayout = () => {
 		config: { duration: 800, ...config.stiff },
 	})
 
+	const code = 404
+
 	return (
 		<>
 			<Head title={notFoundTitle} />
 			<section className={styles.wrapper}>
-				<h1 className={styles.code}>404</h1>
+				<h1 className={styles.code}>{code}</h1>
 				<h2>
 					{t('error:not-found')}: <strong>{path}</strong>
 				</h2>
