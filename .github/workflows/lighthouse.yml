@@ -51,8 +51,6 @@ jobs:
               data,
             }
 
-            console.log(result)
-
             core.setOutput('result', JSON.stringify(result))
 
       - name: Performance Badge
@@ -60,8 +58,8 @@ jobs:
         with:
           NAME: performance
           LABEL: Performance
-          STATUS: ${{ JSON.parse(steps.format_score.outputs.result).data.performance }}
-          COLOR: ${{ JSON.parse(steps.format_score.outputs.result).color.performance }}
+          STATUS: ${{ parseJSON(steps.format_score.outputs.result).data.performance }}
+          COLOR: ${{ parseJSON(steps.format_score.outputs.result).color.performance }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: echo '${{ steps.format_score.outputs.result }}'
@@ -71,8 +69,8 @@ jobs:
         with:
           NAME: accessibility
           LABEL: Accessibility
-          STATUS: ${{ JSON.parse(steps.format_score.outputs.result).data.accessibility }}
-          COLOR: ${{ JSON.parse(steps.format_score.outputs.result).color.accessibility }}
+          STATUS: ${{ parseJSON(steps.format_score.outputs.result).data.accessibility }}
+          COLOR: ${{ parseJSON(steps.format_score.outputs.result).color.accessibility }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Best Practices Badge
@@ -80,8 +78,8 @@ jobs:
         with:
           NAME: best-practices
           LABEL: Best Practices
-          STATUS: "${{ JSON.parse(steps.format_score.outputs.result).data['best-practices'] }}"
-          COLOR: "${{ JSON.parse(steps.format_score.outputs.result).color['best-practices'] }}"
+          STATUS: "${{ parseJSON(steps.format_score.outputs.result).data['best-practices'] }}"
+          COLOR: "${{ parseJSON(steps.format_score.outputs.result).color['best-practices'] }}"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: SEO Badge
@@ -89,6 +87,6 @@ jobs:
         with:
           NAME: seo
           LABEL: SEO
-          STATUS: ${{ JSON.parse(steps.format_score.outputs.result).data.seo }}
-          COLOR: ${{ JSON.parse(steps.format_score.outputs.result).color.seo }}
+          STATUS: ${{ parseJSON(steps.format_score.outputs.result).data.seo }}
+          COLOR: ${{ parseJSON(steps.format_score.outputs.result).color.seo }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
