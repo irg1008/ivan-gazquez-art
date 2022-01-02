@@ -51,7 +51,7 @@ jobs:
             console.log(result)
 
             core.setOutput('colors', colors)
-            core.setOutput('result', result)
+            core.setOutput('result', colors)
 
       - run: 'echo ${{ steps.format_score.outputs.result }}'
 
