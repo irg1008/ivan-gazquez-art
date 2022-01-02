@@ -60,8 +60,8 @@ jobs:
         with:
           NAME: performance
           LABEL: Performance
-          STATUS: ${{ steps.format_score.outputs.result.data.performance }}
-          COLOR: ${{ steps.format_score.outputs.result.color.performance }}
+          STATUS: ${{ JSON.parse(steps.format_score.outputs.result).data.performance }}
+          COLOR: ${{ JSON.parse(steps.format_score.outputs.result).color.performance }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: echo '${{ steps.format_score.outputs.result }}'
@@ -71,8 +71,8 @@ jobs:
         with:
           NAME: accessibility
           LABEL: Accessibility
-          STATUS: ${{ steps.format_score.outputs.result.data.accessibility }}
-          COLOR: ${{ steps.format_score.outputs.result.color.accessibility }}
+          STATUS: ${{ JSON.parse(steps.format_score.outputs.result).data.accessibility }}
+          COLOR: ${{ JSON.parse(steps.format_score.outputs.result).color.accessibility }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Best Practices Badge
@@ -80,8 +80,8 @@ jobs:
         with:
           NAME: best-practices
           LABEL: Best Practices
-          STATUS: "${{ steps.format_score.outputs.result.data['best-practices'] }}"
-          COLOR: "${{ steps.format_score.outputs.result.color['best-practices'] }}"
+          STATUS: "${{ JSON.parse(steps.format_score.outputs.result).data['best-practices'] }}"
+          COLOR: "${{ JSON.parse(steps.format_score.outputs.result).color['best-practices'] }}"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: SEO Badge
@@ -89,6 +89,6 @@ jobs:
         with:
           NAME: seo
           LABEL: SEO
-          STATUS: ${{ steps.format_score.outputs.result.data.seo }}
-          COLOR: ${{ steps.format_score.outputs.result.color.seo }}
+          STATUS: ${{ JSON.parse(steps.format_score.outputs.result).data.seo }}
+          COLOR: ${{ JSON.parse(steps.format_score.outputs.result).color.seo }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
