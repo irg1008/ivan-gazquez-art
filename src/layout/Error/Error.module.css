@@ -1,0 +1,11 @@
+.wrapper {
+	@apply min-h-screen
+    flex
+    flex-col;
+}
+
+.main_content {
+	@apply flex
+		flex-col
+		flex-1;
+}

@@ -1,13 +1,7 @@
 .main_content {
-	@apply flex
-		flex-col
-		flex-1;
 }
 
 .layout {
-	@apply h-full
-		flex
-		flex-col;
 }
 
 #main_header {

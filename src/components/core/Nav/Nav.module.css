@@ -5,6 +5,7 @@
     shadow-lg shadow-light/70
 		m-4
 		px-4
+		py-2
     w-full max-w-screen-xl
     border-2 border-darker
 		flex items-center justify-between;
@@ -19,8 +20,9 @@
 		-top-0 left-0
 		h-full
 		bg-prim
+		rounded-full
 		bg-opacity-10
-		border-y-4
+		border-4
 		border-prim
 		pointer-events-none;
 }
