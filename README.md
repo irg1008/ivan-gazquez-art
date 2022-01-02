@@ -16,7 +16,7 @@
 
 ![SEO](https://byob.yarr.is/irg1008/ivan-gazquez-art/seo)
 
-![PWA](https://byob.yarr.is/irg1008/ivan-gazquez-art/pwa)
+![PWS](https://byob.yarr.is/irg1008/ivan-gazquez-art/pwa)
 
 ## Git aliases
 

@@ -103,3 +103,12 @@ jobs:
           STATUS: ${{ steps.format_score.outputs.seo }}
           COLOR: ${{ steps.format_score.outputs.seoColor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: PWA Badge
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: pwa
+          LABEL: PWA
+          STATUS: ${{ steps.format_score.outputs.pwa }}
+          COLOR: ${{ steps.format_score.outputs.pwaColor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
