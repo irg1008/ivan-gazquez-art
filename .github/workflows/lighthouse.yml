@@ -48,7 +48,7 @@ jobs:
               pwa: score(result.pwa),
             }
 
-            core.setOutput('colors', results)
+            core.setOutput('colors', result)
 
       - run: echo "Los resultados son ${{ steps.get_scores.outputs.colors }}"
 
