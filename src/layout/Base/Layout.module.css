@@ -1,9 +1,14 @@
 .main_content {
-	@apply my-4;
+	@apply flex
+		flex-col
+		flex-1;
 }
 
 .layout {
-	@apply px-2;
+	@apply px-2
+		h-screen
+		flex
+		flex-col;
 }
 
 #main_header {

@@ -11,7 +11,9 @@ body {
 body {
 	@apply h-screen
 		bg-lighter
-		text-darker;
+		text-darker
+		flex
+		flex-col;
 }
 
 button,

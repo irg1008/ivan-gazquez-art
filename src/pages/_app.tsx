@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import { NextPageWithLayout } from 'next'
-import BaseLayout from 'components/layout/Base'
+import BaseLayout from 'layout/Base'
 import { CookiesProvider } from 'react-cookie'
 import Head from 'components/meta/Head'
 import '../styles/index.css'

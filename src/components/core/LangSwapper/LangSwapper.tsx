@@ -28,11 +28,11 @@ const LangSwapper = () => {
 		{ NEXT_LOCALE: string }
 	>(['NEXT_LOCALE'])
 
-	const { pathname, push, locale, locales } = useRouter()
+	const { pathname, asPath, push, locale, locales } = useRouter()
 	if (!locales || !locale) return null
 
 	const switchLanguage = (locale: string) => {
-		push(pathname, undefined, { locale, scroll: false })
+		push(pathname, asPath, { locale, scroll: false })
 		if (cookie.NEXT_LOCALE !== locale)
 			setCookie('NEXT_LOCALE', locale, { path: '/' })
 	}
