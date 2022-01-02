@@ -1,0 +1,44 @@
+on:
+  push:
+  pull_request:
+
+name: Test Coverage
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+          cache: 'npm'
+
+      - name: Cache node modules
+        id: cache_modules
+        uses: actions/cache@v2
+        env:
+          cache-name: modules
+        with:
+          path: ./node_modules
+          key: ${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install Dependencies
+        if: steps.cache_modules.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - name: Make test coverage
+        run: make test-coverage
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
