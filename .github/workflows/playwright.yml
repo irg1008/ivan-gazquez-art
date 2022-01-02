@@ -37,7 +37,7 @@ jobs:
         env:
           cache-name: cache-playwright
         with:
-          path: ~/.cache/ms-playwright
+          path: ./.cache/ms-playwright
           key: ${{ env.cache-name }}-
 
       - name: Install Playwright
