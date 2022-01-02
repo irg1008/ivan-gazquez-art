@@ -30,19 +30,12 @@ jobs:
 
       - name: Install Playwright
         if: steps.cache_modules.outputs.cache-hit != 'true'
+        env:
+          PLAYWRIGHT_BROWSER_PATH: 0
         run: npm i -D @playwright/test --ignore-scripts
 
-      - name: Cache Playwright browsers
-        id: cache_playwright
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-playwright
-        with:
-          path: ~/.cache/ms-playwright
-          key: ${{ env.cache-name }}
-
       - name: Install Playwright Browsers
-        if: steps.cache_playwright.outputs.cache-hit != 'true'
+        if: steps.cache_modules.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests

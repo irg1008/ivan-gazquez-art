@@ -37,6 +37,8 @@ jobs:
             const result = ${{ steps.light_audit.outputs.manifest }}[0].summary
             Object.keys(result).forEach((key) => result[key] = formatResult(result[key]))
 
+
+
             // Colors.
             const colors = {
               performance: score(result.performance),
