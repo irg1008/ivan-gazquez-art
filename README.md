@@ -6,6 +6,18 @@
 
 [![E2E Testing](https://github.com/irg1008/ivan-gazquez-art/actions/workflows/playwright.yml/badge.svg)](https://github.com/irg1008/ivan-gazquez-art/actions/workflows/playwright.yml)
 
+## LIGHTHOUSE
+
+![Performance](https://byob.yarr.is/irg1008/ivan-gazquez-art/performance)
+
+![Accessibility](https://byob.yarr.is/irg1008/ivan-gazquez-art/accessibility)
+
+![Best Practices](https://byob.yarr.is/irg1008/ivan-gazquez-art/best-practices)
+
+![SEO](https://byob.yarr.is/irg1008/ivan-gazquez-art/seo)
+
+![PWA](https://byob.yarr.is/irg1008/ivan-gazquez-art/pwa)
+
 ## Git aliases
 
 `git config --global alias.st 'status -sb'` -> `git st`

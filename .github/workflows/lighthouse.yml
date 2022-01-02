@@ -49,9 +49,7 @@ jobs:
             core.setOutput('colors', colors)
             core.setOutput('result', result);
 
-      - name: Update Badges
-        id: update_badges
-        run: echo '##[set-ouput name=data;]$(update_badges)'
+      - run: echo "::set-output name=colors::${{ steps.format_score.outputs.colors }}"
 
       # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/performance)
       - name: Performance Badge
