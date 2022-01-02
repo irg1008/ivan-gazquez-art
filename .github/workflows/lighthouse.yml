@@ -49,7 +49,16 @@ jobs:
             core.setOutput('colors', color)
             core.setOutput('results', result)
 
-      - run: echo "Resultados son ${{ steps.format_score.outputs.colors }}"
+      - id: date
+        run: echo "##[set-output name=data;]$(date)"
+      - name: Time badge
+        uses: RubbaBoy/BYOB@v1.2.1
+        with:
+          NAME: time
+          LABEL: 'Updated at'
+          STATUS: ${{ steps.date.outputs.data }}
+          COLOR: 00EEFF
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Performance Badge
         uses: RubbaBoy/BYOB@v1.2.1
