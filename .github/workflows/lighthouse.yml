@@ -22,7 +22,7 @@ jobs:
           temporaryPublicStorage: true
 
       - name: Update score badges
-        id: format_score
+        id: get_scores
         uses: actions/github-script@v5
         with:
           script: |
@@ -48,12 +48,9 @@ jobs:
               pwa: score(result.pwa),
             }
 
-            return {
-              result,
-              colors,
-            }
+            core.setOutput('colors', colors)
 
-      - run: echo "${{ steps.format_score.outputs.result.result }}"
+      - run: echo "Los resultados son ${{ steps.get_scores.outputs.colors }}"
 
       # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/performance)
       - name: Performance Badge
@@ -63,8 +60,8 @@ jobs:
           gistID: d2b8264480d6297099513f845326e18c
           filename: test.json
           label: Performance
-          message: ${{ steps.format_score.outputs.result.performance }}
-          color: ${{ steps.format_score.outputs.colors.performance }}
+          message: ${{ steps.get_scores.outputs.result.performance }}
+          color: ${{ steps.get_scores.outputs.colors.performance }}
 
       # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/accessibility)
       - name: Accessibility Badge
@@ -74,8 +71,8 @@ jobs:
           gistID: ea115f2dc9b462b4526f3b30867afea2
           filename: test.json
           label: Accessibility
-          message: ${{ steps.format_score.outputs.result.accessibility }}
-          color: ${{ steps.format_score.outputs.colors.accessibility }}
+          message: ${{ steps.get_scores.outputs.result.accessibility }}
+          color: ${{ steps.get_scores.outputs.colors.accessibility }}
 
       # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/best-practices)
       - name: Best Practices Badge
@@ -85,8 +82,8 @@ jobs:
           gistID: 2f6773cce32e149f19e6131c0df056ee
           filename: test.json
           label: Best Practices
-          message: ${{ steps.format_score.outputs.result['best-practices'] }}
-          color: ${{ steps.format_score.outputs.colors['best-practices'] }}
+          message: ${{ steps.get_scores.outputs.result['best-practices'] }}
+          color: ${{ steps.get_scores.outputs.colors['best-practices'] }}
 
       # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/seo)
       - name: SEO Badge
@@ -96,8 +93,8 @@ jobs:
           gistID: c9fae7fcded25e6227f9f5b0a7086819
           filename: test.json
           label: SEO
-          message: ${{ steps.format_score.outputs.result.seo }}
-          color: ${{ steps.format_score.outputs.colors.seo }}
+          message: ${{ steps.get_scores.outputs.result.seo }}
+          color: ${{ steps.get_scores.outputs.colors.seo }}
 
       # ![](https://byob.yarr.is/irg1008/ivan-gazquez-art/pwa)
       - name: PWA Badge
@@ -107,5 +104,5 @@ jobs:
           gistID: b3532629ba36bb272895d5c2b2db2103
           filename: test.json
           label: PWA
-          message: ${{ steps.format_score.outputs.result.pwa }}
-          color: ${{ steps.format_score.outputs.colors.pwa }}
+          message: ${{ steps.get_scores.outputs.result.pwa }}
+          color: ${{ steps.get_scores.outputs.colors.pwa }}
