@@ -4,6 +4,8 @@
 
 [![CI](https://github.com/irg1008/ivan-gazquez-art/actions/workflows/continous.yml/badge.svg)](https://github.com/irg1008/ivan-gazquez-art/actions/workflows/continous.yml)
 
+[![Coverage Status](https://coveralls.io/repos/github/irg1008/ivan-gazquez-art/badge.svg?branch=production)](https://coveralls.io/github/irg1008/ivan-gazquez-art?branch=production)
+
 [![E2E Testing](https://github.com/irg1008/ivan-gazquez-art/actions/workflows/playwright.yml/badge.svg)](https://github.com/irg1008/ivan-gazquez-art/actions/workflows/playwright.yml)
 
 ## LIGHTHOUSE
