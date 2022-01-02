@@ -1,13 +1,13 @@
 .nav {
 	@apply bg-lighter/50
     backdrop-blur-[8px] /* This does not work sometimes */
-    rounded-lg
+    rounded-full
     shadow-lg shadow-light/70
 		m-4
 		px-4
 		py-2
     w-full max-w-screen-xl
-    border-2 border-darker
+    border-2 border-dark
 		flex items-center justify-between;
 }
 
@@ -24,6 +24,7 @@
 		bg-opacity-10
 		border-4
 		border-prim
+		shadow-lg shadow-prim/30
 		pointer-events-none;
 }
 

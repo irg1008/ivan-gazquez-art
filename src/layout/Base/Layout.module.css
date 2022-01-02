@@ -4,10 +4,25 @@
 .layout {
 }
 
-#main_header {
+.header {
 	@apply sticky
 		top-0
 		z-10
 		flex
+		flex-wrap
+		items-center
 		justify-center;
+}
+
+.scroll_up {
+	@apply sticky
+		bottom-0
+		flex justify-end;
+}
+
+.footer {
+	@apply h-96
+		w-full
+		bg-neutral-900
+		text-neutral-50;
 }

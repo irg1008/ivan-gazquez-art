@@ -1,2 +1,68 @@
 .wrapper {
+	@apply flex items-center justify-center
+    flex-row-reverse
+    p-4;
+}
+
+.floating {
+	@apply transition-transform
+        duration-200
+        ease-in-out
+        hover:-translate-y-2;
+}
+
+.holder {
+	@apply overflow-y-hidden;
+}
+
+.icon_container {
+	@apply rounded-full
+    bg-prim
+    shadow-md
+    text-lighter
+    shadow-prim/70
+    cursor-pointer
+    text-2xl
+    flex
+    overflow-hidden
+    transition-shadow
+    hover:shadow-lg
+    hover:shadow-prim/100
+    z-10
+    p-3;
+
+	@media not (pointer: coarse) {
+		&:hover {
+			& .icon {
+				@apply animate-up-infinite;
+			}
+
+			& + .msg_container .msg {
+				@apply translate-x-0;
+			}
+		}
+	}
+}
+
+.msg_container {
+	@apply overflow-x-hidden
+    overflow-y-auto
+    translate-x-10
+    p-2;
+}
+
+.msg {
+	@apply translate-x-[120%]
+    bg-lighter
+    border-2
+    border-prim
+    pl-4
+    transition-transform
+    duration-200
+    ease-in-out
+    rounded-full
+    pr-10
+    py-1
+    capitalize
+    text-darker;
 }

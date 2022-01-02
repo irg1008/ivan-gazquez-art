@@ -17,12 +17,17 @@ const Layout: React.FC = ({ children }) => {
 
 	return (
 		<section className={styles.layout}>
-			<header id={styles.main_header}>
+			<header className={styles.header}>
 				<Nav links={links} onLinkClick={onLinkClick} />
 			</header>
-			<main className={styles.main_content}>{children}</main>
-			<footer></footer>
-			<ScrollUp />
+			<main className={styles.main_content}>
+				{children}
+				<div className={styles.scroll_up}>
+					<ScrollUp />
+				</div>
+			</main>
+
+			<footer className={styles.footer}></footer>
 		</section>
 	)
 }

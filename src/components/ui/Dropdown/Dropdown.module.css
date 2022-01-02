@@ -5,15 +5,17 @@
 }
 
 .options_btn {
-	@apply !px-2 !py-1
+	@apply !py-2 !px-4
     w-full
-    !bg-medium
+    !bg-light
     !text-darker
     !shadow-medium/50
     text-left
     relative
+    border-2
+    border-dark
     uppercase
-    border-red-600;
+    !rounded-full;
 }
 
 .btn_icon {
