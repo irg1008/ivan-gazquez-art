@@ -1,8 +1,7 @@
 name: E2E Testing
 
 on:
-  #deployment_status:
-  push:
+  deployment_status:
 
 jobs:
   Test:
@@ -41,4 +40,4 @@ jobs:
       - name: Run Playwright tests
         run: npm run test:e2e --if-present
         env:
-          PLAYWRIGHT_TEST_BASE_URL: https://ivan.gazquez.art #${{ github.event.deployment_status.target_url }}
+          PLAYWRIGHT_TEST_BASE_URL: ${{ github.event.deployment_status.target_url }}
