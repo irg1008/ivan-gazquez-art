@@ -41,7 +41,7 @@ jobs:
             const colors = {
               performance: score(result.performance),
               accessibility: score(result.accessibility),
-              'best-practices': score(result.best_practices),
+              'best-practices': score(result['best-practices']),
               seo: score(result.seo),
               pwa: score(result.pwa),
             }
