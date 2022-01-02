@@ -35,8 +35,8 @@ jobs:
         if: steps.cache_modules.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
 
-      - name: Make test coverage
-        run: make test-coverage
+      - name: Create Coverage
+        run: npm run test:cov
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
