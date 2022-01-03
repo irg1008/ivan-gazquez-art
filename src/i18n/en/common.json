@@ -1,6 +1,7 @@
 {
-	"title": "title",
-	"subtitle": "subtitle",
+	"title": "hi!",
+	"subtitle": "my name is Iván",
+	"detail": "and i am a software engineer",
 	"base": "base",
 	"theme": {
 		"dark": "dark",

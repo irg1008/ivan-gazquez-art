@@ -9,5 +9,8 @@ module.exports = withBundleAnalyzer(
 	nextTranslate({
 		reactStrictMode: true,
 		trailingSlash: true,
+		images: {
+			domains: ['images.unsplash.com'],
+		},
 	})
 )
