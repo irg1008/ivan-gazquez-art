@@ -3,11 +3,12 @@ import LangSwapper from 'components/core/LangSwapper'
 import ThemeSwapper from 'components/core/ThemeSwapper'
 import useTranslation from 'next-translate/useTranslation'
 import { useEffect, useRef, useState } from 'react'
-import { Variant, Variants, motion } from 'framer-motion'
+import { Variant, Variants, motion, AnimatePresence } from 'framer-motion'
 
 type NavLinks = Record<string, string>
 type NavProps = {
 	links: NavLinks
+	currentLink?: string
 	onLinkClick: (link: string) => void
 }
 
@@ -16,11 +17,19 @@ interface NavVariants extends Variants {
 	to: Variant
 }
 
-const Nav = ({ links, onLinkClick }: NavProps) => {
+// TODO: REVISAR Y LIMPIAR
+const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
 	const { t } = useTranslation()
 
-	const [activeLink, setActiveLink] = useState<string>(Object.keys(links)[0])
+	const [activeLink, setActiveLink] = useState<string | undefined>(currentLink)
 	const [activePos, setActivePos] = useState<number>(0)
+
+	useEffect(() => {
+		setActiveLink(currentLink)
+		if (!!currentLink) {
+			setActivePos(Object.keys(links).indexOf(currentLink))
+		}
+	}, [currentLink, links])
 
 	const setActive = (href: string, pos: number) => {
 		setActiveLink(href)
@@ -56,13 +65,21 @@ const Nav = ({ links, onLinkClick }: NavProps) => {
 		<div className={`${styles.nav} backdrop-blur firefox:bg-opacity-90`}>
 			<LangSwapper />
 			<div className={styles.links_wrapper}>
-				<motion.span
-					className={styles.tab_swapper}
-					variants={navVariants}
-					initial="from"
-					animate="to"
-					transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-				/>
+				<AnimatePresence>
+					{!!activeLink && (
+						<motion.span
+							className={styles.tab_swapper}
+							variants={navVariants}
+							initial="from"
+							animate="to"
+							exit="from"
+							whileHover={{
+								opacity: 0.2,
+							}}
+							transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+						/>
+					)}
+				</AnimatePresence>
 				<ul className={styles.links} ref={linksRef}>
 					{Object.entries(links).map(([href, title], i) => (
 						<li
