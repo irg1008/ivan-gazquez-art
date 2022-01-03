@@ -31,15 +31,13 @@
     z-10
     p-3;
 
-	@media not (pointer: coarse) {
-		&:hover {
-			& .icon {
-				@apply animate-up-infinite;
-			}
+	&:hover {
+		& .icon {
+			@apply lg:animate-up-infinite;
+		}
 
-			& + .msg_container .msg {
-				@apply translate-x-0;
-			}
+		& + .msg_container .msg {
+			@apply lg:translate-x-0;
 		}
 	}
 }
