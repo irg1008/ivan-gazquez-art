@@ -52,3 +52,7 @@
 `git commit -m` -> `gcmsg`
 
 `git push` -> `gp`
+
+### Vercel branch ignore
+
+`bash -c 'if [[ $VERCEL_GIT_COMMIT_REF != "shields" ]]; then exit 1; fi'`
