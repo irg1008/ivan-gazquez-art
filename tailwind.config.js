@@ -1,6 +1,21 @@
 const themes = require('./theme.config.js')
 const themeSwapper = require('tailwindcss-theme-swapper')
 const typography = require('@tailwindcss/typography')
+const plugin = require('tailwindcss/plugin')
+
+const firefoxVariant = plugin(function ({ addVariant, e, postcss }) {
+	addVariant('firefox', ({ container, separator }) => {
+		const isFirefoxRule = postcss.atRule({
+			name: '-moz-document',
+			params: 'url-prefix()',
+		})
+		isFirefoxRule.append(container.nodes)
+		container.append(isFirefoxRule)
+		isFirefoxRule.walkRules((rule) => {
+			rule.selector = `.${e(`firefox${separator}${rule.selector.slice(1)}`)}`
+		})
+	})
+})
 
 module.exports = {
 	content: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -38,5 +53,5 @@ module.exports = {
 		},
 	},
 	darkMode: 'class',
-	plugins: [themeSwapper(themes), typography()],
+	plugins: [themeSwapper(themes), typography(), firefoxVariant],
 }
