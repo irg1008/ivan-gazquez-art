@@ -4,7 +4,7 @@ import NextHead from 'next/head'
 
 interface Props {
 	title: string
-	description: string
+	description?: string
 	canonical?: string
 }
 

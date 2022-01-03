@@ -1,24 +1,51 @@
 .nav {
 	@apply bg-lighter/50
     backdrop-blur-[8px] /* This does not work sometimes */
-    rounded-lg
+    rounded-full
     shadow-lg shadow-light/70
-    p-4 m-4
+		m-4
+		px-4
+		py-2
     w-full max-w-screen-xl
-    flex items-center justify-evenly
-    border-2 border-darker
-    gap-10;
+    border-2 border-dark
+		flex items-center justify-between;
+}
+
+.links_wrapper {
+	@apply relative;
+}
+
+.tab_swapper {
+	@apply absolute
+		-top-0 left-0
+		h-full
+		bg-prim
+		rounded-full
+		bg-opacity-10
+		border-4
+		border-prim
+		shadow-lg shadow-prim/30
+		pointer-events-none;
 }
 
 .links {
-	@apply flex flex-1 justify-center items-center
-    gap-8
-    bg-none
+	@apply flex
+		min-h-[50px]
     uppercase
     font-bold;
 }
 
+.link {
+	@apply flex justify-center items-center
+		w-32
+		cursor-pointer;
+	& a {
+		@apply !no-underline;
+	}
+}
+
 .active {
-	@apply text-prim
-  	!no-underline;
+	& a {
+		@apply text-prim;
+	}
 }

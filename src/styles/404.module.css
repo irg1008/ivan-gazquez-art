@@ -1,0 +1,30 @@
+.code {
+	@apply text-[12rem]
+        italic font-bold
+        text-prim
+        border-b-4
+        z-10;
+}
+
+.wrapper {
+	@apply flex flex-col
+        justify-center items-center
+        flex-1
+        gap-6
+        text-center
+        relative;
+}
+
+.confused {
+	@apply absolute
+        opacity-20;
+}
+
+.icon {
+	@apply text-prim
+        h-96 w-96;
+}
+
+.go_home {
+	@apply w-96;
+}

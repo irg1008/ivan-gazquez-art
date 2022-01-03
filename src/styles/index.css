@@ -8,10 +8,16 @@ body {
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+html {
+	@apply scroll-smooth;
+}
+
 body {
-	@apply h-screen
+	@apply min-h-screen
 		bg-lighter
-		text-darker;
+		text-darker
+		flex
+		flex-col;
 }
 
 button,
