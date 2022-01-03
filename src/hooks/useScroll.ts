@@ -1,19 +1,22 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 const useScroll = (onScroll?: (scrollPos: number) => void) => {
 	const [isTop, setIsTop] = useState(true)
 
+	const listener = useCallback(() => {
+		const wScroll = window.scrollY
+		setIsTop(wScroll < 100)
+		!!onScroll && onScroll(wScroll)
+	}, [onScroll])
+
 	useEffect(() => {
-		const listener = () => {
-			const wScroll = window.scrollY
-			setIsTop(wScroll < 100)
-			!!onScroll && onScroll(wScroll)
-		}
+		// Call on load.
+		listener()
 		window.addEventListener('scroll', listener, {
 			passive: true,
 		})
 		return () => window.removeEventListener('scroll', listener)
-	}, [onScroll])
+	}, [onScroll, listener])
 
 	const scrollToTop = () => {
 		window.scrollTo({
