@@ -20,6 +20,7 @@ const Layout: React.FC = ({ children }) => {
 			<header className={styles.header}>
 				<Nav links={links} onLinkClick={onLinkClick} />
 			</header>
+
 			<main className={styles.main_content}>
 				{children}
 				<div className={styles.scroll_up}>

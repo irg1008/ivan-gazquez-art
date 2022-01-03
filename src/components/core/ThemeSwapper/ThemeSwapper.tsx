@@ -1,6 +1,6 @@
 // import styles from './ThemeSwapper.module.css'
 import useTheme from 'stores/theme'
-import Dropdown from 'components/ui/Dropdown/Dropdown'
+import Dropdown from 'components/ui/Dropdown'
 import useTranslation from 'next-translate/useTranslation'
 
 const ThemeSwapper = () => {

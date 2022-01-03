@@ -2,31 +2,49 @@ import styles from './ScrollUp.module.css'
 import { BsArrowBarUp } from 'react-icons/bs'
 import useTranslation from 'next-translate/useTranslation'
 import useScroll from 'hooks/useScroll'
-import { Transition } from '@headlessui/react'
+import { AnimatePresence, Variant, Variants, motion } from 'framer-motion'
+
+interface ScrollVariants extends Variants {
+	visible: Variant
+	hidden: Variant
+}
 
 const ScrollUp = () => {
 	const { scrollToTop, isTop } = useScroll()
 	const { t } = useTranslation()
 
+	const scrollVariants: ScrollVariants = {
+		visible: {
+			opacity: 1,
+			y: 0,
+		},
+		hidden: {
+			opacity: 0,
+			y: 100,
+		},
+	}
+
 	return (
 		<div className={styles.holder}>
-			<Transition
-				show={!isTop}
-				enter="transition-all duration-200 ease-in-out"
-				enterFrom="translate-y-full opacity-0"
-				enterTo="translate-y-0 opacity-100"
-				leave="transition-all duration-200 ease-in-out"
-				leaveFrom="translate-y-0 opacity-100"
-				leaveTo="translate-y-full opacity-0"
-				className={`${styles.wrapper} ${!isTop && styles.floating}`}
-			>
-				<span className={styles.icon_container} onClick={scrollToTop}>
-					<BsArrowBarUp className={styles.icon} />
-				</span>
-				<div className={styles.msg_container}>
-					<p className={styles.msg}>{t('common:scroll')}</p>
-				</div>
-			</Transition>
+			<AnimatePresence initial={false}>
+				{!isTop && (
+					<motion.div
+						className={`${styles.wrapper} ${!isTop && styles.floating}`}
+						initial="hidden"
+						animate="visible"
+						exit="hidden"
+						variants={scrollVariants}
+						transition={{ type: 'tween' }}
+					>
+						<span className={styles.icon_container} onClick={scrollToTop}>
+							<BsArrowBarUp className={styles.icon} />
+						</span>
+						<div className={styles.msg_container}>
+							<p className={styles.msg}>{t('common:scroll')}</p>
+						</div>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</div>
 	)
 }

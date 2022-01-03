@@ -3,12 +3,17 @@ import LangSwapper from 'components/core/LangSwapper'
 import ThemeSwapper from 'components/core/ThemeSwapper'
 import useTranslation from 'next-translate/useTranslation'
 import { useEffect, useRef, useState } from 'react'
-import { useSpring, animated, config } from '@react-spring/web'
+import { Variant, Variants, motion } from 'framer-motion'
 
 type NavLinks = Record<string, string>
 type NavProps = {
 	links: NavLinks
 	onLinkClick: (link: string) => void
+}
+
+interface NavVariants extends Variants {
+	from: Variant
+	to: Variant
 }
 
 const Nav = ({ links, onLinkClick }: NavProps) => {
@@ -36,8 +41,7 @@ const Nav = ({ links, onLinkClick }: NavProps) => {
 		setAcumulativeWidth(acumulativeWidth)
 	}, [activePos, t])
 
-	const springStyles = useSpring({
-		config: config.stiff,
+	const navVariants: NavVariants = {
 		from: {
 			opacity: 0,
 		},
@@ -46,16 +50,19 @@ const Nav = ({ links, onLinkClick }: NavProps) => {
 			x: `${acumulativeWidth - 15}px`,
 			width: `${width + 30}px`,
 		},
-	})
+	}
 
 	return (
 		<div className={`${styles.nav} backdrop-blur firefox:bg-opacity-90`}>
 			<LangSwapper />
 			<div className={styles.links_wrapper}>
-				<animated.span
+				<motion.span
 					className={styles.tab_swapper}
-					style={springStyles}
-				></animated.span>
+					variants={navVariants}
+					initial="from"
+					animate="to"
+					transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+				/>
 				<ul className={styles.links} ref={linksRef}>
 					{Object.entries(links).map(([href, title], i) => (
 						<li
