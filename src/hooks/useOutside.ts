@@ -1,11 +1,8 @@
-import { useEffect, RefObject } from 'react'
+import { useEffect, useRef } from 'react'
 
-type Props = {
-	ref: RefObject<HTMLElement>
-	onClick: () => void
-}
+const useOutside = <T extends HTMLElement>(onClick: () => void) => {
+	const ref = useRef<T>(null)
 
-const useOutside = ({ ref, onClick }: Props) => {
 	useEffect(() => {
 		const handleclick = (e: MouseEvent) =>
 			ref.current && !ref.current.contains(e.target as Node) && onClick()
@@ -13,6 +10,8 @@ const useOutside = ({ ref, onClick }: Props) => {
 		document.addEventListener('mousedown', handleclick)
 		return () => document.removeEventListener('mousedown', handleclick)
 	}, [ref, onClick])
+
+	return [ref]
 }
 
 export default useOutside

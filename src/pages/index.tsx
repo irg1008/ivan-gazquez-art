@@ -15,7 +15,9 @@ const Home: NextPageWithLayout = () => {
 			/>
 			<Hero /> {/* <MarqueeSlider /> */}
 			<div id="about" className="bg-blue-200 h-[120rem]"></div>
+			<div id="languages" className="bg-purple-200-200 h-[20rem]"></div>
 			<div id="contact" className="bg-red-200 h-[120rem]"></div>
+			<div id="projects" className="bg-green-200 h-[20rem]"></div>
 		</>
 	)
 }

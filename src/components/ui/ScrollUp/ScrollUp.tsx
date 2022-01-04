@@ -1,7 +1,7 @@
 import styles from './ScrollUp.module.css'
 import { BsArrowBarUp } from 'react-icons/bs'
 import useTranslation from 'next-translate/useTranslation'
-import useScroll from 'hooks/useScroll'
+import useScrollPosition from 'hooks/useScrollPosition'
 import { AnimatePresence, Variant, Variants, motion } from 'framer-motion'
 
 interface ScrollVariants extends Variants {
@@ -10,7 +10,7 @@ interface ScrollVariants extends Variants {
 }
 
 const ScrollUp = () => {
-	const { scrollToTop, isTop } = useScroll()
+	const { scrollToTop, isTop } = useScrollPosition()
 	const { t } = useTranslation()
 
 	const scrollVariants: ScrollVariants = {

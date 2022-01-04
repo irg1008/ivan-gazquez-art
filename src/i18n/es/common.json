@@ -10,7 +10,9 @@
 	"links": {
 		"home": "inicio",
 		"about": "acerca de",
-		"contact": "contacto"
+		"contact": "contacto",
+		"projects": "proyectos",
+		"languages": "lenguajes"
 	},
 	"scroll": "Ir arriba"
 }

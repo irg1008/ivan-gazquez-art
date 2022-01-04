@@ -1,20 +1,21 @@
 import Nav from 'components/core/Nav'
 import ScrollUp from 'components/ui/ScrollUp'
-import useScroll from 'hooks/useScroll'
 import { useState } from 'react'
+import useScroll from 'hooks/useScrollPosition'
 import styles from './Layout.module.css'
 
 const Navigation = () => {
 	const [currentLink, setCurrentLink] = useState<string>()
 
-	const links = {
+	const links: Record<string, string> = {
 		about: 'about',
+		languages: 'languages',
 		contact: 'contact',
+		projects: 'projects',
 	}
 
 	// Navigate on click.
 	const onLinkClick = (href: string) => {
-		setCurrentLink(href)
 		const element = document.getElementById(href)
 		!!element && element.scrollIntoView({ behavior: 'smooth' })
 	}
@@ -26,11 +27,24 @@ const Navigation = () => {
 			linkOffsets[id] = document.getElementById(id)?.offsetTop ?? 0
 		})
 
-		const activeLink = Object.keys(linkOffsets)
-			.reverse()
-			.find((id) => linkOffsets[id] <= scrollPos)
+		// Strategy to choose the id.
+		const visible = Object.keys(linkOffsets).filter(
+			(id) => linkOffsets[id] < scrollPos + 200
+		)
 
-		setCurrentLink(activeLink)
+		if (visible.length === 0) {
+			setCurrentLink(undefined)
+			return
+		}
+
+		const keys = Object.keys(linkOffsets)
+		const closest = keys.reduce((prev, curr) => {
+			const diffPrev = Math.abs(linkOffsets[prev] - scrollPos)
+			const diffCurr = Math.abs(linkOffsets[curr] - scrollPos)
+			return diffPrev < diffCurr ? prev : curr
+		})
+
+		currentLink !== closest && setCurrentLink(closest)
 	}
 
 	useScroll(checkActive)

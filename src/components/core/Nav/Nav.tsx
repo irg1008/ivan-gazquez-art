@@ -4,6 +4,7 @@ import ThemeSwapper from 'components/core/ThemeSwapper'
 import useTranslation from 'next-translate/useTranslation'
 import { useEffect, useRef, useState } from 'react'
 import { Variant, Variants, motion, AnimatePresence } from 'framer-motion'
+import { on, off } from 'utils/events'
 
 type NavLinks = Record<string, string>
 type NavProps = {
@@ -19,8 +20,6 @@ interface NavVariants extends Variants {
 
 // TODO: REVISAR Y LIMPIAR
 const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
-	const { t } = useTranslation()
-
 	const [activeLink, setActiveLink] = useState<string | undefined>(currentLink)
 	const [activePos, setActivePos] = useState<number>(0)
 
@@ -30,12 +29,6 @@ const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
 			setActivePos(Object.keys(links).indexOf(currentLink))
 		}
 	}, [currentLink, links])
-
-	const setActive = (href: string, pos: number) => {
-		setActiveLink(href)
-		setActivePos(pos)
-		onLinkClick(href)
-	}
 
 	// Animated with spring. This could be improved a lot, but will do for now.
 	const [width, setWidth] = useState(0)
@@ -48,7 +41,7 @@ const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
 		const acumulativeWidth = currentElement?.offsetLeft ?? 0
 		setWidth(width)
 		setAcumulativeWidth(acumulativeWidth)
-	}, [activePos, t])
+	}, [activePos])
 
 	const navVariants: NavVariants = {
 		from: {
@@ -60,6 +53,18 @@ const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
 			width: `${width + 30}px`,
 		},
 	}
+
+	// Listen for nav section to update nav value.
+	useEffect(() => {
+		const updateNav = ({ detail }: CustomEvent) => {
+			const pos = Object.keys(links).indexOf(detail.id)
+			setActiveLink(detail.id)
+			setActivePos(pos)
+		}
+
+		on('update-nav', updateNav)
+		return () => off('update-nav', updateNav)
+	}, [links])
 
 	return (
 		<div className={`${styles.nav} backdrop-blur firefox:bg-opacity-90`}>
@@ -81,15 +86,15 @@ const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
 					)}
 				</AnimatePresence>
 				<ul className={styles.links} ref={linksRef}>
-					{Object.entries(links).map(([href, title], i) => (
+					{Object.entries(links).map(([href, title]) => (
 						<li
 							key={href}
 							className={`${activeLink === href && styles.active} ${
 								styles.link
 							}`}
-							onClick={() => setActive(href, i)}
+							onClick={() => onLinkClick(href)}
 						>
-							<a>{t(`common:links.${title}`)}</a>
+							<NavLink title={title} />
 						</li>
 					))}
 				</ul>
@@ -97,6 +102,15 @@ const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
 			<ThemeSwapper />
 		</div>
 	)
+}
+
+type NavLinkProps = {
+	title: string
+}
+
+const NavLink = ({ title }: NavLinkProps) => {
+	const { t } = useTranslation()
+	return <a>{t(`common:links.${title}`)}</a>
 }
 
 export default Nav
