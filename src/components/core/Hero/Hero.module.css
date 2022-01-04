@@ -5,6 +5,7 @@
   flex-col
   p-12
   uppercase
+  text-center
   w-full
   gap-4;
 }
@@ -23,11 +24,9 @@
 }
 
 .title {
-	@apply text-center
-  text-8xl;
+	@apply text-8xl;
 }
 
 .subtitle {
-	@apply text-center
-  text-5xl;
+	@apply text-5xl;
 }

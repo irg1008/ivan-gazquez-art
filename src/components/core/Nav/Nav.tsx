@@ -4,7 +4,6 @@ import ThemeSwapper from 'components/core/ThemeSwapper'
 import useTranslation from 'next-translate/useTranslation'
 import { useEffect, useRef, useState } from 'react'
 import { Variant, Variants, motion, AnimatePresence } from 'framer-motion'
-import { on, off } from 'utils/events'
 
 type NavLinks = Record<string, string>
 type NavProps = {
@@ -18,8 +17,9 @@ interface NavVariants extends Variants {
 	to: Variant
 }
 
-// TODO: REVISAR Y LIMPIAR
 const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
+	const { t } = useTranslation()
+
 	const [activeLink, setActiveLink] = useState<string | undefined>(currentLink)
 	const [activePos, setActivePos] = useState<number>(0)
 
@@ -41,7 +41,7 @@ const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
 		const acumulativeWidth = currentElement?.offsetLeft ?? 0
 		setWidth(width)
 		setAcumulativeWidth(acumulativeWidth)
-	}, [activePos])
+	}, [activePos, t])
 
 	const navVariants: NavVariants = {
 		from: {
@@ -53,18 +53,6 @@ const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
 			width: `${width + 30}px`,
 		},
 	}
-
-	// Listen for nav section to update nav value.
-	useEffect(() => {
-		const updateNav = ({ detail }: CustomEvent) => {
-			const pos = Object.keys(links).indexOf(detail.id)
-			setActiveLink(detail.id)
-			setActivePos(pos)
-		}
-
-		on('update-nav', updateNav)
-		return () => off('update-nav', updateNav)
-	}, [links])
 
 	return (
 		<div className={`${styles.nav} backdrop-blur firefox:bg-opacity-90`}>
@@ -94,7 +82,7 @@ const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
 							}`}
 							onClick={() => onLinkClick(href)}
 						>
-							<NavLink title={title} />
+							<a>{t(`common:links.${title}`)}</a>
 						</li>
 					))}
 				</ul>
@@ -102,15 +90,6 @@ const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
 			<ThemeSwapper />
 		</div>
 	)
-}
-
-type NavLinkProps = {
-	title: string
-}
-
-const NavLink = ({ title }: NavLinkProps) => {
-	const { t } = useTranslation()
-	return <a>{t(`common:links.${title}`)}</a>
 }
 
 export default Nav

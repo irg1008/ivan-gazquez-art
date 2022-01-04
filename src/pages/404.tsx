@@ -36,13 +36,13 @@ const Custom: NextPageWithLayout = () => {
 	const code = 404
 
 	return (
-		<>
+		<ErrorLayout>
 			<Head title={notFoundTitle} />
 			<section className={styles.wrapper}>
 				<h1 className={styles.code}>{code}</h1>
-				<h2>
+				<p>
 					{t('error:not-found')}: <strong>{path}</strong>
-				</h2>
+				</p>
 				<motion.span
 					initial="init"
 					animate="anim"
@@ -61,9 +61,8 @@ const Custom: NextPageWithLayout = () => {
 					{t('error:go-home')}
 				</button>
 			</section>
-		</>
+		</ErrorLayout>
 	)
 }
 
-Custom.Layout = ErrorLayout
 export default Custom

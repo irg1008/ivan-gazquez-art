@@ -75,3 +75,22 @@ hr {
 		w-full
 		my-4;
 }
+
+.screen_snap {
+	@apply flex flex-col
+		w-full h-screen
+		overflow-scroll
+		snap-y snap-proximity;
+	& .snap_section {
+		@apply relative
+		snap-start
+		flex-shrink-0
+		flex-nowrap
+		min-h-full
+    w-full;
+	}
+
+	&::-webkit-scrollbar {
+		@apply hidden;
+	}
+}

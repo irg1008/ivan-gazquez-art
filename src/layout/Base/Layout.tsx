@@ -4,20 +4,24 @@ import { useState } from 'react'
 import useScroll from 'hooks/useScrollPosition'
 import styles from './Layout.module.css'
 
-const Navigation = () => {
+type NavigationtProps = {
+	navLinks: Record<string, string>
+}
+
+const Navigation = ({ navLinks: links }: NavigationtProps) => {
 	const [currentLink, setCurrentLink] = useState<string>()
 
-	const links: Record<string, string> = {
-		about: 'about',
-		languages: 'languages',
-		contact: 'contact',
-		projects: 'projects',
-	}
+	// Scroll threshold
+	const threshold = 200
 
 	// Navigate on click.
 	const onLinkClick = (href: string) => {
 		const element = document.getElementById(href)
-		!!element && element.scrollIntoView({ behavior: 'smooth' })
+		!!element &&
+			window.scrollTo({
+				top: element.offsetTop - (threshold - 50),
+				behavior: 'smooth',
+			})
 	}
 
 	// On scroll check the id we are in.
@@ -29,7 +33,7 @@ const Navigation = () => {
 
 		// Strategy to choose the id.
 		const visible = Object.keys(linkOffsets).filter(
-			(id) => linkOffsets[id] < scrollPos + 200
+			(id) => linkOffsets[id] < scrollPos + threshold
 		)
 
 		if (visible.length === 0) {
@@ -54,11 +58,13 @@ const Navigation = () => {
 	)
 }
 
-const Layout: React.FC = ({ children }) => {
+type LayoutProps = Partial<NavigationtProps>
+
+const Layout: React.FC<LayoutProps> = ({ children, navLinks }) => {
 	return (
 		<section className={styles.layout}>
 			<header className={styles.header}>
-				<Navigation />
+				{!!navLinks && <Navigation navLinks={navLinks} />}
 			</header>
 
 			<main className={styles.main_content}>
