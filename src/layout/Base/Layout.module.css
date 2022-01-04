@@ -2,6 +2,7 @@
 }
 
 .layout {
+	@apply bg-light;
 }
 
 .header {

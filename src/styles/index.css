@@ -53,3 +53,25 @@ a {
 		transition
 		decoration-darker;
 }
+
+h1 {
+	@apply text-3xl
+		font-bold;
+}
+
+h2 {
+	@apply text-2xl
+		font-bold;
+}
+
+h3 {
+	@apply text-xl
+		font-bold;
+}
+
+hr {
+	@apply border-b-2
+		border-darker
+		w-full
+		my-4;
+}

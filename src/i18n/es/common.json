@@ -1,6 +1,7 @@
 {
-	"title": "título",
-	"subtitle": "subtítulo",
+	"title": "¡hola!",
+	"subtitle": "mi nombre es Iván",
+	"detail": "y soy ingeniero de software",
 	"base": "base",
 	"theme": {
 		"dark": "oscuro",
@@ -9,7 +10,9 @@
 	"links": {
 		"home": "inicio",
 		"about": "acerca de",
-		"contact": "contacto"
+		"contact": "contacto",
+		"projects": "proyectos",
+		"languages": "lenguajes"
 	},
 	"scroll": "Ir arriba"
 }

@@ -1,6 +1,7 @@
 .wrapper {
 	@apply flex items-center justify-center
     flex-row-reverse
+    pointer-events-none
     p-4;
 }
 
@@ -8,7 +9,7 @@
 	@apply transition-transform
         duration-200
         ease-in-out
-        hover:-translate-y-2;
+        lg:hover:-translate-y-2;
 }
 
 .holder {
@@ -28,12 +29,13 @@
     transition-shadow
     hover:shadow-lg
     hover:shadow-prim/100
+    pointer-events-auto
     z-10
     p-3;
 
 	&:hover {
 		& .icon {
-			@apply lg:animate-up-infinite;
+			@apply animate-up-infinite;
 		}
 
 		& + .msg_container .msg {

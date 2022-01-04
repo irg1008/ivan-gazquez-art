@@ -20,7 +20,7 @@ const Head = ({ title, description, canonical }: Props) => {
 					content="width=device-width,initial-scale=1"
 					key="viewport"
 				/>
-				<link rel="apple-touch-icon" href="/favicon.ico" key="apple" />
+				{/* <link rel="apple-touch-icon" href="/favicon.ico" key="apple" /> */}
 				<link
 					rel="icon"
 					type="image/png"

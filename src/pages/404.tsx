@@ -5,7 +5,12 @@ import { useRouter } from 'next/router'
 import styles from 'styles/404.module.css'
 import { BiConfused } from 'react-icons/bi'
 import ErrorLayout from 'layout/Error'
-import { useSpring, animated, config } from '@react-spring/web'
+import { motion, Variant, Variants } from 'framer-motion'
+
+interface CustomVariants extends Variants {
+	init: Variant
+	anim: Variant
+}
 
 const Custom: NextPageWithLayout = () => {
 	const { t } = useTranslation()
@@ -15,16 +20,18 @@ const Custom: NextPageWithLayout = () => {
 	const notFoundTitle = `${t('error:not-found-title')}: ${path}`
 
 	// Spring styles.
-	const springStyles = useSpring({
-		loop: { reverse: true },
-		from: {
-			transform: 'translateY(-50%) scale(100%) scaleX(-1)',
+	const customVariants: CustomVariants = {
+		init: {
+			scale: 1,
+			scaleX: -1,
+			y: -200,
 		},
-		to: {
-			transform: 'translateY(-50%) scale(105%) scaleX(-1)',
+		anim: {
+			scale: 1.05,
+			scaleX: -1,
+			y: -220,
 		},
-		config: { duration: 800, ...config.stiff },
-	})
+	}
 
 	const code = 404
 
@@ -36,9 +43,20 @@ const Custom: NextPageWithLayout = () => {
 				<h2>
 					{t('error:not-found')}: <strong>{path}</strong>
 				</h2>
-				<animated.span style={springStyles} className={styles.confused}>
+				<motion.span
+					initial="init"
+					animate="anim"
+					variants={customVariants}
+					className={styles.confused}
+					transition={{
+						repeat: Infinity,
+						repeatType: 'mirror',
+						type: 'tween',
+						duration: 1,
+					}}
+				>
 					<BiConfused className={styles.icon} />
-				</animated.span>
+				</motion.span>
 				<button type="button" className={styles.go_home} onClick={goHome}>
 					{t('error:go-home')}
 				</button>

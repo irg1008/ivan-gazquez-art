@@ -1,7 +1,7 @@
 // import styles from './LangSwapper.module.css'
 import { useRouter } from 'next/router'
 import { useCookies } from 'react-cookie'
-import Dropdown from 'components/ui/Dropdown/Dropdown'
+import Dropdown from 'components/ui/Dropdown'
 
 const fullNames: Record<string, string> = {
 	en: 'English',

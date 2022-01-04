@@ -1,7 +1,13 @@
 import styles from './Dropdown.module.css'
-import { useEffect, useState } from 'react'
-import { Listbox } from '@headlessui/react'
+import { useEffect, useRef, useState } from 'react'
 import { HiSelector, HiCheck } from 'react-icons/hi'
+import { motion, Variants, Variant, AnimatePresence } from 'framer-motion'
+import { useClickAway as useOutside } from 'react-use'
+
+interface DropdownVariants extends Variants {
+	visible: Variant
+	hidden: Variant
+}
 
 type DropdownProps = {
 	options: string[]
@@ -16,6 +22,9 @@ const Dropdown: React.FC<DropdownProps> = ({
 	defaultOption,
 	keyValues,
 }) => {
+	const [open, setOpen] = useState(false)
+	const toggleOpen = () => setOpen(!open)
+
 	const [selectedOption, setSelectedOption] = useState(defaultOption)
 
 	// when parents changes default (i.e: locale changes) => Change here
@@ -31,34 +40,66 @@ const Dropdown: React.FC<DropdownProps> = ({
 		handler(newOptionKey)
 	}
 
+	const optionClick = (option: string) => {
+		updateSelection(option)
+		setOpen(false)
+	}
+
+	// Motion.
+	const dropdownVariants: DropdownVariants = {
+		visible: {
+			opacity: 1,
+			scale: 1,
+		},
+		hidden: {
+			opacity: 0,
+			scale: 0,
+		},
+	}
+
+	// Click outside.
+	const dropRef = useRef<HTMLDivElement>(null)
+	// On hover outside, close the dropdown.
+	useOutside(dropRef, () => setOpen(false), ['mousedown', 'touchstart'])
+
 	return (
-		<div className={styles.dropdown}>
-			<Listbox value={selectedOption} onChange={updateSelection}>
-				<Listbox.Button className={styles.options_btn}>
-					{selectedOption}
-					<span className={styles.btn_icon}>
-						<HiSelector />
-					</span>
-				</Listbox.Button>
-				<Listbox.Options className={styles.options}>
-					{options.map((option) => (
-						<Listbox.Option key={option} value={option}>
-							{({ selected }) => (
-								<div
-									className={`${selected && styles.selected} ${styles.option}`}
+		<div className={styles.dropdown} ref={dropRef}>
+			<button type="button" className={styles.options_btn} onClick={toggleOpen}>
+				{selectedOption}
+				<span className={styles.btn_icon}>
+					<HiSelector />
+				</span>
+			</button>
+			<AnimatePresence>
+				{open && (
+					<motion.div
+						variants={dropdownVariants}
+						initial="hidden"
+						animate="visible"
+						exit="hidden"
+						transition={{ type: 'spring', stiffness: 250, damping: 20 }}
+					>
+						<ul className={styles.options}>
+							{options.map((option) => (
+								<li
+									key={option}
+									className={`${selectedOption === option && styles.selected} ${
+										styles.option
+									}`}
+									onClick={() => optionClick(option)}
 								>
 									{option}
-									{selected && (
+									{selectedOption === option && (
 										<span className={styles.btn_icon}>
 											<HiCheck />
 										</span>
 									)}
-								</div>
-							)}
-						</Listbox.Option>
-					))}
-				</Listbox.Options>
-			</Listbox>
+								</li>
+							))}
+						</ul>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</div>
 	)
 }
