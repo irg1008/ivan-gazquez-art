@@ -14,10 +14,18 @@ const Home: NextPageWithLayout = () => {
 				description={t('home:meta-description')}
 			/>
 			<Hero /> {/* <MarqueeSlider /> */}
-			<div id="about" className="bg-blue-200 h-[120rem]"></div>
-			<div id="languages" className="bg-purple-200-200 h-[20rem]"></div>
-			<div id="contact" className="bg-red-200 h-[120rem]"></div>
-			<div id="projects" className="bg-green-200 h-[20rem]"></div>
+			<div id="about" className="bg-blue-200 h-[120rem]">
+				<h1>ABOUT</h1>
+			</div>
+			<div id="languages" className="bg-purple-200-200 h-[20rem]">
+				<h1>LANGUAGES</h1>
+			</div>
+			<div id="contact" className="bg-red-200 h-[120rem]">
+				<h1>CONTACT</h1>
+			</div>
+			<div id="projects" className="bg-green-200 h-[20rem]">
+				<h1>PROJECTS</h1>
+			</div>
 		</>
 	)
 }

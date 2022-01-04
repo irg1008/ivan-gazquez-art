@@ -1,9 +1,8 @@
 import styles from './Dropdown.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { HiSelector, HiCheck } from 'react-icons/hi'
 import { motion, Variants, Variant, AnimatePresence } from 'framer-motion'
-import useOutside from 'hooks/useOutside'
-// import {} from "hooks"
+import { useClickAway as useOutside } from 'react-use'
 
 interface DropdownVariants extends Variants {
 	visible: Variant
@@ -59,7 +58,9 @@ const Dropdown: React.FC<DropdownProps> = ({
 	}
 
 	// Click outside.
-	const [dropRef] = useOutside<HTMLDivElement>(() => setOpen(false))
+	const dropRef = useRef<HTMLDivElement>(null)
+	// On hover outside, close the dropdown.
+	useOutside(dropRef, () => setOpen(false), ['mousedown', 'touchstart'])
 
 	return (
 		<div className={styles.dropdown} ref={dropRef}>
