@@ -11,7 +11,8 @@
 		"**/coverage": true,
 		"**/node_modules": true,
 		"**/out": true,
-		"**/package-lock.json": true
+		"**/package-lock.json": true,
+		"**/.github": true
 	},
 	"workspace.isHidden": true
 }

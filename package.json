@@ -18,7 +18,8 @@
 		"prisma:gen": "prisma generate",
 		"prisma:mig:dev": "prisma migrate dev",
 		"prisma:std": "prisma studio",
-		"prisma:push": "prisma db push"
+		"prisma:push": "prisma db push",
+		"prisma:pull": "prisma db pull"
 	},
 	"husky": {
 		"hooks": {
