@@ -44,4 +44,4 @@ out
 .husky
 
 # .env
-.env.*.local
+.env*

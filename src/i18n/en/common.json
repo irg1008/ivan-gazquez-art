@@ -14,5 +14,7 @@
 		"projects": "projects",
 		"languages": "languages"
 	},
-	"scroll": "scroll to top"
+	"scroll": "scroll to top",
+	"log_in": "log in",
+	"log_out": "log out"
 }

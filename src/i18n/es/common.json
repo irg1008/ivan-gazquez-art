@@ -14,5 +14,7 @@
 		"projects": "proyectos",
 		"languages": "lenguajes"
 	},
-	"scroll": "Ir arriba"
+	"scroll": "Ir arriba",
+	"log_in": "Iniciar sesión",
+	"log_out": "Cerrar sesión"
 }

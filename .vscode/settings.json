@@ -13,6 +13,5 @@
 		"**/out": true,
 		"**/package-lock.json": true
 	},
-	"workspace.isHidden": true,
-	"npm-scripts.showStartNotification": false
+	"workspace.isHidden": true
 }
