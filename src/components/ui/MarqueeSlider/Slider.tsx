@@ -101,13 +101,17 @@ const icons = [
 	SiWebcomponentsdotorg,
 ]
 
+type SliderProps = {
+	children: React.ReactNode
+}
+
 /**
  * Create an infinite slider.
  *
  * @param {*} { children }
  * @return {*}  {JSX.Element}
  */
-const Slider: React.FC = ({ children }): JSX.Element => {
+const Slider = ({ children }: SliderProps): JSX.Element => {
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.marquee}>{children}</div>

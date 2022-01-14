@@ -16,12 +16,12 @@ type DropdownProps = {
 	handler: (value: string) => void
 }
 
-const Dropdown: React.FC<DropdownProps> = ({
+const Dropdown = ({
 	handler,
 	options,
 	defaultOption,
 	keyValues,
-}) => {
+}: DropdownProps) => {
 	const [open, setOpen] = useState(false)
 	const toggleOpen = () => setOpen(!open)
 

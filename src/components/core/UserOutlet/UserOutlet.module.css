@@ -13,3 +13,10 @@
 .icon {
 	@apply text-xl;
 }
+
+.loading {
+	@apply animate-spin
+        rounded-full
+        bg-light
+        h-6 w-6;
+}

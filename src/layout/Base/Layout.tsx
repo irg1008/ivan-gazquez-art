@@ -3,7 +3,7 @@ import ScrollUp from 'components/ui/ScrollUp'
 import { useState } from 'react'
 import useScroll from 'hooks/useScrollPosition'
 import styles from './Layout.module.css'
-import LogInButton from 'components/core/LogInButton'
+import UserOutlet from 'components/core/UserOutlet'
 
 type NavigationtProps = {
 	navLinks: Record<string, string>
@@ -59,14 +59,16 @@ const Navigation = ({ navLinks: links }: NavigationtProps) => {
 	)
 }
 
-type LayoutProps = Partial<NavigationtProps>
+type LayoutProps = Partial<NavigationtProps> & {
+	children: React.ReactNode
+}
 
-const Layout: React.FC<LayoutProps> = ({ children, navLinks }) => {
+const Layout = ({ children, navLinks }: LayoutProps) => {
 	return (
 		<section className={styles.layout}>
 			<header className={styles.header}>
 				{!!navLinks && <Navigation navLinks={navLinks} />}
-				<LogInButton />
+				<UserOutlet />
 			</header>
 
 			<main className={styles.main_content}>
