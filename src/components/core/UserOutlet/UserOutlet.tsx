@@ -19,9 +19,11 @@ const SignOutButton = () => {
 	const { t } = useTranslation()
 	const handleSignOut = () => signOut({ redirect: false })
 
+	const logOut = t('common:log_out')
+
 	return (
 		<button type="button" onClick={handleSignOut}>
-			{t('common:log_out')}
+			{logOut.toUpperCase()}
 		</button>
 	)
 }
