@@ -14,6 +14,7 @@ const Hero = () => {
 					src="/images/avatar.jpg"
 					alt="Hero Avatar"
 					layout="fill"
+					priority
 					objectFit="cover"
 					quality={10}
 					objectPosition="top"

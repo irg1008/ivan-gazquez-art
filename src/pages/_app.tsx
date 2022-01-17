@@ -5,6 +5,8 @@ import Head from 'components/meta/Head'
 import '../styles/index.css'
 import { SessionProvider } from 'next-auth/react'
 import { Session } from 'next-auth'
+import BaseLayout from 'layout/Base'
+import { AnimatePresence } from 'framer-motion'
 
 type AppPropsWithLayout = AppProps & {
 	Component: NextPageWithLayout
@@ -17,12 +19,18 @@ function MyApp({
 	Component,
 	pageProps: { session, ...pageProps },
 }: AppPropsWithLayout) {
+	const Layout = Component.Layout ?? BaseLayout
+
 	return (
 		<>
 			<Head title="Default Title" description="Default Description" />
 			<SessionProvider session={session}>
 				<CookiesProvider>
-					<Component {...pageProps} />
+					<AnimatePresence>
+						<Layout>
+							<Component {...pageProps} />
+						</Layout>
+					</AnimatePresence>
 				</CookiesProvider>
 			</SessionProvider>
 		</>

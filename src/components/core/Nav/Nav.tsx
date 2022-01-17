@@ -4,12 +4,11 @@ import ThemeSwapper from 'components/core/ThemeSwapper'
 import useTranslation from 'next-translate/useTranslation'
 import { useEffect, useRef, useState } from 'react'
 import { Variant, Variants, motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
-type NavLinks = Record<string, string>
 type NavProps = {
-	links: NavLinks
-	currentLink?: string
-	onLinkClick: (link: string) => void
+	links: Record<string, string>
 }
 
 interface NavVariants extends Variants {
@@ -17,18 +16,12 @@ interface NavVariants extends Variants {
 	to: Variant
 }
 
-const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
+const Nav = ({ links }: NavProps) => {
 	const { t } = useTranslation()
+	const { pathname } = useRouter()
 
-	const [activeLink, setActiveLink] = useState<string | undefined>(currentLink)
+	const [activeLink, setActiveLink] = useState<string | undefined>()
 	const [activePos, setActivePos] = useState<number>(0)
-
-	useEffect(() => {
-		setActiveLink(currentLink)
-		if (!!currentLink) {
-			setActivePos(Object.keys(links).indexOf(currentLink))
-		}
-	}, [currentLink, links])
 
 	// Animated with spring. This could be improved a lot, but will do for now.
 	const [width, setWidth] = useState(0)
@@ -53,6 +46,11 @@ const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
 			width: `${width + 30}px`,
 		},
 	}
+
+	useEffect(() => {
+		setActiveLink(pathname)
+		setActivePos(Object.keys(links).indexOf(pathname))
+	}, [pathname, links])
 
 	return (
 		<div className={`${styles.nav} backdrop-blur firefox:bg-opacity-90`}>
@@ -80,9 +78,8 @@ const Nav = ({ links, onLinkClick, currentLink }: NavProps) => {
 							className={`${activeLink === href && styles.active} ${
 								styles.link
 							}`}
-							onClick={() => onLinkClick(href)}
 						>
-							<a>{t(`common:links.${title}`)}</a>
+							<Link href={href}>{t(`common:links.${title}`)}</Link>
 						</li>
 					))}
 				</ul>

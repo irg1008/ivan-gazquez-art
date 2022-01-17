@@ -1,5 +1,5 @@
 // import styles from './ThemeSwapper.module.css'
-import useTheme from 'stores/theme'
+import useTheme from 'contexts/theme'
 import Dropdown from 'components/ui/Dropdown'
 import useTranslation from 'next-translate/useTranslation'
 

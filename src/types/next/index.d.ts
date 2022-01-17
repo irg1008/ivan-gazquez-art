@@ -1,14 +1,13 @@
 import { NextPage } from 'next'
-import React from 'react'
 
 declare module 'next' {
-	type LayoutPage<T> = T & {
-		children: React.ReactNode
+	type LayoutPage<T = unknown> = {
+		(props: PropsWithChildren<T>): ReactElement<unknown, unknown> | null
 	}
 
-	type NextPageWithLayout = NextPage & {
-		Layout?: LayoutPage
+	type NextPageWithLayout<T = unknown> = NextPage & {
+		Layout?: LayoutPage<T>
 	}
 
-	export { NextPageWithLayout }
+	export { NextPageWithLayout, LayoutPage }
 }
