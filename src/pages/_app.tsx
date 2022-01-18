@@ -1,12 +1,10 @@
 import type { AppProps } from 'next/app'
 import { NextPageWithLayout } from 'next'
-import { CookiesProvider } from 'react-cookie'
 import Head from 'components/meta/Head'
 import '../styles/index.css'
 import { SessionProvider } from 'next-auth/react'
 import { Session } from 'next-auth'
 import BaseLayout from 'layout/Base'
-import { AnimatePresence } from 'framer-motion'
 
 type AppPropsWithLayout = AppProps & {
 	Component: NextPageWithLayout
@@ -25,13 +23,9 @@ function MyApp({
 		<>
 			<Head title="Default Title" description="Default Description" />
 			<SessionProvider session={session}>
-				<CookiesProvider>
-					<AnimatePresence>
-						<Layout>
-							<Component {...pageProps} />
-						</Layout>
-					</AnimatePresence>
-				</CookiesProvider>
+				<Layout>
+					<Component {...pageProps} />
+				</Layout>
 			</SessionProvider>
 		</>
 	)

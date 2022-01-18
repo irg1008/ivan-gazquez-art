@@ -2,8 +2,8 @@ import styles from './Nav.module.css'
 import LangSwapper from 'components/core/LangSwapper'
 import ThemeSwapper from 'components/core/ThemeSwapper'
 import useTranslation from 'next-translate/useTranslation'
-import { useEffect, useRef, useState } from 'react'
-import { Variant, Variants, motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -11,82 +11,39 @@ type NavProps = {
 	links: Record<string, string>
 }
 
-interface NavVariants extends Variants {
-	from: Variant
-	to: Variant
-}
-
-const Nav = ({ links }: NavProps) => {
+const TabNav = ({ links }: NavProps) => {
+	const [selectedTab, setSelectedTab] = useState<number>()
 	const { t } = useTranslation()
 	const { pathname } = useRouter()
 
-	const [activeLink, setActiveLink] = useState<string | undefined>()
-	const [activePos, setActivePos] = useState<number>(0)
-
-	// Animated with spring. This could be improved a lot, but will do for now.
-	const [width, setWidth] = useState(0)
-	const [acumulativeWidth, setAcumulativeWidth] = useState(0)
-	const linksRef = useRef<HTMLUListElement>(null)
-
 	useEffect(() => {
-		const currentElement = linksRef.current?.children[activePos] as HTMLElement
-		const width = currentElement?.clientWidth ?? 0
-		const acumulativeWidth = currentElement?.offsetLeft ?? 0
-		setWidth(width)
-		setAcumulativeWidth(acumulativeWidth)
-	}, [activePos, t])
-
-	const navVariants: NavVariants = {
-		from: {
-			opacity: 0,
-		},
-		to: {
-			opacity: 1,
-			x: `${acumulativeWidth - 15}px`,
-			width: `${width + 30}px`,
-		},
-	}
-
-	useEffect(() => {
-		setActiveLink(pathname)
-		setActivePos(Object.keys(links).indexOf(pathname))
-	}, [pathname, links])
+		const index = Object.keys(links).indexOf(pathname)
+		if (index !== selectedTab) setSelectedTab(index)
+	}, [pathname, links, selectedTab])
 
 	return (
-		<div className={`${styles.nav} backdrop-blur firefox:bg-opacity-90`}>
+		<nav className={`${styles.nav} backdrop-blur firefox:bg-opacity-90`}>
 			<LangSwapper />
-			<div className={styles.links_wrapper}>
-				<AnimatePresence>
-					{!!activeLink && (
-						<motion.span
-							className={styles.tab_swapper}
-							variants={navVariants}
-							initial="from"
-							animate="to"
-							exit="from"
-							whileHover={{
-								opacity: 0.2,
-							}}
-							transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-						/>
-					)}
-				</AnimatePresence>
-				<ul className={styles.links} ref={linksRef}>
-					{Object.entries(links).map(([href, title]) => (
-						<li
-							key={href}
-							className={`${activeLink === href && styles.active} ${
-								styles.link
-							}`}
-						>
-							<Link href={href}>{t(`common:links.${title}`)}</Link>
-						</li>
-					))}
-				</ul>
-			</div>
+			<ul className={styles.links}>
+				{Object.entries(links).map(([href, title], i) => (
+					<li
+						key={href}
+						className={`${i === selectedTab && styles.active} ${styles.link}`}
+					>
+						<Link href={href}>{t(`common:links.${title}`)}</Link>
+						{i === selectedTab ? (
+							<motion.div
+								className={styles.underline}
+								layoutId="underline"
+								transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+							/>
+						) : null}
+					</li>
+				))}
+			</ul>
 			<ThemeSwapper />
-		</div>
+		</nav>
 	)
 }
 
-export default Nav
+export default TabNav

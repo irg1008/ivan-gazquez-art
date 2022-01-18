@@ -13,6 +13,9 @@ const About = () => {
 				description={t('home:meta-description')}
 			/>
 			<MarqueeSlider />
+			<MarqueeSlider />
+			<MarqueeSlider />
+			<MarqueeSlider />
 		</>
 	)
 }

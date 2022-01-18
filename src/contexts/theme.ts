@@ -1,4 +1,4 @@
-import create from 'zustand'
+import create, { GetState, SetState, StoreApi } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 const themes = ['light', 'dark'] as const
@@ -21,10 +21,18 @@ const getToggledTheme = (oldTheme: Theme): Theme =>
 	oldTheme === 'dark' ? 'light' : 'dark'
 
 const themeStore = create<ThemeStore>(
-	persist(
-		(set, get) => ({
+	persist<
+		ThemeStore,
+		SetState<ThemeStore>,
+		GetState<ThemeStore>,
+		StoreApi<ThemeStore>
+	>(
+		(set) => ({
 			theme: 'light',
-			toggleTheme: () => set({ theme: getToggledTheme(get().theme) }),
+			toggleTheme: () =>
+				set(({ theme: old }) => ({
+					theme: getToggledTheme(old),
+				})),
 			setTheme: (theme: Theme) => set({ theme }),
 		}),
 		{
@@ -32,7 +40,6 @@ const themeStore = create<ThemeStore>(
 			onRehydrateStorage: () => {
 				return (state) => !!state && addToDoc(state.theme)
 			},
-			getStorage: () => localStorage,
 		}
 	)
 )
@@ -41,4 +48,5 @@ themeStore.subscribe(({ theme }) => addToDoc(theme))
 
 const useTheme = () => ({ ...themeStore(), themes })
 
+export type { Theme }
 export default useTheme

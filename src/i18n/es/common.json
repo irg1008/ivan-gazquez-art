@@ -5,7 +5,8 @@
 	"base": "base",
 	"theme": {
 		"dark": "oscuro",
-		"light": "claro"
+		"light": "claro",
+		"set": "tema {{theme}}"
 	},
 	"links": {
 		"home": "inicio",

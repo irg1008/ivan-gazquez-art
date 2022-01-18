@@ -12,23 +12,6 @@
 		flex items-center justify-between;
 }
 
-.links_wrapper {
-	@apply relative;
-}
-
-.tab_swapper {
-	@apply absolute
-		-top-0 left-0
-		h-full
-		bg-prim
-		rounded-full
-		bg-opacity-10
-		border-4
-		border-prim
-		shadow-lg shadow-prim/30
-		pointer-events-none;
-}
-
 .links {
 	@apply flex
 		min-h-[50px]
@@ -39,9 +22,10 @@
 
 .link {
 	@apply flex justify-center items-center
-		cursor-pointer;
+		cursor-pointer
+		relative;
 	& a {
-		@apply !no-underline;
+		@apply !no-underline p-4;
 	}
 }
 
@@ -49,4 +33,17 @@
 	& a {
 		@apply text-prim;
 	}
+}
+
+.underline {
+	@apply absolute
+		bottom-0
+		left-0
+		w-full
+		h-full
+		border-4
+		border-prim
+		rounded-full
+		shadow-lg shadow-prim/30
+		bg-prim/10;
 }
