@@ -1,4 +1,6 @@
 .main_content {
+	@apply relative
+	overflow-x-hidden;
 }
 
 .layout {
@@ -19,11 +21,4 @@
 	@apply sticky
 		bottom-0
 		flex justify-end;
-}
-
-.footer {
-	@apply h-96
-		w-full
-		bg-neutral-900
-		text-neutral-50;
 }

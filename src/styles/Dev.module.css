@@ -1,0 +1,41 @@
+.knowledge {
+	@apply w-full
+  flex
+  justify-center
+  items-center
+  flex-col
+  p-8;
+	& hr {
+		@apply border-dark
+    max-w-screen-xl
+    my-12;
+	}
+}
+
+.knowledge_title {
+	@apply text-center
+  lg:text-6xl
+  underline
+  decoration-prim/30
+  decoration-8
+  decoration-wavy
+  uppercase
+  mb-16;
+}
+
+.blob,
+.blob_bottom {
+	@apply absolute
+  text-prim/10;
+	z-index: -1;
+}
+
+.blob {
+	@apply top-80
+  -right-40;
+}
+
+.blob_bottom {
+	@apply bottom-60
+  -left-40;
+}

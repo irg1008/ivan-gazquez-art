@@ -20,7 +20,6 @@ const Hero = () => {
 							objectFit="cover"
 							quality={10}
 							objectPosition="top"
-							className="grayscale-[0.25]"
 						/>
 					</div>
 					<div className={styles.text}>

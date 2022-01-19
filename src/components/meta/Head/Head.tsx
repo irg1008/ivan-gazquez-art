@@ -38,7 +38,7 @@ const Head = ({ title, description, canonical }: Props) => {
 				<link rel="icon" href="/favicon.ico" key="favicon" />
 			</NextHead>
 			<NextSeo
-				title={title}
+				title={`${title} - Portfolio`}
 				description={description}
 				canonical={canonical}
 				openGraph={{

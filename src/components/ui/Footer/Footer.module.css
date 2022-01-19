@@ -1,0 +1,6 @@
+.footer {
+	@apply min-h-[20rem]
+		bg-neutral-800
+		text-neutral-50
+    p-4;
+}

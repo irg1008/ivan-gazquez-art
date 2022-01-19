@@ -3,6 +3,7 @@ import ScrollUp from 'components/ui/ScrollUp'
 import styles from './Layout.module.css'
 import { LayoutPage } from 'next'
 import useTranslation from 'next-translate/useTranslation'
+import Footer from 'components/ui/Footer'
 
 const Layout: LayoutPage = ({ children }) => {
 	const { t } = useTranslation()
@@ -31,7 +32,7 @@ const Layout: LayoutPage = ({ children }) => {
 				</div>
 			</main>
 
-			<footer className={styles.footer}></footer>
+			<Footer />
 		</section>
 	)
 }

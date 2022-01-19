@@ -66,7 +66,7 @@ const Nav = ({ links }: NavProps) => {
 								initial="hidden"
 								animate="visible"
 								exit="hidden"
-								className={styles.bg}
+								className={`${styles.bg} backdrop-blur-sm`}
 								transition={transition}
 								onClick={() => toggleNavOpen(false)}
 							/>
