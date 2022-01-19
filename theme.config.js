@@ -22,7 +22,7 @@ const themeConfig = {
 					tert: lightPrimary[300],
 				},
 				borderRadius: {
-					custom: '9999px',
+					custom: '8px',
 				},
 				borderWidth: {
 					button: '2px',

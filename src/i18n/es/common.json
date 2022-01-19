@@ -1,19 +1,13 @@
 {
-	"title": "¡hola!",
-	"subtitle": "mi nombre es Iván",
-	"detail": "y soy ingeniero de software",
-	"base": "base",
 	"theme": {
 		"dark": "oscuro",
 		"light": "claro",
-		"set": "tema {{theme}}"
+		"set": "Cambiar tema {{theme}}"
 	},
 	"links": {
-		"home": "inicio",
-		"about": "acerca de",
-		"contact": "contacto",
-		"projects": "proyectos",
-		"languages": "lenguajes"
+		"dev": "desarrollo web",
+		"design": "diseño",
+		"about": "sobre mi"
 	},
 	"scroll": "ir arriba",
 	"log_in": "iniciar sesión",
