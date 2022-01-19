@@ -3,5 +3,14 @@
 	"meta-description": "Home Description",
 	"title": "hi there!",
 	"subtitle": "my name is Iván",
-	"detail": "Hi i am an UBU student and i am a web developer, i have a passion for web development and i am currently working on my portfolio. Hi i am an UBU student and i am a web developer, i have a passion for web development and i am currently working on my portfolio."
+	"detail": "Hi i am an UBU student and i am a web developer, i have a passion for web development and i am currently working on my portfolio. Hi i am an UBU student and i am a web developer, i have a passion for web development and i am currently working on my portfolio.",
+	"knowledge": {
+		"title": "i spend my time doing",
+		"languages": "languages",
+		"technologies": "tecnhologies",
+		"tools": "tools",
+		"languages-learning": "languages i am learning",
+		"technologies-learning": "tecnhologies i am learning",
+		"tools-learning": "tools i am learning"
+	}
 }

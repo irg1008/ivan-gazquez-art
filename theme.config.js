@@ -16,7 +16,7 @@ const themeConfig = {
 					light: lightTheme[300],
 					medium: lightTheme[400],
 					dark: lightTheme[700],
-					darker: lightTheme[900],
+					darker: lightTheme[800],
 					prim: lightPrimary[700],
 					sec: lightPrimary[400],
 					tert: lightPrimary[300],

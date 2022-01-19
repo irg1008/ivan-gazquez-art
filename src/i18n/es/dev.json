@@ -3,5 +3,14 @@
 	"meta-description": "Descripción de Inicio",
 	"title": "¡hola!",
 	"subtitle": "me llamo Iván",
-	"detail": "Soy un estudiante de la UBU, estoy cursando el curso de Desarrollo Web en la UBU. Me gusta mucho la programación y la tecnología. Soy un estudiante de la UBU, estoy cursando el curso de Desarrollo Web en la UBU. Me gusta mucho la programación y la tecnología."
+	"detail": "Soy un estudiante de la UBU, estoy cursando el curso de Desarrollo Web en la UBU. Me gusta mucho la programación y la tecnología. Soy un estudiante de la UBU, estoy cursando el curso de Desarrollo Web en la UBU. Me gusta mucho la programación y la tecnología.",
+	"knowledge": {
+		"title": "dedico mi tiempo a",
+		"languages": "lenguajes",
+		"technologies": "tecnologías",
+		"tools": "herramientas",
+		"languages-learning": "lenguajes que estoy aprendiendo",
+		"technologies-learning": "tecnologías que estoy aprendiendo",
+		"tools-learning": "herramientas que estoy aprendiendo"
+	}
 }
