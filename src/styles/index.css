@@ -21,6 +21,9 @@ html {
 body {
 	@apply min-h-screen
 		bg-lighter
+		bg-gradient-to-br
+		from-prim/20
+		to-prim/40
 		text-darker
 		flex
 		flex-col;
@@ -38,8 +41,8 @@ button,
 		shadow-md
 		shadow-prim/30
 		hover:bg-opacity-70
-		active:scale-95
-		transition-all;
+		transition-all
+		active:scale-95;
 }
 
 div[role='group'] {

@@ -20,11 +20,9 @@ const SignOutButton = () => {
 	const { t } = useTranslation()
 	const handleSignOut = () => signOut({ redirect: false })
 
-	const logOut = t('common:log_out')
-
 	return (
-		<button type="button" onClick={handleSignOut}>
-			{logOut.toUpperCase()}
+		<button type="button" className={styles.log_in} onClick={handleSignOut}>
+			{t('common:log_out')}
 		</button>
 	)
 }
@@ -35,10 +33,10 @@ const UserOutlet = () => {
 	if (status === 'loading') return <Loading />
 	else if (status === 'unauthenticated') return <SignInButton />
 	return (
-		<>
+		<div className={styles.wrapper}>
 			{session?.user?.name}
 			<SignOutButton />
-		</>
+		</div>
 	)
 }
 

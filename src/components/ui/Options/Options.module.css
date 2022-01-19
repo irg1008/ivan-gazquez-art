@@ -12,20 +12,20 @@
 
 .options_btn {
 	@apply !py-2 !px-4
-    !bg-light
+    !bg-light/40
     !text-darker
     !shadow-medium/50
     text-left
     relative
     border-2
+    border-dark
     flex
     items-center
     justify-between
     gap-2
     !font-normal
-    border-dark
     uppercase
-    !rounded-full;
+    rounded-custom;
 }
 
 .btn_icon {

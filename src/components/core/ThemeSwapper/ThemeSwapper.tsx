@@ -2,7 +2,7 @@
 import useTheme, { Theme } from 'contexts/theme'
 import useTranslation from 'next-translate/useTranslation'
 import { HiSun, HiMoon } from 'react-icons/hi'
-import Toggle from 'components/core/Toggle'
+import Toggle from 'components/ui/Toggle'
 import Loading from 'components/ui/Loading'
 import useLoaded from 'hooks/useLoaded'
 

@@ -1,20 +1,27 @@
 import Nav from 'components/core/Nav'
 import ScrollUp from 'components/ui/ScrollUp'
 import styles from './Layout.module.css'
-import UserOutlet from 'components/core/UserOutlet'
 import { LayoutPage } from 'next'
+import useTranslation from 'next-translate/useTranslation'
 
 const Layout: LayoutPage = ({ children }) => {
+	const { t } = useTranslation()
+
 	const navLinks: Record<string, string> = {
-		'/': 'home',
+		'/': 'dev',
+		'/design': 'design',
 		'/about': 'about',
+	}
+
+	// Get traductions for links.
+	for (const [key, value] of Object.entries(navLinks)) {
+		navLinks[key] = t(`common:links.${value}`)
 	}
 
 	return (
 		<section className={styles.layout}>
 			<header className={styles.header}>
 				{!!navLinks && <Nav links={navLinks} />}
-				<UserOutlet />
 			</header>
 
 			<main className={styles.main_content}>

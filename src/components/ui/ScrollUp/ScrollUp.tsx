@@ -20,7 +20,7 @@ const ScrollUp = () => {
 		},
 		hidden: {
 			opacity: 0,
-			y: 100,
+			y: '100%',
 		},
 	}
 

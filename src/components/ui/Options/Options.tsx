@@ -1,8 +1,9 @@
 import styles from './Options.module.css'
-import { useToggle, useClickAway } from 'react-use'
+import { useToggle } from 'react-use'
 import { motion, Variants, Variant, AnimatePresence } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { HiCheck, HiSelector } from 'react-icons/hi'
+import useOutsideClick from 'hooks/useOutsideClick'
 
 interface DropdownVariants extends Variants {
 	visible: Variant
@@ -42,8 +43,9 @@ const Options = ({
 	const [selectedIndex, setSelectedIndex] = useState(options.indexOf(selected))
 
 	// Click outside.
-	const dropRef = useRef<HTMLDivElement>(null)
-	useClickAway(dropRef, () => toggleOpen(false), ['mousedown', 'touchstart'])
+	const { ref: dropRef } = useOutsideClick<HTMLDivElement>(() =>
+		toggleOpen(false)
+	)
 
 	// Change selected.
 	const changeSelected = (newOption: Option) => {
