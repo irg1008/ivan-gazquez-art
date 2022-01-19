@@ -1,0 +1,35 @@
+.wrapper {
+	@apply p-4
+  bg-dark/30
+  text-darker
+  shadow-lg
+  shadow-neutral-700/20
+  rounded-xl
+  flex
+  flex-col
+  gap-4
+  min-w-[7rem]
+  max-w-[12rem]
+  min-h-[6rem];
+}
+
+.header {
+	@apply w-[5rem]
+  h-[5rem]
+  self-center
+  flex
+  items-stretch
+  p-2
+  -m-2
+  justify-center;
+	& > * {
+		@apply h-full w-full
+    drop-shadow-sm;
+	}
+}
+
+.title {
+	@apply text-center
+  font-mono
+  font-bold;
+}
