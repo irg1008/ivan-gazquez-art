@@ -48,7 +48,7 @@ const transition: Transition = { type: 'tween' }
 const glassClass = `${styles.glass} backdrop-blur firefox:bg-opacity-90`
 
 const Nav = ({ links }: NavProps) => {
-	const [navOpen, toggleNavOpen] = useToggle(true)
+	const [navOpen, toggleNavOpen] = useToggle(false)
 	const { width } = useWindowSize()
 	const isLG = width > 1024
 	if (isLG && !navOpen) toggleNavOpen(true)
