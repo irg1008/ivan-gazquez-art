@@ -6,13 +6,13 @@
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "dbaeumer.vscode-eslint",
 	"files.exclude": {
-		"**/.husky": true,
-		"**/.next": true,
-		"**/coverage": true,
-		"**/node_modules": true,
-		"**/out": true,
-		"**/package-lock.json": true,
-		"**/.github": true
+		"**/.husky": false,
+		"**/.next": false,
+		"**/coverage": false,
+		"**/node_modules": false,
+		"**/out": false,
+		"**/package-lock.json": false,
+		"**/.github": false
 	},
-	"workspace.isHidden": true
+	"workspace.isHidden": false
 }

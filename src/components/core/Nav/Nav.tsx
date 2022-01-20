@@ -11,7 +11,7 @@ import {
 } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import UserOutlet from 'components/core/UserOutlet'
+// import UserOutlet from 'components/core/UserOutlet'
 import Ham from 'components/ui/Ham/Ham'
 import { useToggle, useWindowSize } from 'react-use'
 import useLoaded from 'hooks/useLoaded'
@@ -138,9 +138,9 @@ const NavContent = ({ links }: NavProps) => {
 			<div className={styles.theme}>
 				<ThemeSwapper />
 			</div>
-			<div className={styles.user}>
+			{/* <div className={styles.user}>
 				<UserOutlet />
-			</div>
+			</div> */}
 		</div>
 	)
 }
