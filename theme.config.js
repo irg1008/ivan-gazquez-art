@@ -44,7 +44,7 @@ const themeConfig = {
 					darker: darkTheme[100],
 					prim: darkPrimary[400],
 					sec: darkPrimary[700],
-					tert: darkPrimary[900],
+					tert: darkPrimary[300],
 				},
 				boxShadowColor: {},
 				borderRadius: {
