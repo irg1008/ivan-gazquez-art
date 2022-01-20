@@ -84,6 +84,7 @@
 .link {
 	@apply flex justify-center items-center
 		cursor-pointer
+		text-center
 		relative;
 	& a {
 		@apply !no-underline p-4;
