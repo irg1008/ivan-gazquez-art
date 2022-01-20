@@ -11,6 +11,7 @@ const About = () => {
 				title={t('design:meta-title')}
 				description={t('design:meta-description')}
 			/>
+			UNDER CONSTRUCTION
 		</>
 	)
 }

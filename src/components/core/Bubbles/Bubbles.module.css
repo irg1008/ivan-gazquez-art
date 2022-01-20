@@ -1,0 +1,76 @@
+.bubbles {
+	@apply flex
+  flex-wrap
+  gap-6
+  sm:gap-12
+  lg:gap-2
+  items-center
+  justify-center
+  max-w-screen-xl;
+}
+
+.bubble {
+	@apply rounded-full
+  bg-gradient-to-tl
+  from-prim to-sec
+  text-neutral-50
+  h-32
+  w-32
+  p-4
+  flex
+  relative
+  items-center
+  overflow-hidden
+  shadow-lg
+  shadow-prim/30
+  border-2
+  border-neutral-50/50
+  justify-center;
+}
+
+.bubble_wrapper {
+	@apply basis-4/12
+  md:basis-3/12
+  xl:basis-2/12
+  flex
+  items-center
+  justify-center;
+	&:nth-child(even) > .bubble {
+		@apply m-0
+    md:ml-12
+    lg:ml-24
+    lg:mt-24;
+	}
+	&:nth-child(3n + 1) > .bubble {
+		@apply bg-gradient-to-br
+    ml-12
+    mt-2
+    sm:ml-24
+    sm:mt-24
+    md:m-0;
+	}
+}
+
+.icon_container {
+	@apply absolute
+  w-full
+  h-full
+  flex
+  items-center
+  justify-center;
+}
+
+.icon {
+	@apply text-6xl opacity-10;
+}
+
+.title {
+	@apply text-center
+  text-[1.2rem]
+  font-bold
+  font-mono
+  text-opacity-0
+  drop-shadow-lg
+  leading-5
+  uppercase;
+}

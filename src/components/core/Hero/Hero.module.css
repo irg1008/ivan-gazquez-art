@@ -2,7 +2,8 @@
 	@apply flex
   justify-center
   w-full
-  mt-10;
+  mt-10
+  relative;
 }
 
 .wrapper {
