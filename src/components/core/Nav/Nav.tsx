@@ -48,7 +48,7 @@ const transition: Transition = { type: 'tween' }
 const glassClass = `${styles.glass} backdrop-blur firefox:bg-opacity-90`
 
 const Nav = ({ links }: NavProps) => {
-	const [navOpen, toggleNavOpen] = useToggle(false)
+	const [navOpen, toggleNavOpen] = useToggle(true)
 	const { width } = useWindowSize()
 	const isLG = width > 1024
 	if (isLG && !navOpen) toggleNavOpen(true)
@@ -113,6 +113,7 @@ const NavContent = ({ links }: NavProps) => {
 			<div className={styles.lang}>
 				<LangSwapper />
 			</div>
+			<hr className={styles.nav_separator} />
 			<ul className={styles.links}>
 				{Object.entries(links).map(([href, title], i) => (
 					<li

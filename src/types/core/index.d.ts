@@ -1,9 +1,18 @@
 declare module 'core' {
 	type CardProps = {
 		header: React.ReactNode
-		title: string
+		title?: string
 		description?: string
 	}
 
-	export { CardProps }
+	type Project = {
+		name: string
+		title: React.ReactNode
+		description?: string
+		link?: string
+		image: React.ReactNode
+		tools: React.ReactNode[]
+	}
+
+	export { CardProps, Project }
 }

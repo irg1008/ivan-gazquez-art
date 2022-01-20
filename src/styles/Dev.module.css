@@ -1,3 +1,7 @@
+.dev {
+	@apply relative overflow-hidden;
+}
+
 .knowledge {
 	@apply w-full
   flex

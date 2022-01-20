@@ -18,6 +18,21 @@ html {
 	@apply scroll-smooth;
 }
 
+::-webkit-scrollbar {
+	@apply bg-lighter w-4;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	@apply bg-light;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	@apply bg-prim/40
+	hover:bg-prim/70;
+}
+
 body {
 	@apply min-h-screen
 		bg-lighter
@@ -58,9 +73,7 @@ div[role='group'] {
 }
 
 a {
-	@apply hover:underline
-		transition
-		decoration-darker;
+	@apply no-underline;
 }
 
 h1 {

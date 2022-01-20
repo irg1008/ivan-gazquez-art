@@ -1,7 +1,7 @@
 .nav {
 	@apply h-screen
 	max-w-screen-xl
-	min-w-[50vw]
+	min-w-[70vw]
 	overflow-auto
 	border-l-2
 	border-lighter/70
@@ -119,4 +119,9 @@
 
 .lang {
 	@apply order-3 lg:order-1;
+}
+
+.nav_separator {
+	@apply lg:hidden
+	order-2;
 }

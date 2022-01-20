@@ -11,7 +11,7 @@ const SignInButton = () => {
 	return (
 		<button type="button" className={styles.log_in} onClick={handleSignIn}>
 			<SiGithub className={styles.icon} />
-			{t('common:log_in')}
+			{t('common:log-in')}
 		</button>
 	)
 }
@@ -22,7 +22,7 @@ const SignOutButton = () => {
 
 	return (
 		<button type="button" className={styles.log_in} onClick={handleSignOut}>
-			{t('common:log_out')}
+			{t('common:log-out')}
 		</button>
 	)
 }

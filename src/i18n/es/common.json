@@ -10,6 +10,10 @@
 		"about": "sobre mi"
 	},
 	"scroll": "ir arriba",
-	"log_in": "iniciar sesión",
-	"log_out": "cerrar sesión"
+	"log-in": "iniciar sesión",
+	"log-out": "cerrar sesión",
+	"projects": {
+		"tools": "herramientas",
+		"go-to": "Ir a {{project}}"
+	}
 }

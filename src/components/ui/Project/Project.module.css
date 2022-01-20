@@ -1,0 +1,48 @@
+.wrapper {
+	@apply flex
+  flex-col
+  gap-6
+  p-6
+  bg-lighter/80
+  rounded-lg
+  drop-shadow-lg
+  ease-in-out
+  duration-500
+  lg:hover:drop-shadow-xl
+  lg:hover:scale-105
+  lg:active:scale-95
+  transition-all;
+}
+
+.image {
+	@apply relative
+  w-full
+  aspect-video
+  rounded-lg
+  ease-in-out
+  duration-500
+  overflow-hidden
+  shadow-md
+  shadow-neutral-800/10;
+}
+
+.tools {
+	@apply flex
+  items-center
+  justify-end
+  flex-wrap
+  gap-4;
+	& > *:not(p) {
+		@apply h-full w-8 flex-shrink-0;
+	}
+	& p::first-letter {
+		@apply uppercase;
+	}
+}
+
+.title {
+	@apply italic
+  flex
+  gap-4
+  items-center;
+}

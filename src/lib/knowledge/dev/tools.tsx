@@ -19,6 +19,9 @@ import {
 	SiLighthouse,
 	SiInsomnia,
 	SiMocha,
+	SiFirebase,
+	SiRailway,
+	SiStrapi,
 } from 'react-icons/si'
 
 export const tools: CardProps[] = [
@@ -79,12 +82,24 @@ export const tools: CardProps[] = [
 		title: 'Supabase',
 	},
 	{
+		header: <SiFirebase />,
+		title: 'Firebase',
+	},
+	{
 		header: <SiLighthouse />,
 		title: 'Lighthouse',
 	},
 	{
 		header: <SiInsomnia />,
 		title: 'Insomnia',
+	},
+	{
+		header: <SiRailway />,
+		title: 'Railway',
+	},
+	{
+		header: <SiStrapi />,
+		title: 'Strapi',
 	},
 ]
 

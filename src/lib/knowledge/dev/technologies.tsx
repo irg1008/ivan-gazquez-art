@@ -20,6 +20,7 @@ import {
 	SiPrisma,
 	SiFlutter,
 	SiElectron,
+	SiJsonwebtokens,
 	SiExpo,
 } from 'react-icons/si'
 
@@ -67,6 +68,10 @@ export const technologies: CardProps[] = [
 	{
 		header: <SiFlask />,
 		title: 'Flask',
+	},
+	{
+		header: <SiJsonwebtokens />,
+		title: 'JSON Web Tokens',
 	},
 	{
 		header: <SiStyledcomponents />,

@@ -27,24 +27,21 @@ const ScrollUp = () => {
 	return (
 		<div className={styles.holder}>
 			<AnimatePresence initial={false}>
-				{!isTop && (
-					<motion.div
-						initial="hidden"
-						animate="visible"
-						exit="hidden"
-						variants={scrollVariants}
-						transition={{ type: 'tween' }}
-					>
-						<div className={`${styles.wrapper} ${!isTop && styles.floating}`}>
-							<span className={styles.icon_container} onClick={scrollToTop}>
-								<BsArrowBarUp className={styles.icon} />
-							</span>
-							<div className={styles.msg_container}>
-								<p className={styles.msg}>{t('common:scroll')}</p>
-							</div>
+				<motion.div
+					initial="hidden"
+					animate={isTop ? 'hidden' : 'visible'}
+					variants={scrollVariants}
+					transition={{ type: 'tween' }}
+				>
+					<div className={`${styles.wrapper} ${!isTop && styles.floating}`}>
+						<span className={styles.icon_container} onClick={scrollToTop}>
+							<BsArrowBarUp className={styles.icon} />
+						</span>
+						<div className={styles.msg_container}>
+							<p className={styles.msg}>{t('common:scroll')}</p>
 						</div>
-					</motion.div>
-				)}
+					</div>
+				</motion.div>
 			</AnimatePresence>
 		</div>
 	)

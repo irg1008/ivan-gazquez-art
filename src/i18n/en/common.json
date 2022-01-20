@@ -10,6 +10,10 @@
 		"about": "about me"
 	},
 	"scroll": "scroll to top",
-	"log_in": "log in",
-	"log_out": "log out"
+	"log-in": "log in",
+	"log-out": "log out",
+	"projects": {
+		"tools": "tools",
+		"go-to": "Go to {{project}}"
+	}
 }

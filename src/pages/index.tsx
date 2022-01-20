@@ -11,23 +11,25 @@ import {
 	technologiesLearning,
 	tools,
 	toolsLearning,
+	projects,
 } from 'lib/knowledge/dev'
 import Blob from 'components/ui/Blob'
+import Projects from 'components/ui/Projects'
 
 const Home = () => {
 	const { t } = useTranslation()
 
 	return (
-		<>
-			<Blob className={styles.blob} />
-			<Blob className={styles.blob_bottom} type={2} />
+		<div className={styles.dev}>
 			<Head
 				title={t('dev:meta-title')}
 				description={t('dev:meta-description')}
 			/>
+			<Blob className={styles.blob} />
+			<Blob className={styles.blob_bottom} type={2} />
 			<Hero />
 			<MarqueeSlider />
-			<div className={styles.knowledge}>
+			<section className={styles.knowledge}>
 				<h1 className={styles.knowledge_title}>{t('dev:knowledge.title')}</h1>
 				<BulkCard title={t('dev:knowledge.languages')} cardProps={languages} />
 				<BulkCard
@@ -49,8 +51,14 @@ const Home = () => {
 					title={t('dev:knowledge.tools-learning')}
 					cardProps={toolsLearning}
 				/>
-			</div>
-		</>
+			</section>
+			<section className={styles.knowledge}>
+				<h1 className={styles.knowledge_title}>
+					{t('dev:knowledge.my-projects')}
+				</h1>
+				<Projects projects={projects} />
+			</section>
+		</div>
 	)
 }
 

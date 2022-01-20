@@ -18,7 +18,6 @@ const Hero = () => {
 							layout="fill"
 							priority
 							objectFit="cover"
-							quality={10}
 							objectPosition="top"
 						/>
 					</div>
