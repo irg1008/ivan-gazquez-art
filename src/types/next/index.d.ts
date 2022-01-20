@@ -1,9 +1,13 @@
 import { NextPage } from 'next'
 
 declare module 'next' {
-	type NextPageWithLayout = NextPage & {
-		Layout?: React.FC
+	type LayoutPage<T = unknown> = {
+		(props: PropsWithChildren<T>): ReactElement<unknown, unknown> | null
 	}
 
-	export { NextPageWithLayout }
+	type NextPageWithLayout<T = unknown> = NextPage & {
+		Layout?: LayoutPage<T>
+	}
+
+	export { NextPageWithLayout, LayoutPage }
 }

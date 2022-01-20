@@ -23,7 +23,7 @@ module.exports = {
 	theme: {
 		extend: {
 			animation: {
-				marquee: 'marquee 60s linear infinite',
+				marquee: 'marquee 180s linear infinite',
 				'up-infinite': 'up 2s ease-in-out infinite',
 			},
 			keyframes: {

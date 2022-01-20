@@ -17,7 +17,7 @@
 }
 
 .icon_container {
-	@apply rounded-full
+	@apply rounded-custom
     bg-prim
     shadow-md
     text-lighter
@@ -60,7 +60,7 @@
     transition-transform
     duration-200
     ease-in-out
-    rounded-full
+    rounded-custom
     pr-10
     py-1
     capitalize

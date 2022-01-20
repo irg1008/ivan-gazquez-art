@@ -8,6 +8,7 @@ import {
 	SiSvelte,
 	SiBlender,
 	SiTailwindcss,
+	SiJsonwebtokens,
 	SiCinema4D,
 	SiGit,
 	SiCss3,
@@ -22,10 +23,8 @@ import {
 	SiJupyter,
 	SiDocker,
 	SiNpm,
-	SiNumpy,
 	SiPytorch,
 	SiTensorflow,
-	SiD3Dotjs,
 	SiAdobeaftereffects,
 	SiAdobephotoshop,
 	SiPostman,
@@ -38,6 +37,7 @@ import {
 	SiUnrealengine,
 	SiSass,
 	SiServerless,
+	SiFirebase,
 	SiSketchup,
 	SiStorybook,
 	SiStyledcomponents,
@@ -47,20 +47,34 @@ import {
 	SiVisualstudiocode,
 	SiWebgl,
 	SiWebcomponentsdotorg,
+	SiFigma,
+	SiLighthouse,
+	SiInsomnia,
 } from 'react-icons/si'
 import styles from './Slider.module.css'
 
 const icons = [
+	SiAdobeaftereffects,
+	SiOpenai,
+	SiAdobephotoshop,
+	SiBlender,
+	SiCinema4D,
+	SiUnity,
+	SiUnrealengine,
+	SiFigma,
+
+	SiInsomnia,
+	SiJsonwebtokens,
+	SiLighthouse,
 	SiTypescript,
+	SiFirebase,
 	SiPython,
 	SiJavascript,
 	SiPostgresql,
 	SiPostcss,
 	SiAmazonaws,
 	SiSvelte,
-	SiBlender,
 	SiTailwindcss,
-	SiCinema4D,
 	SiGit,
 	SiCss3,
 	SiNextdotjs,
@@ -74,20 +88,13 @@ const icons = [
 	SiJupyter,
 	SiDocker,
 	SiNpm,
-	SiNumpy,
 	SiPytorch,
 	SiTensorflow,
-	SiD3Dotjs,
-	SiAdobeaftereffects,
-	SiAdobephotoshop,
 	SiPostman,
-	SiOpenai,
 	SiPrettier,
 	SiShopify,
 	SiWordpress,
 	SiReact,
-	SiUnity,
-	SiUnrealengine,
 	SiSass,
 	SiServerless,
 	SiSketchup,
@@ -101,13 +108,17 @@ const icons = [
 	SiWebcomponentsdotorg,
 ]
 
+type SliderProps = {
+	children: React.ReactNode
+}
+
 /**
  * Create an infinite slider.
  *
  * @param {*} { children }
  * @return {*}  {JSX.Element}
  */
-const Slider: React.FC = ({ children }): JSX.Element => {
+const Slider = ({ children }: SliderProps): JSX.Element => {
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.marquee}>{children}</div>

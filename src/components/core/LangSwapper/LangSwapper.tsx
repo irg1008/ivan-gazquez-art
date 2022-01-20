@@ -1,51 +1,37 @@
 // import styles from './LangSwapper.module.css'
 import { useRouter } from 'next/router'
-import { useCookies } from 'react-cookie'
-import Dropdown from 'components/ui/Dropdown'
+import { useCookie } from 'react-use'
+import Image from 'next/image'
+import Options from 'components/ui/Options'
 
-const fullNames: Record<string, string> = {
-	en: 'English',
-	ru: 'Русский',
-	uk: 'Українська',
-	es: 'Español',
-	de: 'Deutsch',
-	fr: 'Français',
-	it: 'Italiano',
-	pt: 'Português',
-	ja: '日本語',
-	zh: '中文',
-	ko: '한국어',
-	ar: 'العربية',
-	tr: 'Türkçe',
-	he: 'עברית',
-	pl: 'Polski',
-	id: 'Bahasa Indonesia',
-}
+const Flag = (flag: string) => (
+	<Image
+		src={`/images/flags/${flag}.svg`}
+		alt={`${flag} flag`}
+		height={'16px'}
+		width={'16px'}
+	/>
+)
 
 const LangSwapper = () => {
-	const [cookie, setCookie] = useCookies<
-		'NEXT_LOCALE',
-		{ NEXT_LOCALE: string }
-	>(['NEXT_LOCALE'])
+	const [cookie, updateCookie] = useCookie('NEXT_LOCALE')
 
 	const { pathname, asPath, push, locale, locales } = useRouter()
 	if (!locales || !locale) return null
 
 	const switchLanguage = (locale: string) => {
 		push(pathname, asPath, { locale, scroll: false })
-		if (cookie.NEXT_LOCALE !== locale)
-			setCookie('NEXT_LOCALE', locale, { path: '/' })
+		if (cookie !== locale) updateCookie(locale, { path: '/' })
 	}
 
-	const fullLocales = locales.map((l) => fullNames[l])
-	const currentLocale = fullNames[locale]
+	const flags = locales.map((l) => Flag(l))
 
 	return (
-		<Dropdown
-			options={fullLocales}
-			keyValues={locales}
-			defaultOption={currentLocale}
-			handler={switchLanguage}
+		<Options
+			options={locales}
+			selected={locale}
+			placeholders={flags}
+			onOptionChange={switchLanguage}
 		/>
 	)
 }

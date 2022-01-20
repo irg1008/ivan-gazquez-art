@@ -5,26 +5,30 @@ import useTranslation from 'next-translate/useTranslation'
 // type HeroProps = {}
 
 const Hero = () => {
-	const { t } = useTranslation()
+	const { t } = useTranslation('dev')
 
 	return (
-		<div className={styles.wrapper}>
-			<div className={styles.avatar}>
-				<Image
-					src="/images/avatar.jpg"
-					alt="Hero Avatar"
-					layout="fill"
-					objectFit="cover"
-					quality={10}
-					objectPosition="top"
-					className="grayscale-[0.5]"
-				/>
+		<div className={styles.hero}>
+			<div className={styles.wrapper}>
+				<div className={styles.info}>
+					<div className={styles.avatar}>
+						<Image
+							src="/images/avatar.jpg"
+							alt="Hero Avatar"
+							layout="fill"
+							priority
+							objectFit="cover"
+							objectPosition="top"
+						/>
+					</div>
+					<div className={styles.text}>
+						<h1 className={styles.title}>{t('title')}</h1>
+						<h2 className={styles.subtitle}>{t('subtitle')}</h2>
+						<hr className={styles.separator} />
+						<p className={styles.data}>{`"${t('detail')}"`}</p>
+					</div>
+				</div>
 			</div>
-
-			<h1 className={styles.title}>{t('common:title')}</h1>
-			<h2 className={styles.subtitle}>{t('common:subtitle')}</h2>
-			<h3>{t('common:detail')}</h3>
-			<hr />
 		</div>
 	)
 }

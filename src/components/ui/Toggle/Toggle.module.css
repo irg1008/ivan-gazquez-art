@@ -1,0 +1,26 @@
+.switch {
+	@apply w-14 h-8
+	bg-dark
+	shadow-md
+	shadow-dark/30
+	cursor-pointer
+	rounded-full
+	flex
+	items-center
+	p-1;
+}
+
+.active {
+	@apply justify-end;
+}
+
+.wrapper {
+	@apply rounded-full
+		p-1
+		flex
+		items-center
+		shadow-lg
+		shadow-medium/60
+		bg-lighter
+		justify-center;
+}

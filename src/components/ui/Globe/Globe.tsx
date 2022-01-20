@@ -8,7 +8,7 @@ import styles from './Globe.module.css'
  *
  * @return {*}
  */
-const Globe: React.FC = () => {
+const Globe = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null)
 
 	const phiRef = useRef(0)

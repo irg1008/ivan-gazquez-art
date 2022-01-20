@@ -1,0 +1,20 @@
+.tooltip {
+	@apply px-2 py-1
+  rounded-lg
+  bg-lighter
+  shadow-lg
+  shadow-light/20
+  text-darker;
+}
+
+.arrow {
+	@apply absolute
+  left-1/2
+  -translate-x-1/2
+  -mb-1
+  border-t-[10px]
+  border-t-lighter
+  border-x-[15px]
+  border-x-transparent
+  w-0 h-0;
+}

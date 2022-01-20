@@ -1,31 +1,43 @@
 // import styles from './ThemeSwapper.module.css'
-import useTheme from 'stores/theme'
-import Dropdown from 'components/ui/Dropdown'
+import useTheme, { Theme } from 'contexts/theme'
 import useTranslation from 'next-translate/useTranslation'
+import { HiSun, HiMoon } from 'react-icons/hi'
+import Toggle from 'components/ui/Toggle'
+import Loading from 'components/ui/Loading'
+import useLoaded from 'hooks/useLoaded'
+
+const ThemeIcons: Record<Theme, JSX.Element> = {
+	light: <HiSun />,
+	dark: <HiMoon />,
+}
 
 const ThemeSwapper = () => {
+	const { loaded } = useLoaded()
 	const { t } = useTranslation('common')
 
 	// Theme hook.
-	const { themes, setTheme, theme } = useTheme()
-
-	// Active theme.
-	const themeString = t(`common:theme.${theme}`)
+	const { themes, toggleTheme, theme } = useTheme()
 
 	// All themes.
-	const themesOptions = themes.map((theme) => t(`common:theme.${theme}`))
 	const themesKeys = themes.map((theme) => theme as string)
 
-	// Handler.
-	const handleThemeChange = (themeString: string) =>
-		setTheme(themeString as typeof theme)
+	const placeHolders = themes.map((theme, i) => (
+		<span
+			key={i}
+			title={t('common:theme.set', { theme: t(`common:theme.${theme}`) })}
+		>
+			{ThemeIcons[theme]}
+		</span>
+	))
+
+	if (!loaded) return <Loading />
 
 	return (
-		<Dropdown
-			keyValues={themesKeys}
-			options={themesOptions}
-			defaultOption={themeString}
-			handler={handleThemeChange}
+		<Toggle
+			options={themesKeys}
+			placeholders={placeHolders}
+			selected={theme}
+			onToggle={toggleTheme}
 		/>
 	)
 }

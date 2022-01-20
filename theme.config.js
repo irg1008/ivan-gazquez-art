@@ -16,13 +16,13 @@ const themeConfig = {
 					light: lightTheme[300],
 					medium: lightTheme[400],
 					dark: lightTheme[700],
-					darker: lightTheme[900],
+					darker: lightTheme[800],
 					prim: lightPrimary[700],
 					sec: lightPrimary[400],
 					tert: lightPrimary[300],
 				},
 				borderRadius: {
-					custom: '9999px',
+					custom: '8px',
 				},
 				borderWidth: {
 					button: '2px',
@@ -44,7 +44,7 @@ const themeConfig = {
 					darker: darkTheme[100],
 					prim: darkPrimary[400],
 					sec: darkPrimary[700],
-					tert: darkPrimary[900],
+					tert: darkPrimary[300],
 				},
 				boxShadowColor: {},
 				borderRadius: {
