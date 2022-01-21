@@ -19,7 +19,7 @@ const Toggle = ({ onToggle, selected, options, placeholders }: ToggleProps) => {
 	}
 
 	return (
-		<motion.div
+		<div
 			className={`${styles.switch} ${isOn && styles.active}`}
 			onClick={onClick}
 		>
@@ -34,7 +34,7 @@ const Toggle = ({ onToggle, selected, options, placeholders }: ToggleProps) => {
 			>
 				{value}
 			</motion.div>
-		</motion.div>
+		</div>
 	)
 }
 

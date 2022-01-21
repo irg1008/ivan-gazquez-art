@@ -51,7 +51,7 @@
 
 `git commit -m` -> `gcmsg`
 
-`git push` -> `gp`
+`git push` -> `ggp`
 
 ### Vercel branch ignore
 

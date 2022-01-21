@@ -1,14 +1,13 @@
 import styles from './Nav.module.css'
 import LangSwapper from 'components/core/LangSwapper'
 import ThemeSwapper from 'components/core/ThemeSwapper'
-import { Profiler, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
 	motion,
 	AnimatePresence,
 	Variant,
 	Variants,
 	Transition,
-	useInstantLayoutTransition,
 } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -59,8 +58,8 @@ const Nav = ({ links }: NavProps) => {
 	const { loaded } = useLoaded()
 
 	return loaded ? (
-		<Profiler id="nav" onRender={() => console.log('Nav rendered')}>
-			<AnimatePresence initial={false} exitBeforeEnter>
+		<>
+			<AnimatePresence initial={false}>
 				{navOpen && (
 					<>
 						{!isLG && (
@@ -106,7 +105,7 @@ const Nav = ({ links }: NavProps) => {
 					/>
 				</motion.div>
 			)}
-		</Profiler>
+		</>
 	) : null
 }
 
@@ -119,8 +118,6 @@ const NavContent = ({ links }: NavProps) => {
 		if (index !== selectedTab) setSelectedTab(index)
 	}, [pathname, links, selectedTab])
 
-	const instantLayout = useInstantLayoutTransition()
-
 	return (
 		<div className={styles.nav_content}>
 			<div className={styles.lang}>
@@ -131,7 +128,6 @@ const NavContent = ({ links }: NavProps) => {
 				{Object.entries(links).map(([href, title], i) => (
 					<li
 						key={href}
-						onClick={() => instantLayout()}
 						className={`${i === selectedTab && styles.active} ${styles.link}`}
 					>
 						<Link href={href}>{title}</Link>
@@ -140,7 +136,6 @@ const NavContent = ({ links }: NavProps) => {
 								className={styles.underline}
 								layoutId="underline"
 								initial={false}
-								onLayoutAnimationComplete={() => console.log('done')}
 								transition={{
 									type: 'spring',
 									stiffness: 300,

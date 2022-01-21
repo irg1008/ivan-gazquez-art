@@ -1,6 +1,5 @@
 import { SiGithub, SiGitlab, SiInstagram, SiLinkedin } from 'react-icons/si'
 import styles from './Footer.module.css'
-import React from 'react'
 import Tooltip from 'components/ui/Tooltip'
 
 const Footer = () => {

@@ -121,6 +121,7 @@
 		rounded-custom
 		shadow-lg shadow-prim/30
 		bg-prim/10;
+	/* transform: none !important; */
 }
 
 .theme {

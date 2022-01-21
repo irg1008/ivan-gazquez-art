@@ -13,7 +13,8 @@ const About = () => {
 				title={t('about:meta-title')}
 				description={t('about:meta-description')}
 			/>
-			<div>
+			<div className={styles.bubbles_wrapper}>
+				<span className={styles.bubbles_bg} />
 				<Title title={"i'm interested in"} />
 				<Bubbles />
 			</div>

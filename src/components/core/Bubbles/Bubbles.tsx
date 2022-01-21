@@ -3,6 +3,7 @@ import {
 	SiGoogletagmanager,
 	SiNextdotjs,
 	SiOpenai,
+	SiThreedotjs,
 	SiVercel,
 	SiWeb3Dotjs,
 	SiWebcomponentsdotorg,
@@ -109,6 +110,10 @@ const bubbles: Bubble[] = [
 	{
 		icon: <SiVercel />,
 		title: 'Edge Functions',
+	},
+	{
+		icon: <SiThreedotjs />,
+		title: '3D',
 	},
 ]
 
