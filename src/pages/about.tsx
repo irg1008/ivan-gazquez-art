@@ -13,8 +13,14 @@ const About = () => {
 				title={t('about:meta-title')}
 				description={t('about:meta-description')}
 			/>
-			<Title title={"i'm interested in"} />
-			<Bubbles />
+			<div>
+				<Title title={"i'm interested in"} />
+				<Bubbles />
+			</div>
+			<Title title={'my studies'} />
+			<Title title={'where ive lived'} />
+			<Title title={'where have i work'} />
+			<Title title={'other projects. maker and stuff'} />
 		</div>
 	)
 }
