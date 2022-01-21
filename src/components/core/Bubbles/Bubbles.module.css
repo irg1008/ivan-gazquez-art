@@ -9,6 +9,21 @@
   max-w-screen-xl;
 }
 
+.bubbles_bg {
+	@apply absolute
+	rounded-full
+	hidden
+	sm:inline
+	shadow-prim/50
+	shadow-inner
+	m-2
+	w-full
+	max-w-screen-md
+	aspect-square
+	bg-prim/10;
+	z-index: -1;
+}
+
 .bubble {
 	@apply rounded-full
   bg-gradient-to-tl

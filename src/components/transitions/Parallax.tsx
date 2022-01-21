@@ -90,6 +90,7 @@ const FadeInFromBottom = ({ children }: ParallaxProps) => {
 			animate={inView ? 'inside' : 'outside'}
 			transition={{ duration: 0.5, ease: 'easeOut' }}
 			ref={ref}
+			className="w-full h-full relative"
 		>
 			{children}
 		</motion.div>

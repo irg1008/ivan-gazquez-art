@@ -4,6 +4,7 @@ import styles from 'styles/About.module.css'
 import Bubbles from 'components/core/Bubbles'
 import Title from 'components/ui/Title'
 import Globe from 'components/ui/Globe'
+import { FadeInFromBottom } from 'components/transitions/Parallax'
 
 const About = () => {
 	const { t } = useTranslation()
@@ -15,18 +16,19 @@ const About = () => {
 				description={t('about:meta-description')}
 			/>
 			<div className={styles.section}>
-				<span className={styles.bubbles_bg} />
 				<Title title={"i'm interested in"} />
 				<Bubbles />
 			</div>
 			<Title title={'my studies'} />
 			<div className={styles.section}>
 				<Title title={'where ive lived'} />
-				<div className={styles.globe_wrapper}>
-					<div className={styles.globe}>
-						<Globe />
+				<FadeInFromBottom>
+					<div className={styles.globe_wrapper}>
+						<div className={styles.globe}>
+							<Globe />
+						</div>
 					</div>
-				</div>
+				</FadeInFromBottom>
 			</div>
 			<Title title={'where have i work'} />
 			<Title title={'other projects. maker and stuff'} />

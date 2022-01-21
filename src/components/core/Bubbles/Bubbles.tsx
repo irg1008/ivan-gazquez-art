@@ -22,11 +22,8 @@ type CustomVairnats = Variants & {
 }
 
 const wrapperVariant: CustomVairnats = {
-	hidden: {
-		opacity: 0,
-	},
+	hidden: {},
 	show: {
-		opacity: 1,
 		transition: {
 			staggerChildren: 0.6,
 			delayChildren: 0.2,
@@ -58,27 +55,30 @@ const bubbleVariant: CustomVairnats = {
 
 const Bubbles = () => {
 	return (
-		<motion.div
-			className={styles.bubbles}
-			variants={wrapperVariant}
-			initial="hidden"
-			animate="show"
-		>
-			{bubbles.map(({ icon, title }) => (
-				<motion.div
-					key={title}
-					className={styles.bubble_wrapper}
-					variants={bubbleVariant}
-				>
-					<div className={styles.bubble}>
-						<div className={styles.icon_container}>
-							<div className={styles.icon}>{icon}</div>
+		<>
+			<span className={styles.bubbles_bg} />
+			<motion.div
+				className={styles.bubbles}
+				variants={wrapperVariant}
+				initial="hidden"
+				animate="show"
+			>
+				{bubbles.map(({ icon, title }) => (
+					<motion.div
+						key={title}
+						className={styles.bubble_wrapper}
+						variants={bubbleVariant}
+					>
+						<div className={styles.bubble}>
+							<div className={styles.icon_container}>
+								<div className={styles.icon}>{icon}</div>
+							</div>
+							<p className={styles.title}>{title}</p>
 						</div>
-						<p className={styles.title}>{title}</p>
-					</div>
-				</motion.div>
-			))}
-		</motion.div>
+					</motion.div>
+				))}
+			</motion.div>
+		</>
 	)
 }
 
