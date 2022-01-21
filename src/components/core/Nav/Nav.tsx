@@ -134,7 +134,7 @@ const NavContent = ({ links }: NavProps) => {
 						{i === selectedTab ? (
 							<motion.div
 								className={styles.underline}
-								layoutId="underline"
+								// layoutId="underline"
 								initial={false}
 								transition={{
 									type: 'spring',

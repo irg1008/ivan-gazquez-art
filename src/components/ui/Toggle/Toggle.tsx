@@ -24,7 +24,7 @@ const Toggle = ({ onToggle, selected, options, placeholders }: ToggleProps) => {
 			onClick={onClick}
 		>
 			<motion.div
-				layout
+				// layout
 				transition={{
 					type: 'spring',
 					stiffness: 500,
