@@ -3,6 +3,7 @@ import useTranslation from 'next-translate/useTranslation'
 import styles from 'styles/About.module.css'
 import Bubbles from 'components/core/Bubbles'
 import Title from 'components/ui/Title'
+import Globe from 'components/ui/Globe'
 
 const About = () => {
 	const { t } = useTranslation()
@@ -13,13 +14,20 @@ const About = () => {
 				title={t('about:meta-title')}
 				description={t('about:meta-description')}
 			/>
-			<div className={styles.bubbles_wrapper}>
+			<div className={styles.section}>
 				<span className={styles.bubbles_bg} />
 				<Title title={"i'm interested in"} />
 				<Bubbles />
 			</div>
 			<Title title={'my studies'} />
-			<Title title={'where ive lived'} />
+			<div className={styles.section}>
+				<Title title={'where ive lived'} />
+				<div className={styles.globe_wrapper}>
+					<div className={styles.globe}>
+						<Globe />
+					</div>
+				</div>
+			</div>
 			<Title title={'where have i work'} />
 			<Title title={'other projects. maker and stuff'} />
 		</div>

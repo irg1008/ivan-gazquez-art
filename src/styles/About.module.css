@@ -10,8 +10,28 @@
 	flex-wrap;
 }
 
-.bubbles_wrapper {
+.globe_wrapper {
+	@apply overflow-hidden
+	flex
+	min-h-[30vw]
+	lg:min-h-0
+	lg:h-[400px]
+	border-b-4
+	border-prim
+	drop-shadow
+	w-full;
+}
+
+.globe {
 	@apply relative
+	opacity-30
+	w-full;
+}
+
+.section {
+	@apply relative
+	w-full
+	max-w-screen-xl
 	flex
 	flex-col
 	items-center
