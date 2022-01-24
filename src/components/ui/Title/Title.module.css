@@ -1,0 +1,13 @@
+.title {
+	@apply text-center
+  sm:text-4xl
+  md:text-5xl
+  lg:text-6xl
+  leading-relaxed
+  underline
+  decoration-prim/30
+  decoration-8
+  decoration-solid
+  uppercase
+  my-16;
+}

@@ -2,19 +2,19 @@
 	@apply h-screen
 	max-w-screen-xl
 	min-w-[70vw]
-	overflow-auto
-	border-l-2
-	border-lighter/70
 	fixed
 	top-0
 	right-0
 	lg:relative
-	lg:overflow-visible
-	lg:border-2
 	lg:w-full
-	lg:h-auto
-	lg:rounded-custom
-	lg:m-4;
+	lg:h-auto;
+}
+
+.fade {
+	@apply !border-transparent
+	!bg-transparent
+	!shadow-transparent
+	ease-in-out;
 }
 
 .bg {
@@ -29,8 +29,21 @@
 .glass {
 	@apply bg-lighter/50
 	shadow-md shadow-medium/20
+	lg:border-2
 	px-5
 	py-3;
+}
+
+.nav_wrapper {
+	@apply h-full
+	border-l-2
+	border-lighter/70
+	overflow-auto
+	lg:overflow-visible
+	lg:transition-[shadow_color]
+	lg:duration-500
+	lg:rounded-custom
+	lg:m-4;
 }
 
 .nav_content {
@@ -87,7 +100,17 @@
 		text-center
 		relative;
 	& a {
-		@apply !no-underline p-4;
+		@apply p-4
+		!no-underline
+		border-4
+		duration-500
+		transition-all
+		ease-in-out
+		border-transparent;
+		&:not(.active) {
+			@apply rounded-custom
+			hover:border-prim/30;
+		}
 	}
 }
 
@@ -99,7 +122,7 @@
 
 .underline {
 	@apply absolute
-		bottom-0
+		top-0
 		left-0
 		w-full
 		h-full

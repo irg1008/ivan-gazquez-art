@@ -1,0 +1,29 @@
+.about {
+	@apply mt-20
+	w-full
+	flex
+	flex-col
+	px-8
+	gap-16
+	sm:gap-36
+	items-center
+	justify-center
+	flex-wrap;
+}
+
+.section {
+	@apply w-full
+	max-w-screen-xl
+	flex
+	flex-col
+	items-center
+	relative
+	justify-center;
+}
+
+.section_description {
+	@apply text-center
+	max-w-2xl
+	mb-16
+	prose-lg;
+}

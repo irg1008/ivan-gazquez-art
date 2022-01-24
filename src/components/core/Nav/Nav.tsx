@@ -15,6 +15,7 @@ import { useRouter } from 'next/router'
 import Ham from 'components/ui/Ham/Ham'
 import { useToggle, useWindowSize } from 'react-use'
 import useLoaded from 'hooks/useLoaded'
+import useScrollPosition from 'hooks/useScrollPosition'
 
 type NavProps = {
 	links: Record<string, string>
@@ -45,9 +46,10 @@ const bgVariants: CustomVariants = {
 
 const transition: Transition = { type: 'tween' }
 
-const glassClass = `${styles.glass} backdrop-blur firefox:bg-opacity-90`
+const glass = `${styles.glass} backdrop-blur firefox:bg-opacity-90`
 
 const Nav = ({ links }: NavProps) => {
+	const { isTop } = useScrollPosition()
 	const [navOpen, toggleNavOpen] = useToggle(false)
 	const { width } = useWindowSize()
 	const isLG = width > 1024
@@ -77,9 +79,17 @@ const Nav = ({ links }: NavProps) => {
 							animate="visible"
 							exit="hidden"
 							transition={transition}
-							className={`${styles.nav} ${glassClass}`}
+							className={styles.nav}
 						>
-							<NavContent links={links} />
+							<div
+								className={`${styles.nav_wrapper} ${glass} ${
+									isLG && isTop && styles.fade
+								}`}
+							>
+								<AnimatePresence>
+									<NavContent links={links} />
+								</AnimatePresence>
+							</div>
 						</motion.nav>
 					</>
 				)}
@@ -89,9 +99,7 @@ const Nav = ({ links }: NavProps) => {
 					<Ham
 						toggled={navOpen}
 						onToggle={toggleNavOpen}
-						className={`${styles.ham} ${glassClass} ${
-							navOpen && styles.ham_open
-						}`}
+						className={`${styles.ham} ${glass} ${navOpen && styles.ham_open}`}
 					/>
 				</motion.div>
 			)}
@@ -124,14 +132,20 @@ const NavContent = ({ links }: NavProps) => {
 						{i === selectedTab ? (
 							<motion.div
 								className={styles.underline}
-								layoutId="underline"
+								// onLayoutAnimationComplete={() => console.log('done')}
+								// onBeforeLayoutMeasure={() => console.log('before layout')}
+								// onLayoutMeasure={(box, prevBox) =>
+								// 	console.log('measured', { box, prevBox })
+								// }
+								// layoutId="underline"
+								initial={false}
 								transition={{
-									type: 'spring',
-									stiffness: 300,
-									damping: 25,
+									duration: 6,
 								}}
 							/>
-						) : null}
+						) : (
+							<></>
+						)}
 					</li>
 				))}
 			</ul>

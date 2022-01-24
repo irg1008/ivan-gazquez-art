@@ -10,7 +10,6 @@ const Layout: LayoutPage = ({ children }) => {
 
 	const navLinks: Record<string, string> = {
 		'/': 'dev',
-		'/design': 'design',
 		'/about': 'about',
 	}
 

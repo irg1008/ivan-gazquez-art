@@ -19,12 +19,11 @@ const Toggle = ({ onToggle, selected, options, placeholders }: ToggleProps) => {
 	}
 
 	return (
-		<div
-			className={`${styles.switch} ${isOn && styles.active}`}
-			onClick={onClick}
-		>
+		<div className={`${styles.switch}`} onClick={onClick}>
 			<motion.div
-				layout
+				animate={{
+					x: isOn ? 0 : '100%',
+				}}
 				transition={{
 					type: 'spring',
 					stiffness: 500,

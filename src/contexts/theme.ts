@@ -28,7 +28,7 @@ const themeStore = create<ThemeStore>(
 		StoreApi<ThemeStore>
 	>(
 		(set) => ({
-			theme: 'dark',
+			theme: 'light',
 			toggleTheme: () =>
 				set(({ theme: old }) => ({
 					theme: getToggledTheme(old),

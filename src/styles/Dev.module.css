@@ -16,17 +16,6 @@
 	}
 }
 
-.knowledge_title {
-	@apply text-center
-  lg:text-6xl
-  underline
-  decoration-prim/30
-  decoration-8
-  decoration-solid
-  uppercase
-  mb-16;
-}
-
 .blob,
 .blob_bottom {
 	@apply absolute

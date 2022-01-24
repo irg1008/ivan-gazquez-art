@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 // import styles from './Blob.module.css'
+import { Parallax } from 'components/transitions/Parallax'
 
 type BlobProps = {
 	className?: string
@@ -11,20 +12,21 @@ const paths = [
 	'M349.555 1.16c88.637-11.252 162.407 61.504 225.826 124.441 63.741 63.256 145.216 137.868 127.123 225.826-17.638 85.746-141.315 87.847-204.177 148.772-60.695 58.825-65.47 178.975-148.772 193.299-84.782 14.579-149.124-71.293-210.563-131.508C76.626 500.866-7.498 438.383.535 351.427c7.867-85.157 113.707-114.37 174.071-174.949 60.579-60.796 89.807-164.51 174.949-175.318Z',
 ]
 
-const Blob = ({ className, type = 1 }: BlobProps) => (
-	<motion.svg
-		width={706}
-		height={696}
-		xmlns="http://www.w3.org/2000/svg"
-		className={className}
-	>
-		<motion.path
-			fillRule="evenodd"
-			clipRule="evenodd"
-			d={paths[type - 1]}
-			fill="currentColor"
-		/>
-	</motion.svg>
-)
+const Blob = ({ className, type = 1 }: BlobProps) => {
+	return (
+		<div className={className}>
+			<Parallax>
+				<svg width={706} height={696} xmlns="http://www.w3.org/2000/svg">
+					<motion.path
+						fillRule="evenodd"
+						clipRule="evenodd"
+						d={paths[type - 1]}
+						fill="currentColor"
+					/>
+				</svg>
+			</Parallax>
+		</div>
+	)
+}
 
 export default Blob

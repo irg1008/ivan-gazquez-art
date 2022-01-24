@@ -1,0 +1,110 @@
+.wrapper {
+	@apply w-full
+  relative
+  flex
+  items-center
+  justify-center;
+}
+
+.globe_wrapper {
+	@apply overflow-hidden
+	flex
+  justify-center
+	border-b-4
+	border-prim
+	drop-shadow
+  absolute
+  top-0
+  left-0
+	w-full
+  min-h-[30vw]
+  lg:min-h-0
+  lg:h-[400px];
+	z-index: -1;
+}
+
+.globe {
+	@apply relative
+	opacity-30
+  w-full;
+}
+
+.timeline {
+	@apply bg-lighter/40
+  text-darker
+  rounded-lg
+  shadow-lg
+  shadow-prim/30
+  border-2
+  border-prim
+  p-12
+  flex
+  flex-col
+  w-full
+  sm:w-96;
+	& li {
+		@apply relative
+    border-l-2
+    border-darker
+    pl-6
+    pb-20
+    flex
+    flex-col
+    gap-2;
+
+		&:last-child:after {
+			content: '';
+			@apply absolute
+        -left-[9px]
+        bottom-0
+        w-4
+        h-4
+        rounded-full
+        bg-darker;
+		}
+
+		&:before {
+			content: '';
+			@apply absolute
+      -left-[9px]
+      w-4
+      h-4
+      rounded-full
+      bg-darker;
+		}
+	}
+}
+
+.icon {
+	@apply h-5 mr-1;
+}
+
+.loc {
+	@apply flex
+  text-xl
+  items-center
+  capitalize
+  font-bold;
+}
+
+.year {
+	@apply text-prim/75
+  capitalize;
+}
+
+.pill {
+	@apply absolute
+  right-0
+  opacity-5
+  w-32;
+	& svg {
+		@apply h-full
+    w-full;
+	}
+}
+
+.description {
+	&:first-letter {
+		@apply capitalize;
+	}
+}

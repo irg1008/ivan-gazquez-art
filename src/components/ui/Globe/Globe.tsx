@@ -1,7 +1,8 @@
 // @ts-expect-error This library does not have a typescript definition, but it simple enough to not need one.
 import createGlobe from 'cobe'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import styles from './Globe.module.css'
+import { useMeasure } from 'react-use'
 
 /**
  * Create a globe component inside canvas.
@@ -9,15 +10,10 @@ import styles from './Globe.module.css'
  * @return {*}
  */
 const Globe = () => {
-	const canvasRef = useRef<HTMLCanvasElement>(null)
+	const [ref, { width }] = useMeasure<HTMLDivElement>()
 
 	const phiRef = useRef(0)
-	const [width, setWidth] = useState(1000)
-
-	const handleResize = () =>
-		setWidth(Math.min(window.innerWidth, window.innerHeight))
-
-	useEffect(handleResize, [])
+	const canvasRef = useRef<HTMLCanvasElement>(null)
 
 	useEffect(() => {
 		let phi = phiRef.current
@@ -35,38 +31,29 @@ const Globe = () => {
 			baseColor: [0.4, 0.4, 0.4],
 			markerColor: [1, 0.2, 0.2],
 			glowColor: [0.5, 0.5, 0.5],
-			markers: [{ location: [42.3453, -3.6966], size: 0.05 }],
+			markers: [
+				{ location: [42.3453, -3.6966], size: 0.05 },
+				{ location: [51.03453, 0.05966], size: 0.05 },
+			],
 			onRender: (state: { phi: number } & unknown) => {
 				// Called on every animation frame.
 				// `state` will be an empty object, return updated params.
 				state.phi = phiRef.current = phi
-				phi += 0.002
+				phi += 0.001
 			},
 		})
-
-		window.addEventListener('resize', handleResize)
 
 		return () => globe.destroy()
 	}, [width])
 
 	return (
-		<div className={styles.graphic}>
-			<div className={styles.wrapper}>
-				<div className={styles.titles_wrapper}>
-					<div className={styles.titles}>
-						<h1>HOVER TO ENLARGE</h1>
-						<h1>CLICK TO ENLARGE EVEN MORE</h1>
-						<h1>NOW, THAT IS LARGE</h1>
-					</div>
-					<div className={styles.overlay} />
-				</div>
-				<canvas
-					ref={canvasRef}
-					className={styles.globe}
-					width={width}
-					height={width}
-				/>
-			</div>
+		<div className={styles.graphic} ref={ref}>
+			<canvas
+				ref={canvasRef}
+				className={styles.globe}
+				width={width}
+				height={width}
+			/>
 		</div>
 	)
 }

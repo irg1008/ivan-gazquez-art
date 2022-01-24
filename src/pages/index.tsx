@@ -12,9 +12,11 @@ import {
 	tools,
 	toolsLearning,
 	projects,
+	designTools,
 } from 'lib/knowledge/dev'
 import Blob from 'components/ui/Blob'
 import Projects from 'components/ui/Projects'
+import Title from 'components/ui/Title'
 
 const Home = () => {
 	const { t } = useTranslation()
@@ -30,7 +32,7 @@ const Home = () => {
 			<Hero />
 			<MarqueeSlider />
 			<section className={styles.knowledge}>
-				<h1 className={styles.knowledge_title}>{t('dev:knowledge.title')}</h1>
+				<Title title={t('dev:knowledge.title')} />
 				<BulkCard title={t('dev:knowledge.languages')} cardProps={languages} />
 				<BulkCard
 					title={t('dev:knowledge.languages-learning')}
@@ -53,10 +55,15 @@ const Home = () => {
 				/>
 			</section>
 			<section className={styles.knowledge}>
-				<h1 className={styles.knowledge_title}>
-					{t('dev:knowledge.my-projects')}
-				</h1>
+				<Title title={t('dev:knowledge.my-projects')} />
 				<Projects projects={projects} />
+			</section>
+			<section className={styles.knowledge}>
+				<hr />
+				<BulkCard
+					title={t('dev:knowledge.design-tools')}
+					cardProps={designTools}
+				/>
 			</section>
 		</div>
 	)

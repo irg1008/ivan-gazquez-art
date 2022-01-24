@@ -7,20 +7,14 @@
 	rounded-full
 	flex
 	items-center
+	overflow-hidden
 	p-1;
-}
-
-.active {
-	@apply justify-end;
 }
 
 .wrapper {
 	@apply rounded-full
 		p-1
-		flex
-		items-center
 		shadow-lg
 		shadow-medium/60
-		bg-lighter
-		justify-center;
+		bg-lighter;
 }

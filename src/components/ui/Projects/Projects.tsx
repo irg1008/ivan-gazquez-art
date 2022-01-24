@@ -1,6 +1,7 @@
 import { Project as ProjectType } from 'core'
-import Project from '../Project'
+import Project from 'components/ui/Project'
 import styles from './Projects.module.css'
+import { FadeInFromBottom } from 'components/transitions/OnView'
 
 type ProjectsProps = { projects: ProjectType[] }
 
@@ -10,7 +11,9 @@ const Projects = ({ projects }: ProjectsProps) => {
 			<div className={styles.projects}>
 				{projects.map((project, i) => (
 					<div key={i} className={styles.project}>
-						<Project project={project} />
+						<FadeInFromBottom triggerOnce>
+							<Project project={project} />
+						</FadeInFromBottom>
 					</div>
 				))}
 			</div>

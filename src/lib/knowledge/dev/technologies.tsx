@@ -22,6 +22,7 @@ import {
 	SiElectron,
 	SiJsonwebtokens,
 	SiExpo,
+	SiWeb3Dotjs,
 } from 'react-icons/si'
 
 export const technologies: CardProps[] = [
@@ -115,5 +116,9 @@ export const technologiesLearning: CardProps[] = [
 	{
 		header: <SiElectron />,
 		title: 'Electron',
+	},
+	{
+		header: <SiWeb3Dotjs />,
+		title: 'Web3.JS',
 	},
 ]
