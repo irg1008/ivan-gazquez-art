@@ -1,4 +1,39 @@
 {
 	"meta-title": "Sobre Mí",
-	"meta-description": "Sobre mí descripción"
+	"meta-description": "Sobre mí descripción",
+	"timeline": {
+		"years": {
+			"0": "< 1 año",
+			"one": "{{count}} año",
+			"other": "{{count}} años"
+		},
+		"date": "{{date, date}}",
+		"present": "actualidad",
+		"events": {
+			"burgos_uni": {
+				"place": "burgos",
+				"description": "graduado en la universidad de Burgos."
+			},
+			"london_ss": {
+				"place": "londres",
+				"description": "encargado de restaurante y marketing."
+			},
+			"lerma_dev": {
+				"place": "lerma",
+				"description": "desarrolaldor Front-End freelance."
+			},
+			"lerma_3d": {
+				"place": "lerma",
+				"description": "artista 3D. Diseñador de piezas para impresión de piezas de precisión."
+			},
+			"english_cert": {
+				"place": "burgos",
+				"description": "Estudiando para obtener el certificado C2."
+			}
+		}
+	},
+	"interested": "Me interesan",
+	"time": "experiencia",
+	"other-projects": "otros proyectos",
+	"other-projects-description": "Aquí puedes encontrar otros proyectos en los que he trabajado. He hecho drones, imprimo en 3D con una impresora SLA y disfruto tomando fotos y grabando videos, he incluso dirigido un cortometraje!"
 }

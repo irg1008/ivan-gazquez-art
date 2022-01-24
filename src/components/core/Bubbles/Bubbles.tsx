@@ -1,27 +1,13 @@
-import {
-	SiFigma,
-	SiGoogletagmanager,
-	SiNextdotjs,
-	SiOpenai,
-	SiThreedotjs,
-	SiVercel,
-	SiWeb3Dotjs,
-	SiWebcomponentsdotorg,
-} from 'react-icons/si'
 import styles from './Bubbles.module.css'
 import { motion, Variant, Variants } from 'framer-motion'
+import { interests } from 'lib/knowledge/about'
 
-type Bubble = {
-	icon: React.ReactNode
-	title: string
-}
-
-type CustomVairnats = Variants & {
+type CustomVariants = Variants & {
 	hidden: Variant
 	show: Variant
 }
 
-const wrapperVariant: CustomVairnats = {
+const wrapperVariant: CustomVariants = {
 	hidden: {},
 	show: {
 		transition: {
@@ -32,7 +18,7 @@ const wrapperVariant: CustomVairnats = {
 	},
 }
 
-const bubbleVariant: CustomVairnats = {
+const bubbleVariant: CustomVariants = {
 	hidden: {
 		y: 0,
 		rotateX: -5,
@@ -63,7 +49,7 @@ const Bubbles = () => {
 				initial="hidden"
 				animate="show"
 			>
-				{bubbles.map(({ icon, title }) => (
+				{interests.map(({ icon, title }) => (
 					<motion.div
 						key={title}
 						className={styles.bubble_wrapper}
@@ -81,40 +67,5 @@ const Bubbles = () => {
 		</>
 	)
 }
-
-const bubbles: Bubble[] = [
-	{
-		icon: <SiGoogletagmanager />,
-		title: 'SEO',
-	},
-	{
-		icon: <SiWeb3Dotjs />,
-		title: 'Web3',
-	},
-	{
-		icon: <SiWebcomponentsdotorg />,
-		title: 'Web Components',
-	},
-	{
-		icon: <SiFigma />,
-		title: 'UI/UX',
-	},
-	{
-		icon: <SiOpenai />,
-		title: 'AI',
-	},
-	{
-		icon: <SiNextdotjs />,
-		title: 'SSR',
-	},
-	{
-		icon: <SiVercel />,
-		title: 'Edge Functions',
-	},
-	{
-		icon: <SiThreedotjs />,
-		title: '3D',
-	},
-]
 
 export default Bubbles

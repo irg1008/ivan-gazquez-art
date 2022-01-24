@@ -100,7 +100,17 @@
 		text-center
 		relative;
 	& a {
-		@apply !no-underline p-4;
+		@apply p-4
+		!no-underline
+		border-4
+		duration-500
+		transition-all
+		ease-in-out
+		border-transparent;
+		&:not(.active) {
+			@apply rounded-custom
+			hover:border-prim/30;
+		}
 	}
 }
 
@@ -112,7 +122,7 @@
 
 .underline {
 	@apply absolute
-		bottom-0
+		top-0
 		left-0
 		w-full
 		h-full
@@ -121,7 +131,6 @@
 		rounded-custom
 		shadow-lg shadow-prim/30
 		bg-prim/10;
-	/* transform: none !important; */
 }
 
 .theme {

@@ -12,6 +12,7 @@ import {
 	tools,
 	toolsLearning,
 	projects,
+	designTools,
 } from 'lib/knowledge/dev'
 import Blob from 'components/ui/Blob'
 import Projects from 'components/ui/Projects'
@@ -56,6 +57,13 @@ const Home = () => {
 			<section className={styles.knowledge}>
 				<Title title={t('dev:knowledge.my-projects')} />
 				<Projects projects={projects} />
+			</section>
+			<section className={styles.knowledge}>
+				<hr />
+				<BulkCard
+					title={t('dev:knowledge.design-tools')}
+					cardProps={designTools}
+				/>
 			</section>
 		</div>
 	)

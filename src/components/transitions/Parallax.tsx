@@ -7,9 +7,8 @@ import {
 	useSpring,
 } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
-import { useInView } from 'react-intersection-observer'
 
-type ParallaxVariants = Variants & {
+export type ParallaxVariants = Variants & {
 	outside: Variant
 	inside: Variant
 }
@@ -69,32 +68,4 @@ const Parallax = ({
 	)
 }
 
-const fadeInFromBottomVairants: ParallaxVariants = {
-	inside: { opacity: 1, scale: 1, y: 0 },
-	outside: {
-		opacity: 0,
-		scale: 0.65,
-		y: 50,
-	},
-}
-
-const FadeInFromBottom = ({ children }: ParallaxProps) => {
-	const { ref, inView } = useInView({
-		threshold: 0.2,
-		triggerOnce: true,
-	})
-
-	return (
-		<motion.div
-			variants={fadeInFromBottomVairants}
-			animate={inView ? 'inside' : 'outside'}
-			transition={{ duration: 0.5, ease: 'easeOut' }}
-			ref={ref}
-			className="w-full h-full relative"
-		>
-			{children}
-		</motion.div>
-	)
-}
-
-export { FadeInFromBottom, Parallax }
+export { Parallax }

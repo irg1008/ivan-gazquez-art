@@ -46,7 +46,7 @@ const bgVariants: CustomVariants = {
 
 const transition: Transition = { type: 'tween' }
 
-const glassClass = `${styles.glass} backdrop-blur firefox:bg-opacity-90`
+const glass = `${styles.glass} backdrop-blur firefox:bg-opacity-90`
 
 const Nav = ({ links }: NavProps) => {
 	const { isTop } = useScrollPosition()
@@ -82,7 +82,7 @@ const Nav = ({ links }: NavProps) => {
 							className={styles.nav}
 						>
 							<div
-								className={`${styles.nav_wrapper} ${glassClass} ${
+								className={`${styles.nav_wrapper} ${glass} ${
 									isLG && isTop && styles.fade
 								}`}
 							>
@@ -99,9 +99,7 @@ const Nav = ({ links }: NavProps) => {
 					<Ham
 						toggled={navOpen}
 						onToggle={toggleNavOpen}
-						className={`${styles.ham} ${glassClass} ${
-							navOpen && styles.ham_open
-						}`}
+						className={`${styles.ham} ${glass} ${navOpen && styles.ham_open}`}
 					/>
 				</motion.div>
 			)}
@@ -134,12 +132,15 @@ const NavContent = ({ links }: NavProps) => {
 						{i === selectedTab ? (
 							<motion.div
 								className={styles.underline}
+								// onLayoutAnimationComplete={() => console.log('done')}
+								// onBeforeLayoutMeasure={() => console.log('before layout')}
+								// onLayoutMeasure={(box, prevBox) =>
+								// 	console.log('measured', { box, prevBox })
+								// }
 								// layoutId="underline"
 								initial={false}
 								transition={{
-									type: 'spring',
-									stiffness: 300,
-									damping: 25,
+									duration: 6,
 								}}
 							/>
 						) : (

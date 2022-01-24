@@ -1,4 +1,39 @@
 {
 	"meta-title": "About Me",
-	"meta-description": "Sobre mí descripción"
+	"meta-description": "About Me description",
+	"timeline": {
+		"years": {
+			"0": "< 1 year",
+			"one": "{{count}} year",
+			"other": "{{count}} years"
+		},
+		"date": "{{date, date}}",
+		"present": "present",
+		"events": {
+			"burgos_uni": {
+				"place": "burgos",
+				"description": "computer science degree at University Of Burgos."
+			},
+			"london_ss": {
+				"place": "london",
+				"description": "restaurant mannager and marketing associate."
+			},
+			"lerma_dev": {
+				"place": "lerma",
+				"description": "Front-End freelance developer."
+			},
+			"lerma_3d": {
+				"place": "lerma",
+				"description": "3D designer. Designing small and preccise 3D models."
+			},
+			"english_cert": {
+				"place": "burgos",
+				"description": "Obtaining english certificate for C2 level."
+			}
+		}
+	},
+	"interested": "I am interested in",
+	"time": "timeline",
+	"other-projects": "other projects",
+	"other-projects-description": "Here you can find other projects I have worked on. I make drones, print stuff with my SLA 3D printer and enjoy taking photos and filming videos, I have even directed a short-film!"
 }
