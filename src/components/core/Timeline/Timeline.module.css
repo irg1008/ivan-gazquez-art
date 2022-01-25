@@ -95,7 +95,7 @@
 .pill {
 	@apply absolute
   right-0
-  opacity-5
+  opacity-10
   w-32;
 	& svg {
 		@apply h-full

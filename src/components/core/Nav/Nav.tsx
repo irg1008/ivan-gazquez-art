@@ -1,7 +1,7 @@
 import styles from './Nav.module.css'
 import LangSwapper from 'components/core/LangSwapper'
 import ThemeSwapper from 'components/core/ThemeSwapper'
-import { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import {
 	motion,
 	AnimatePresence,
@@ -10,12 +10,13 @@ import {
 	Transition,
 } from 'framer-motion'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 // import UserOutlet from 'components/core/UserOutlet'
 import Ham from 'components/ui/Ham/Ham'
 import { useToggle, useWindowSize } from 'react-use'
 import useLoaded from 'hooks/useLoaded'
 import useScrollPosition from 'hooks/useScrollPosition'
+import useTranslation from 'next-translate/useTranslation'
+import useResize from 'hooks/useResize'
 
 type NavProps = {
 	links: Record<string, string>
@@ -108,13 +109,34 @@ const Nav = ({ links }: NavProps) => {
 }
 
 const NavContent = ({ links }: NavProps) => {
+	const { t } = useTranslation()
+
 	const [selectedTab, setSelectedTab] = useState<number>(0)
-	const { pathname } = useRouter()
+	const [tabWidth, setTabWidth] = useState<number>(0)
+	const [tabX, setTabX] = useState<number>(0)
+	const [tabHeight, setTabHeight] = useState<number>(0)
+	const [tabY, setTabY] = useState<number>(0)
+
+	const listRef = useRef<HTMLUListElement>(null)
+
+	const updateTab = useCallback(() => {
+		const currentElement = listRef.current?.children[selectedTab] as HTMLElement
+		const width = currentElement?.clientWidth ?? 0
+		const height = currentElement?.clientHeight ?? 0
+		const x = currentElement?.offsetLeft ?? 0
+		const y = currentElement?.offsetTop ?? 0
+
+		setTabWidth(width)
+		setTabHeight(height)
+		setTabX(x)
+		setTabY(y)
+	}, [selectedTab])
 
 	useEffect(() => {
-		const index = Object.keys(links).indexOf(pathname)
-		if (index !== selectedTab) setSelectedTab(index)
-	}, [pathname, links, selectedTab])
+		updateTab()
+	}, [updateTab, t, tabX, tabY])
+
+	useResize(updateTab)
 
 	return (
 		<div className={styles.nav_content}>
@@ -122,32 +144,34 @@ const NavContent = ({ links }: NavProps) => {
 				<LangSwapper />
 			</div>
 			<hr className={styles.nav_separator} />
-			<ul className={styles.links}>
+			<ul className={styles.links} ref={listRef}>
 				{Object.entries(links).map(([href, title], i) => (
 					<li
 						key={href}
-						className={`${i === selectedTab && styles.active} ${styles.link}`}
+						className={`${i === selectedTab ? styles.active : ''} ${
+							styles.link
+						}`}
+						onClick={() => setSelectedTab(i)}
+						// onMouseEnter={() => setSelectedTab(i)}
 					>
 						<Link href={href}>{title}</Link>
-						{i === selectedTab ? (
-							<motion.div
-								className={styles.underline}
-								// onLayoutAnimationComplete={() => console.log('done')}
-								// onBeforeLayoutMeasure={() => console.log('before layout')}
-								// onLayoutMeasure={(box, prevBox) =>
-								// 	console.log('measured', { box, prevBox })
-								// }
-								// layoutId="underline"
-								initial={false}
-								transition={{
-									duration: 6,
-								}}
-							/>
-						) : (
-							<></>
-						)}
 					</li>
 				))}
+				<motion.span
+					className={styles.underline}
+					initial={false}
+					animate={{
+						x: `${tabX}px`,
+						y: `${tabY}px`,
+						width: `${tabWidth}px`,
+						height: `${tabHeight}px`,
+					}}
+					transition={{
+						type: 'spring',
+						stiffness: 300,
+						damping: 25,
+					}}
+				/>
 			</ul>
 			<div className={styles.theme}>
 				<ThemeSwapper />
