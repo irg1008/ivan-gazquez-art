@@ -6,7 +6,8 @@ import {
 	useTransform,
 	useSpring,
 } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import useResize from 'hooks/useResize'
+import { useRef, useState } from 'react'
 
 export type ParallaxVariants = Variants & {
 	outside: Variant
@@ -33,21 +34,16 @@ const Parallax = ({
 	const [scrollOffset, setScrollOffset] = useState(0)
 	const [clientHeight, setClientHeight] = useState(0)
 
-	useEffect(() => {
-		const setValues = () => {
-			if (!ref.current) return
+	const setValues = () => {
+		if (!ref.current) return
 
-			const offset = offsetY / (ref.current.clientHeight / 100)
-			setScrollOffset(-offset)
-			setElementTop(ref.current.offsetTop)
-			setClientHeight(window.innerHeight)
-		}
+		const offset = offsetY / (ref.current.clientHeight / 100)
+		setScrollOffset(-offset)
+		setElementTop(ref.current.offsetTop)
+		setClientHeight(window.innerHeight)
+	}
 
-		setValues()
-		window.addEventListener('resize', setValues)
-
-		return () => window.removeEventListener('resize', setValues)
-	}, [ref, offsetY])
+	useResize(setValues, true)
 
 	const transformInitialValue = elementTop + offsetY
 	const transformFinalValue = elementTop - clientHeight * triggerPoint

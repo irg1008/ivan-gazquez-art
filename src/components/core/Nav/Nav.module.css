@@ -90,6 +90,7 @@
 		lg:order-2
 		lg:p-0
 		lg:flex-1
+		relative
 		lg:bg-transparent
 		lg:flex-row;
 }
@@ -102,15 +103,8 @@
 	& a {
 		@apply p-4
 		!no-underline
-		border-4
-		duration-500
-		transition-all
-		ease-in-out
-		border-transparent;
-		&:not(.active) {
-			@apply rounded-custom
-			hover:border-prim/30;
-		}
+		transition-colors
+		duration-200;
 	}
 }
 
@@ -124,8 +118,6 @@
 	@apply absolute
 		top-0
 		left-0
-		w-full
-		h-full
 		border-4
 		border-prim
 		rounded-custom
