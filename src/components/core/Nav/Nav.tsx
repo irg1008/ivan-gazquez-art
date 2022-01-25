@@ -125,7 +125,6 @@ const NavContent = ({ links }: NavProps) => {
 		const height = currentElement?.clientHeight ?? 0
 		const x = currentElement?.offsetLeft ?? 0
 		const y = currentElement?.offsetTop ?? 0
-		console.log(x, y, width, height)
 
 		setTabWidth(width)
 		setTabHeight(height)
