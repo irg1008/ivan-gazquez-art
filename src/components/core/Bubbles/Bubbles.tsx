@@ -39,10 +39,32 @@ const bubbleVariant: CustomVariants = {
 	},
 }
 
+const BubbleBG = () => {
+	// const ref = useRef<HTMLDivElement>(null)
+	// const { docX, docY, posX, posY, elX, elY, elW, elH } = useMouse(ref)
+
+	// const rect = ref.current?.getBoundingClientRect()
+	// const right = rect?.right ?? 0
+	// const top = rect?.top ?? 0
+
+	// console.log({ elX, elY, elW, elH })
+
+	return (
+		<motion.div
+			className={styles.bubbles_bg}
+			// ref={ref}
+			// style={{
+			// 	rotateX: elX * 0.05,
+			// 	rotateY: elY * 0.05,
+			// }}
+		/>
+	)
+}
+
 const Bubbles = () => {
 	return (
 		<>
-			<span className={styles.bubbles_bg} />
+			<BubbleBG />
 			<motion.div
 				className={styles.bubbles}
 				variants={wrapperVariant}

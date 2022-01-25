@@ -12,5 +12,8 @@ module.exports = withBundleAnalyzer(
 		images: {
 			domains: ['images.unsplash.com'],
 		},
+		// experimental: {
+		// 	urlImports: ['https://cdn.skypack.dev'],
+		// },
 	})
 )
