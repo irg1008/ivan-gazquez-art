@@ -17,6 +17,7 @@ import useLoaded from 'hooks/useLoaded'
 import useScrollPosition from 'hooks/useScrollPosition'
 import useTranslation from 'next-translate/useTranslation'
 import useResize from 'hooks/useResize'
+import { useRouter } from 'next/router'
 
 type NavProps = {
 	links: Record<string, string>
@@ -111,7 +112,10 @@ const Nav = ({ links }: NavProps) => {
 const NavContent = ({ links }: NavProps) => {
 	const { t } = useTranslation()
 
-	const [selectedTab, setSelectedTab] = useState<number>(0)
+	const { pathname } = useRouter()
+	const initialTab = Object.keys(links).indexOf(pathname) ?? 0
+
+	const [selectedTab, setSelectedTab] = useState<number>(initialTab)
 	const [tabWidth, setTabWidth] = useState<number>(0)
 	const [tabX, setTabX] = useState<number>(0)
 	const [tabHeight, setTabHeight] = useState<number>(0)
