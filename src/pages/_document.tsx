@@ -20,7 +20,7 @@ class MyDocument extends Document {
 					<noscript
 						dangerouslySetInnerHTML={{
 							__html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXJX3WJ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+							height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
 						}}
 					></noscript>
 					<Main />
