@@ -23,6 +23,8 @@ import {
 	SiJsonwebtokens,
 	SiExpo,
 	SiWeb3Dotjs,
+	SiDeno,
+	SiNodedotjs
 } from 'react-icons/si'
 
 export const technologies: CardProps[] = [
@@ -86,6 +88,10 @@ export const technologies: CardProps[] = [
 		header: <SiExpo />,
 		title: 'Expo',
 	},
+	{
+		header: <SiNodedotjs />,
+		title: 'Node',
+	},
 ]
 
 export const technologiesLearning: CardProps[] = [
@@ -120,5 +126,9 @@ export const technologiesLearning: CardProps[] = [
 	{
 		header: <SiWeb3Dotjs />,
 		title: 'Web3.JS',
+	},
+	{
+		header: <SiDeno />,
+		title: 'Deno',
 	},
 ]
