@@ -80,3 +80,22 @@
   md:-ml-3
   prose-xl;
 }
+
+.social {
+	@apply mt-2
+  flex flex-col
+  w-56
+  p-4
+  text-neutral-50
+  gap-6
+  bg-neutral-800
+  shadow-lg
+  rounded-custom
+  border-2
+  border-neutral-50
+  m-auto;
+}
+
+.follow {
+	@apply mt-8;
+}
