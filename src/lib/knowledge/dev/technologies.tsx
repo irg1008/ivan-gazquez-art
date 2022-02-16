@@ -25,6 +25,8 @@ import {
 	SiWeb3Dotjs,
 	SiDeno,
 	SiNodedotjs,
+	SiAngular,
+	SiDotnet,
 } from 'react-icons/si'
 
 export const technologies: CardProps[] = [
@@ -130,5 +132,13 @@ export const technologiesLearning: CardProps[] = [
 	{
 		header: <SiDeno />,
 		title: 'Deno',
+	},
+	{
+		header: <SiAngular />,
+		title: 'Angular',
+	},
+	{
+		header: <SiDotnet />,
+		title: '.NET',
 	},
 ]
