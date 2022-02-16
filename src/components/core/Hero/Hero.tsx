@@ -1,6 +1,7 @@
 import styles from './Hero.module.css'
 import Image from 'next/image'
 import useTranslation from 'next-translate/useTranslation'
+import Social from 'components/ui/Social'
 
 // type HeroProps = {}
 
@@ -27,6 +28,10 @@ const Hero = () => {
 						<hr className={styles.separator} />
 						<p className={styles.data}>{`"${t('detail')}"`}</p>
 					</div>
+				</div>
+				<p className={styles.follow}>{t('follow')}:</p>
+				<div className={styles.social}>
+					<Social />
 				</div>
 			</div>
 		</div>

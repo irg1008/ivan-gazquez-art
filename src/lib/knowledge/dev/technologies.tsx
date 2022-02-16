@@ -24,7 +24,7 @@ import {
 	SiExpo,
 	SiWeb3Dotjs,
 	SiDeno,
-	SiNodedotjs
+	SiNodedotjs,
 } from 'react-icons/si'
 
 export const technologies: CardProps[] = [
