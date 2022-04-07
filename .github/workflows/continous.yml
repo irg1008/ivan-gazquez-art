@@ -30,8 +30,8 @@ jobs:
         if: steps.cache_modules.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
 
-      - name: Generate Prisma Client
-        run: npm run prisma:gen
+      # - name: Generate Prisma Client
+      #   run: npm run prisma:gen
 
       - name: Build
         run: npm run build
