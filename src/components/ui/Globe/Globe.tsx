@@ -1,4 +1,3 @@
-// @ts-expect-error This library does not have a typescript definition, but it simple enough to not need one.
 import createGlobe from 'cobe'
 import { useEffect, useRef } from 'react'
 import styles from './Globe.module.css'
@@ -17,6 +16,7 @@ const Globe = () => {
 
 	useEffect(() => {
 		let phi = phiRef.current
+		if (!canvasRef.current) return
 
 		const globe = createGlobe(canvasRef.current, {
 			devicePixelRatio: 1,
@@ -26,7 +26,7 @@ const Globe = () => {
 			theta: 0.2,
 			dark: 0.9,
 			diffuse: 2,
-			mapSamples: 16000,
+			mapSamples: 16_000,
 			mapBrightness: 20,
 			baseColor: [0.4, 0.4, 0.4],
 			markerColor: [1, 0.2, 0.2],
@@ -35,7 +35,7 @@ const Globe = () => {
 				{ location: [42.3453, -3.6966], size: 0.05 },
 				{ location: [51.03453, 0.05966], size: 0.05 },
 			],
-			onRender: (state: { phi: number } & unknown) => {
+			onRender: (state) => {
 				// Called on every animation frame.
 				// `state` will be an empty object, return updated params.
 				state.phi = phiRef.current = phi
