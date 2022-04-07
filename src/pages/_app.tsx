@@ -5,6 +5,7 @@ import '../styles/index.css'
 import { SessionProvider } from 'next-auth/react'
 import { Session } from 'next-auth'
 import BaseLayout from 'layout/Base'
+import { GAScript } from 'lib/ga/GAScript'
 
 type AppPropsWithLayout = AppProps & {
 	Component: NextPageWithLayout
@@ -22,6 +23,7 @@ function MyApp({
 	return (
 		<>
 			<Head title="Default Title" description="Default Description" />
+			<GAScript />
 			<SessionProvider session={session}>
 				<Layout>
 					<Component {...pageProps} />
