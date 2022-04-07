@@ -7,6 +7,8 @@ import * as gtag from './gtag'
 export const GAScript = () => {
 	useEffect(() => {
 		const handleRouteChange = (url: string) => gtag.pageview(url)
+		// Onload
+		handleRouteChange(window.location.pathname)
 		router.events.on('routeChangeComplete', handleRouteChange)
 		return () => router.events.off('routeChangeComplete', handleRouteChange)
 	}, [])
