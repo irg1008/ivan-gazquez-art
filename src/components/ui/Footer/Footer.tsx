@@ -63,9 +63,9 @@ const Footer = () => {
 			<Social />
 			<section className={styles.name_wrapper}>
 				<span />
-				<BiHeart className="inline" size={80} />
+				<BiHeart className={styles.icon} />
 				<h3 className={styles.name}>{t('footer')}</h3>
-				<BsEmojiLaughing className="inline" size={80} />
+				<BsEmojiLaughing className={styles.icon} />
 				<span />
 			</section>
 		</footer>

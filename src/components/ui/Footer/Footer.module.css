@@ -22,6 +22,7 @@
 		border-neutral-100
 		rounded-custom
 		hidden
+		min-w-[5em]
 		sm:inline;
 	}
 }
@@ -29,7 +30,14 @@
 .name {
 	@apply uppercase
 	text-center
-	sm:flex-shrink-0
 	font-mono
+	md:flex-shrink-0
+	lg:max-w-[70ch]
+	md:max-w-[40ch]
+	sm:max-w-[40ch]
 	font-thin;
+}
+
+.icon {
+	@apply min-w-[2em];
 }
