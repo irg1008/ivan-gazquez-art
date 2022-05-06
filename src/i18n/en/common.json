@@ -14,5 +14,6 @@
 	"projects": {
 		"tools": "tools",
 		"go-to": "Go to {{project}}"
-	}
+	},
+	"footer": "Thanks for reaching the bottom! Now is when you hire me, right?"
 }

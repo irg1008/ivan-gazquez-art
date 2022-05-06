@@ -30,12 +30,18 @@ const events: TimelineEvent[] = [
 		id: 'lerma_3d',
 		status: 'working',
 		starting: new Date(2019, 11),
-		ending: 'present',
+		ending: new Date(2020, 8),
 	},
 	{
 		id: 'english_cert',
 		status: 'studying',
-		starting: new Date(2022, 1),
+		starting: new Date(2022, 1, 10),
+		ending: new Date(2022, 3, 21),
+	},
+	{
+		id: 'nubebytes',
+		status: 'working',
+		starting: new Date(2022, 1, 14),
 		ending: 'present',
 	},
 ]

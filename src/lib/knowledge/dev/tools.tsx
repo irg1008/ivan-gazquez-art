@@ -22,6 +22,9 @@ import {
 	SiFirebase,
 	SiRailway,
 	SiStrapi,
+	SiWebdriverio,
+	SiStylelint,
+	SiNetlify,
 } from 'react-icons/si'
 
 export const tools: CardProps[] = [
@@ -101,13 +104,17 @@ export const tools: CardProps[] = [
 		header: <SiStrapi />,
 		title: 'Strapi',
 	},
-]
-
-export const toolsLearning: CardProps[] = [
 	{
 		header: <SiShopify />,
 		title: 'Shopify',
 	},
+	{
+		header: <SiNetlify />,
+		title: 'Netlify',
+	},
+]
+
+export const toolsLearning: CardProps[] = [
 	{
 		header: <SiWordpress />,
 		title: 'Wordpress',
@@ -115,5 +122,13 @@ export const toolsLearning: CardProps[] = [
 	{
 		header: <SiMocha />,
 		title: 'Mocha',
+	},
+	{
+		header: <SiWebdriverio />,
+		title: 'WebdriverIO',
+	},
+	{
+		header: <SiStylelint />,
+		title: 'Stylelint',
 	},
 ]
