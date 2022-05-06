@@ -86,7 +86,9 @@ const Element = ({ children }: { children: React.ReactNode }) => (
 
 const Location = ({ loc }: { loc: string }) => (
 	<div className={styles.loc}>
-		<MdLocationOn className={styles.icon} />
+		<span className={styles.icon}>
+			<MdLocationOn size={25} />
+		</span>
 		{loc}
 	</div>
 )

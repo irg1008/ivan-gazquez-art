@@ -11,8 +11,8 @@ type BulkCardProps = {
 const BulkCard = ({ title, cardProps, children }: BulkCardProps) => {
 	return (
 		<>
-			<h1 className={styles.bulk_title}>{title}</h1>
-			<div
+			<h4 className={styles.bulk_title}>{title}</h4>
+			<article
 				className={`${styles.wrapper} backdrop-blur-sm firefox:bg-opacity-90`}
 			>
 				<ul className={styles.cards}>
@@ -23,7 +23,7 @@ const BulkCard = ({ title, cardProps, children }: BulkCardProps) => {
 					))}
 				</ul>
 				{children}
-			</div>
+			</article>
 		</>
 	)
 }

@@ -20,20 +20,16 @@ import {
 	SiPrisma,
 	SiFlutter,
 	SiElectron,
-	SiJsonwebtokens,
 	SiExpo,
 	SiWeb3Dotjs,
 	SiDeno,
 	SiNodedotjs,
 	SiAngular,
 	SiDotnet,
+	SiIonic,
 } from 'react-icons/si'
 
 export const technologies: CardProps[] = [
-	{
-		header: <SiTensorflow />,
-		title: 'Tensorflow',
-	},
 	{
 		header: <SiPytorch />,
 		title: 'PyTorch',
@@ -75,10 +71,6 @@ export const technologies: CardProps[] = [
 		title: 'Flask',
 	},
 	{
-		header: <SiJsonwebtokens />,
-		title: 'JSON Web Tokens',
-	},
-	{
 		header: <SiStyledcomponents />,
 		title: 'Styled Components',
 	},
@@ -93,6 +85,18 @@ export const technologies: CardProps[] = [
 	{
 		header: <SiNodedotjs />,
 		title: 'Node',
+	},
+	{
+		header: <SiAngular />,
+		title: 'Angular',
+	},
+	{
+		header: <SiIonic />,
+		title: 'Ionic',
+	},
+	{
+		header: <SiDotnet />,
+		title: '.NET',
 	},
 ]
 
@@ -134,11 +138,7 @@ export const technologiesLearning: CardProps[] = [
 		title: 'Deno',
 	},
 	{
-		header: <SiAngular />,
-		title: 'Angular',
-	},
-	{
-		header: <SiDotnet />,
-		title: '.NET',
+		header: <SiTensorflow />,
+		title: 'Tensorflow',
 	},
 ]

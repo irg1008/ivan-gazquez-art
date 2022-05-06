@@ -1,6 +1,6 @@
 {
 	"meta-title": "About Me",
-	"meta-description": "About Me description",
+	"meta-description": "Get in to know more about me. Full Stack developer looking for new places. But be aware, I will need to have a great team to work and share experience with. No one is anything without a team.",
 	"timeline": {
 		"years": {
 			"0": "< 1 year",
@@ -11,24 +11,28 @@
 		"present": "present",
 		"events": {
 			"burgos_uni": {
-				"place": "burgos",
+				"place": "Burgos",
 				"description": "computer science degree at University Of Burgos."
 			},
 			"london_ss": {
-				"place": "london",
+				"place": "ShakeShack - London",
 				"description": "restaurant mannager and marketing associate."
 			},
 			"lerma_dev": {
-				"place": "lerma",
+				"place": "Lerma",
 				"description": "Front-End freelance developer."
 			},
 			"lerma_3d": {
-				"place": "lerma",
+				"place": "Lerma",
 				"description": "3D designer. Designing small and preccise 3D models."
 			},
 			"english_cert": {
-				"place": "burgos",
-				"description": "Obtaining english certificate for C2 level."
+				"place": "University of Burgos - Burgos",
+				"description": "C2 Proficiency in English."
+			},
+			"nubebytes": {
+				"place": "NubeBytes - Burgos",
+				"description": "Working as Full Stack Developer with .NET + Angular Stack en NubeBytes S.L."
 			}
 		}
 	},

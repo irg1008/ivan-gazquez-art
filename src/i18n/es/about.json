@@ -1,6 +1,6 @@
 {
 	"meta-title": "Sobre Mí",
-	"meta-description": "Sobre mí descripción",
+	"meta-description": "Entra para ver sobre mí. Pronto comenzaré con un blog y movidas de esas buenas para el SEO, de momento puedes ver lo que me gusta hacer, aunque siendo sincero, me adapto a todo. Eso sí, necesito estar con un buen equipo, ya que sin equipo nadie es nada",
 	"timeline": {
 		"years": {
 			"0": "< 1 año",
@@ -15,7 +15,7 @@
 				"description": "graduado en la universidad de Burgos."
 			},
 			"london_ss": {
-				"place": "londres",
+				"place": "ShakeShack - londres",
 				"description": "encargado de restaurante y marketing."
 			},
 			"lerma_dev": {
@@ -27,13 +27,17 @@
 				"description": "artista 3D. Diseñador de piezas para impresión de piezas de precisión."
 			},
 			"english_cert": {
-				"place": "burgos",
-				"description": "Estudiando para obtener el certificado C2."
+				"place": "Universidad de Burgos - Burgos",
+				"description": "Certificado C2 (Proficiency) en Inglés."
+			},
+			"nubebytes": {
+				"place": "NubeBytes - burgos",
+				"description": "desarrollador Full-Stack con .NET + Angular at NubeBytes S.L."
 			}
 		}
 	},
 	"interested": "Me interesan",
 	"time": "experiencia",
 	"other-projects": "otros proyectos",
-	"other-projects-description": "Aquí puedes encontrar otros proyectos en los que he trabajado. He hecho drones, imprimo en 3D con una impresora SLA y disfruto tomando fotos y grabando videos, he incluso dirigido un cortometraje!"
+	"other-projects-description": "Aquí puedes encontrar otros proyectos en los que he trabajado. He hecho drones, imprimo en 3D con una impresora SLA y disfruto tomando fotos y grabando videos, ¡He dirigido incluso un cortometraje!"
 }

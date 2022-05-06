@@ -3,6 +3,9 @@ import confetti from 'canvas-confetti'
 import useScrollPosition from 'hooks/useScrollPosition'
 import { useState } from 'react'
 import Social from 'components/ui/Social'
+import useTranslation from 'next-translate/useTranslation'
+import { BiHeart } from 'react-icons/bi'
+import { BsEmojiLaughing } from 'react-icons/bs'
 
 const useConfetti = () => {
 	const [fired, setFired] = useState(false)
@@ -53,16 +56,18 @@ const useConfetti = () => {
 
 const Footer = () => {
 	useConfetti()
+
+	const { t } = useTranslation('common')
 	return (
 		<footer className={styles.footer}>
 			<Social />
-			<div className={styles.name_wrapper}>
+			<section className={styles.name_wrapper}>
 				<span />
-				<h3 className={styles.name}>
-					IVÁN RUIZ GÁZQUEZ - {new Date().getFullYear()}
-				</h3>
+				<BiHeart className="inline" size={80} />
+				<h3 className={styles.name}>{t('footer')}</h3>
+				<BsEmojiLaughing className="inline" size={80} />
 				<span />
-			</div>
+			</section>
 		</footer>
 	)
 }

@@ -5,7 +5,7 @@ type TitleProps = {
 }
 
 const Title = ({ title }: TitleProps) => {
-	return <h1 className={styles.title}>{title}</h1>
+	return <h3 className={styles.title}>{title}</h3>
 }
 
 export default Title

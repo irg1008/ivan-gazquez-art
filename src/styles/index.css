@@ -87,6 +87,11 @@ h3 {
 		font-bold;
 }
 
+h4 {
+	@apply text-lg
+		font-bold;
+}
+
 hr {
 	@apply border-b-2
 		border-darker

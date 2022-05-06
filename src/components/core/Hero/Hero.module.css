@@ -37,6 +37,13 @@
   overflow-hidden;
 }
 
+.avatar_img {
+	/* @apply transition-transform duration-1000 ease-in-out;
+	&:hover {
+		transform: scale(1.05);
+	} */
+}
+
 .text {
 	@apply flex
   flex-col
