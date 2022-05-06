@@ -45,7 +45,7 @@ const Head = ({ title, description, canonical }: Props) => {
 					title,
 					description,
 					url: canonical,
-					locale: locale,
+					locale,
 					site_name: 'Portfolio',
 				}}
 			/>

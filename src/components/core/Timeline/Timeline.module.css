@@ -52,17 +52,6 @@
     flex-col
     gap-2;
 
-		&:last-child:after {
-			content: '';
-			@apply absolute
-        -left-[9px]
-        bottom-0
-        w-4
-        h-4
-        rounded-full
-        bg-darker;
-		}
-
 		&:before {
 			content: '';
 			@apply absolute
@@ -70,19 +59,28 @@
       w-4
       h-4
       rounded-full
+      mt-2
       bg-darker;
+		}
+
+		&:last-child {
+			@apply pb-0;
 		}
 	}
 }
 
 .icon {
-	@apply h-5 mr-1;
+	@apply h-full
+  mr-1
+  pt-1
+  flex
+  items-start;
 }
 
 .loc {
 	@apply flex
   text-xl
-  items-center
+  items-stretch
   capitalize
   font-bold;
 }
@@ -95,7 +93,7 @@
 .pill {
 	@apply absolute
   right-0
-  opacity-10
+  opacity-5
   w-32;
 	& svg {
 		@apply h-full

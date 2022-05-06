@@ -9,9 +9,9 @@ const Hero = () => {
 	const { t } = useTranslation('dev')
 
 	return (
-		<div className={styles.hero}>
-			<div className={styles.wrapper}>
-				<div className={styles.info}>
+		<section className={styles.hero}>
+			<article className={styles.wrapper}>
+				<header className={styles.info}>
 					<div className={styles.avatar}>
 						<Image
 							src="/images/avatar.jpg"
@@ -20,21 +20,22 @@ const Hero = () => {
 							priority
 							objectFit="cover"
 							objectPosition="top"
+							className={styles.avatar_img}
 						/>
 					</div>
-					<div className={styles.text}>
+					<summary className={styles.text}>
 						<h1 className={styles.title}>{t('title')}</h1>
 						<h2 className={styles.subtitle}>{t('subtitle')}</h2>
 						<hr className={styles.separator} />
 						<p className={styles.data}>{`"${t('detail')}"`}</p>
-					</div>
-				</div>
+					</summary>
+				</header>
 				<p className={styles.follow}>{t('follow')}:</p>
-				<div className={styles.social}>
+				<footer className={styles.social}>
 					<Social />
-				</div>
-			</div>
-		</div>
+				</footer>
+			</article>
+		</section>
 	)
 }
 

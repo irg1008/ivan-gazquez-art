@@ -19,20 +19,20 @@ const Layout: LayoutPage = ({ children }) => {
 	}
 
 	return (
-		<section className={styles.layout}>
+		<div className={styles.layout}>
 			<header className={styles.header}>
 				{!!navLinks && <Nav links={navLinks} />}
 			</header>
 
 			<main className={styles.main_content}>
 				{children}
-				<div className={styles.scroll_up}>
+				<aside className={styles.scroll_up}>
 					<ScrollUp />
-				</div>
+				</aside>
 			</main>
 
 			<Footer />
-		</section>
+		</div>
 	)
 }
 
