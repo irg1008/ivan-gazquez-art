@@ -24,8 +24,8 @@ const Hero = () => {
 						/>
 					</div>
 					<summary className={styles.text}>
-						<h1 className={styles.title}>{t('title')}</h1>
-						<h2 className={styles.subtitle}>{t('subtitle')}</h2>
+						<span className={styles.title}>{t('title')}</span>
+						<h1 className={styles.subtitle}>{t('subtitle')}</h1>
 						<hr className={styles.separator} />
 						<p className={styles.data}>{`"${t('detail')}"`}</p>
 					</summary>
