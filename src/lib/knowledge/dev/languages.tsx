@@ -16,6 +16,7 @@ import {
 	SiHtml5,
 	SiCss3,
 	SiPostgresql,
+	SiElixir,
 } from 'react-icons/si'
 
 export const languages: CardProps[] = [
@@ -85,5 +86,9 @@ export const languagesLearning: CardProps[] = [
 	{
 		header: <SiGo />,
 		title: 'Go',
+	},
+	{
+		header: <SiElixir />,
+		title: 'Elixir',
 	},
 ]
