@@ -40,6 +40,51 @@ import { FaRobot } from 'react-icons/fa'
 
 export const projects: Project[] = [
 	{
+		name: 'Sign2Text',
+		title: (
+			<>
+				Sign2Text <SiGithub /> <IoIosSchool />
+			</>
+		),
+		image: (
+			<Image
+				src="/images/projects/sign2text/sign2text.jpg"
+				alt="Sign2Text"
+				layout="fill"
+				objectFit="cover"
+				objectPosition="top"
+			/>
+		),
+		link: 'https://sign2text.com',
+		tools: [
+			<SiSvelte key="svelte" title="Svelte" />,
+			<SiTypescript key="typescript" title="Typescript" />,
+			<SiPython key="python" title="Python" />,
+			<SiFastapi key="fastapi" title="FastAPI" />,
+			<SiAmazonaws key="amazonaws" title="Amazon AWS" />,
+			<SiDocker key="docker" title="Docker" />,
+			<SiOnnx key="onnx" title="ONNX" />,
+			<SiPytorch key="pytorch" title="PyTorch" />,
+		],
+	},
+
+	{
+		name: 'Lloret Art',
+		title: 'Lloret Art - Gallery',
+		image: (
+			<Image
+				src="/images/projects/lloretart/lloretart.jpg"
+				alt="Lloret Art"
+				layout="fill"
+				objectFit="cover"
+				objectPosition="top"
+			/>
+		),
+		link: 'https://lloretart.com',
+		tools: [<SiShopify key="shopify" title="Shopify" />],
+	},
+
+	{
 		name: 'Escala2',
 		title: 'Escala2 - Patronaje Industrial',
 		image: (
@@ -230,50 +275,5 @@ export const projects: Project[] = [
 			<SiSelenium key="selenium" title="Selenium" />,
 			<SiVisualstudio key="visualstudio" title="Visual Studio" />,
 		],
-	},
-
-	{
-		name: 'Sign2Text',
-		title: (
-			<>
-				Sign2Text <SiGithub /> <IoIosSchool />
-			</>
-		),
-		image: (
-			<Image
-				src="/images/projects/sign2text/sign2text.jpg"
-				alt="Sign2Text"
-				layout="fill"
-				objectFit="cover"
-				objectPosition="top"
-			/>
-		),
-		link: 'https://sign2text.com',
-		tools: [
-			<SiSvelte key="svelte" title="Svelte" />,
-			<SiTypescript key="typescript" title="Typescript" />,
-			<SiPython key="python" title="Python" />,
-			<SiFastapi key="fastapi" title="FastAPI" />,
-			<SiAmazonaws key="amazonaws" title="Amazon AWS" />,
-			<SiDocker key="docker" title="Docker" />,
-			<SiOnnx key="onnx" title="ONNX" />,
-			<SiPytorch key="pytorch" title="PyTorch" />,
-		],
-	},
-
-	{
-		name: 'Lloret Art',
-		title: 'Lloret Art - Gallery',
-		image: (
-			<Image
-				src="/images/projects/lloretart/lloretart.jpg"
-				alt="Lloret Art"
-				layout="fill"
-				objectFit="cover"
-				objectPosition="top"
-			/>
-		),
-		link: 'https://lloretart.com',
-		tools: [<SiShopify key="shopify" title="Shopify" />],
 	},
 ]
