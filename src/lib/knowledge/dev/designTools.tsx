@@ -40,10 +40,6 @@ export const designTools: CardProps[] = [
 		title: 'Cinema 4D',
 	},
 	{
-		header: <SiUnity />,
-		title: 'Unity',
-	},
-	{
 		header: <SiFramer />,
 		title: 'Framer',
 	},

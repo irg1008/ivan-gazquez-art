@@ -27,6 +27,8 @@ import {
 	SiAngular,
 	SiDotnet,
 	SiIonic,
+	SiFastify,
+	SiFastapi,
 } from 'react-icons/si'
 
 export const technologies: CardProps[] = [
@@ -97,6 +99,14 @@ export const technologies: CardProps[] = [
 	{
 		header: <SiDotnet />,
 		title: '.NET',
+	},
+	{
+		header: <SiFastify />,
+		title: 'Fastify',
+	},
+	{
+		header: <SiFastapi />,
+		title: 'FastAPI',
 	},
 ]
 

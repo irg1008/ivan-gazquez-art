@@ -1,11 +1,13 @@
 import { Project } from 'core'
 import Image from 'next/image'
 import {
+	SiAmazonaws,
 	SiCsharp,
 	SiCss3,
 	SiDocker,
 	SiDotnet,
 	SiExpress,
+	SiFastapi,
 	SiFlask,
 	SiGithub,
 	SiGooglecloud,
@@ -15,11 +17,14 @@ import {
 	SiJquery,
 	SiNextdotjs,
 	SiNpm,
+	SiOnnx,
 	SiPostgresql,
 	SiPrisma,
 	SiPython,
+	SiPytorch,
 	SiRailway,
 	SiSelenium,
+	SiShopify,
 	SiSolidity,
 	SiSqlite,
 	SiStrapi,
@@ -41,7 +46,7 @@ export const projects: Project[] = [
 			<Image
 				src="/images/projects/escala2/escala2.gif"
 				placeholder="blur"
-				blurDataURL="/images/projects/escala2/thumb.png"
+				blurDataURL="/images/projects/escala2/thumb.jpg"
 				alt="Escala2 - Patronaje Industrial"
 				layout="fill"
 				objectFit="cover"
@@ -62,7 +67,7 @@ export const projects: Project[] = [
 		title: 'Renacerae - Moda de Mujer',
 		image: (
 			<Image
-				src="/images/projects/renacerae/renacerae.png"
+				src="/images/projects/renacerae/renacerae.avif"
 				alt="Renacerae"
 				layout="fill"
 				objectFit="cover"
@@ -114,7 +119,7 @@ export const projects: Project[] = [
 		),
 		image: (
 			<Image
-				src="/images/projects/lanuevacostura/lanuevacostura.png"
+				src="/images/projects/lanuevacostura/lanuevacostura.avif"
 				alt="La Nueva Costura"
 				layout="fill"
 				objectFit="cover"
@@ -140,7 +145,7 @@ export const projects: Project[] = [
 		),
 		image: (
 			<Image
-				src="/images/projects/dsbot/dsbot.png"
+				src="/images/projects/dsbot/dsbot.jpg"
 				alt="CalBot"
 				layout="fill"
 				objectFit="cover"
@@ -165,7 +170,7 @@ export const projects: Project[] = [
 		),
 		image: (
 			<Image
-				src="/images/projects/gazquez/picture.webp"
+				src="/images/projects/gazquez/picture.avif"
 				alt="Gazquez"
 				layout="fill"
 				objectFit="cover"
@@ -211,7 +216,7 @@ export const projects: Project[] = [
 		),
 		image: (
 			<Image
-				src="/images/projects/ubusecret/cover.png"
+				src="/images/projects/ubusecret/cover.avif"
 				alt="Svelte FullScroll"
 				layout="fill"
 				objectFit="cover"
@@ -227,15 +232,48 @@ export const projects: Project[] = [
 		],
 	},
 
-	// {
-	// 	name: 'Sign2Text',
-	// 	title: (
-	// 		<>
-	// 			Sign2Text <SiGithub /> <IoIosSchool />
-	// 		</>
-	// 	),
-	// 	image: '',
-	// 	link: '',
-	// 	tools: [],
-	// },
+	{
+		name: 'Sign2Text',
+		title: (
+			<>
+				Sign2Text <SiGithub /> <IoIosSchool />
+			</>
+		),
+		image: (
+			<Image
+				src="/images/projects/sign2text/sign2text.jpg"
+				alt="Sign2Text"
+				layout="fill"
+				objectFit="cover"
+				objectPosition="top"
+			/>
+		),
+		link: 'https://sign2text.com',
+		tools: [
+			<SiSvelte key="svelte" title="Svelte" />,
+			<SiTypescript key="typescript" title="Typescript" />,
+			<SiPython key="python" title="Python" />,
+			<SiFastapi key="fastapi" title="FastAPI" />,
+			<SiAmazonaws key="amazonaws" title="Amazon AWS" />,
+			<SiDocker key="docker" title="Docker" />,
+			<SiOnnx key="onnx" title="ONNX" />,
+			<SiPytorch key="pytorch" title="PyTorch" />,
+		],
+	},
+
+	{
+		name: 'Lloret Art',
+		title: 'Lloret Art - Gallery',
+		image: (
+			<Image
+				src="/images/projects/lloretart/lloretart.jpg"
+				alt="Lloret Art"
+				layout="fill"
+				objectFit="cover"
+				objectPosition="top"
+			/>
+		),
+		link: 'https://lloretart.com',
+		tools: [<SiShopify key="shopify" title="Shopify" />],
+	},
 ]
